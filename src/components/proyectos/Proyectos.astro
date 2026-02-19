@@ -1,0 +1,15 @@
+---
+import CardProjectComponent from "../card/CardProjectComponent.astro";
+
+const { t } = Astro.props;
+
+---
+
+<h2 class="text-5xl font-titulos text-titulos text-center">{t.projects.title}</h2>
+<div class="flex justify-center mt-10">
+    <div class="flex flex-wrap flex-row gap-10 p-6 mt-5">
+        {t.projects.projectList.map((project : any) => (
+            <CardProjectComponent t={t} project={project} />
+        ))}
+    </div>
+</div>

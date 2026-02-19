@@ -1,0 +1,15 @@
+---
+import CardExperienceComponent from "../card/CardExperienceComponent.astro";
+
+const { t } = Astro.props;
+
+---
+
+<h2 class="text-5xl font-titulos text-titulos text-center">{t.experience.title}</h2>
+<div class="flex justify-center">
+    <div class="w-full max-w-7xl flex flex-col gap-10 p-6">
+        {t.experience.jobs.map((job: any) => (
+            <CardExperienceComponent job={job} />
+        ))}
+    </div>
+</div>

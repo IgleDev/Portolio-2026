@@ -1,0 +1,51 @@
+---
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+
+const { lang, t } = Astro.props;
+
+const languages = [
+    { code: "es", label: t.languageOptions.es },
+    { code: "en", label: t.languageOptions.en },
+    { code : "gal", label : t.languageOptions.gal }
+];
+---
+<ClientRouter />
+<header class="flex justify-end items-center p-5">
+    <form id="lang-form" class="mr-4">
+        <div class="relative">
+            <select
+            id="lang-select"
+            class="appearance-none px-4 py-2 pr-10 rounded-xl border border-gray-300
+                bg-white text-sm font-semibold shadow-sm cursor-pointer transition hover:border-blue-400
+                focus:outline-none focus:ring-2 focus:ring-blue-500"> {
+                languages.map((langOpt) => (
+                    <option value={langOpt.code} selected={langOpt.code === lang}>
+                      {langOpt.label}
+                    </option>
+                ))
+            }
+          </select>
+          <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
+            ▼
+          </span>
+        </div>
+    </form>
+
+    <nav>
+        <span class="font-titulos text-4xl text-simple">AI</span>
+    </nav>
+</header>
+
+<script>
+    import { navigate } from 'astro:transitions/client';
+	document.addEventListener('astro:page-load', () => {
+		const select = document.getElementById("lang-select") as HTMLSelectElement | null;
+		select?.addEventListener("change", (event) => {
+		  const target = event.target as HTMLSelectElement;
+		  const selectedLang = target.value;
+		  const newPath = window.location.pathname.replace(/^\/(es|gal|en)/,`/${selectedLang}`);
+		  navigate(newPath);
+		});
+	});
+</script>

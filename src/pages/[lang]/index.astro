@@ -1,0 +1,34 @@
+---
+import es from "../../i18n/es";
+import en from "../../i18n/en";
+import gal from "../../i18n/gal";
+import Hero from "../../components/Hero.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import type { Language } from "../../types/language.type";
+import Experiencia from "../../components/experiencia/Experiencia.astro";
+import Proyectos from "../../components/proyectos/Proyectos.astro";
+import Education from "../../components/Education/Education.astro";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params : { lang : "gal" }}, { params: { lang: "en" }}];
+}
+
+export const defaultRedirect = "/es";
+
+const lang = Astro.params.lang as Language;
+const translations = { es, gal, en };
+const t = translations[lang];
+---
+
+<MainLayout lang={lang} t={t}>
+  <Hero lang={lang} t={t} />
+  <section>
+    <Experiencia lang={lang} t={t} />
+  </section>
+  <section class="mt-20">
+    <Proyectos t={t}/>
+  </section>
+  <section class="mt-20">
+    <Education t={t} />
+  </section>
+</MainLayout>

@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+import InfoCardEducation from "../Education/InfoCardEducation.astro";
+const { education } = Astro.props;
+const id = (education.siteName + education.date).replace(/[^a-zA-Z0-9]/g, '-')
+---
+
+<div class="flex flex-col border border-noinfo rounded-lg p-4 w-96 h-auto">
+    <div class="flex items-center gap-5">
+        <Image src={education.logo} alt={education.siteName} width={36} height={36}/>
+        <div>
+            <h3 class="text-titulos font-bold text-lg">{education.siteName}</h3>
+            <p class="text-sm text-simple font-bold">{education.date}</p>
+        </div>
+    </div>
+    <p class="text-2xl text-titulos font-bold mt-5">{education.title}</p>
+    <p class="text-lg text-simple mt-3 font-bold">{education.description}</p>
+    <div class="mt-6">
+        <div class="flex justify-between items-center">
+            <p class="text-xl text-titulos font-bold">{education.conocimientos}</p>
+            <span class="text-resaltado bg-[#AA78FF]/12 px-2 py-0.5 font-bold text-lg rounded-full">{education.conocimientosList.length}</span>
+        </div>
+        <div class="mt-5">
+            {education.conocimientosList.map((item: any, index: number) => (
+                <div data-extra={id} data-index={index} data-ver-mas={education.seeMore} 
+                    data-ver-menos={education.seeLess}
+                    class={index >= 3 ? 'overflow-hidden transition-all duration-300 max-h-0' : ''}>
+                    <InfoCardEducation education={item} />
+                </div>
+            ))}
+        </div>
+
+        {education.conocimientosList.length > 3 && (
+            <button data-id={id} data-total={education.conocimientosList.length - 3} data-ver-mas={education.seeMore}
+            data-ver-menos={education.seeLess} class="ver-mas mt-3 text-sm text-resaltado font-bold cursor-pointer">
+                {education.seeMore} ({education.conocimientosList.length - 3})
+            </button>
+        )}
+    </div>
+</div>
+
+<script>
+    function initVerMas() {
+        document.querySelectorAll('.ver-mas').forEach(btn => {
+            let expanded = false
+            const id = btn.getAttribute('data-id')
+            const total = btn.getAttribute('data-total')
+            btn.addEventListener('click', () => {
+                expanded = !expanded
+                const verMas = btn.getAttribute('data-ver-mas')
+                const verMenos = btn.getAttribute('data-ver-menos')
+                document.querySelectorAll(`[data-extra="${id}"]`).forEach(el => {
+                    const item = el as HTMLElement
+                    const index = parseInt(item.getAttribute('data-index') || '0')
+                    if (index >= 3) {
+                        item.style.maxHeight = expanded ? item.scrollHeight + 'px' : '0'
+                    }
+                })
+                btn.textContent = expanded ? verMenos : `${verMas} (${total})`
+            })
+        })
+    }
+
+    document.addEventListener('astro:page-load', initVerMas)
+</script>

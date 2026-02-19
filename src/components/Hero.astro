@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import en from "../i18n/en";
+import es from "../i18n/es";
+import gal from "../i18n/gal";
+import type { Language } from "../types/language.type";
+
+const lang = Astro.params.lang as Language;
+const translations = { es, gal, en };
+const t = translations[lang];
+
+const buttonConfig : Record<string, { href: string; download?: boolean; target?: string }>= {
+    contact: { href: 'mailto:adrian.iglesias.fernandez@gmail.com' },
+    cv: { href: '/download/AdriánIglesiasFernández.pdf', download: true },
+    LinkedIn: { href: 'https://linkedin.com/in/adriiglesias', target: '_blank' },
+    Github: { href: 'https://github.com/IgleDev', target: '_blank' }
+};
+---
+
+<section class="p-20 flex flex-col lg:flex-row md:flex-row items-center gap-0">
+	<div class="lg:ml-16">
+		<h1 class="text-6xl font-titulos text-titulos">{t.home.title}</h1>
+		<h2 class="text-4xl font-titulos text-titulos mt-5">{t.home.subtitle}</h2>
+		<p class="text-3xl text-secundario mt-10 font-bold w-4/5">
+			{t.home.desc[0]} <span class="text-resaltado">{t.home.studie}</span> {t.home.desc[1]}
+		</p>
+		<div class="flex gap-4 mt-12 flex-wrap">
+    		{Object.entries(t.home.contactButtons).map(([key, text]) => (
+    		    <a {...buttonConfig[key]} class="bg-titulos text-white px-6 py-3 rounded-full font-semibold hover:bg-[#333333] transition-colors">
+    		        {text}
+    		    </a>
+    		))}
+		</div>
+	</div>	
+	<Image src="/img/yoilustrado.webp" alt="Imagen de prueba" width={450} height={750}/>
+</section>

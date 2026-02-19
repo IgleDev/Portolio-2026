@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'MuseoModerno';
+  src: url('/fonts/MuseoModerno-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-titulos : "MuseoModerno", sans-serif;
+  --color-titulos : #222222;
+  --color-secundario : #444444;
+  --color-resaltado : #C53F56;
+  --color-simple : #6F6F6F;
+  --color-noinfo : #C2C2C2;
+}
+
+html body {
+  --w-tooltip-background: #222222;
+  --w-tooltip-color: #ffffff;
+}
