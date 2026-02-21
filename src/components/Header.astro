@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
+import NavBar from "./NavBar.astro";
 
 const { lang, t } = Astro.props;
 
@@ -11,6 +12,7 @@ const languages = [
 ];
 ---
 <ClientRouter />
+<NavBar t={t} />
 <header class="flex justify-end items-center p-5">
     <form id="lang-form" class="mr-4">
         <div class="relative">
@@ -31,7 +33,6 @@ const languages = [
           </span>
         </div>
     </form>
-
     <nav>
         <span class="font-titulos text-4xl text-simple">AI</span>
     </nav>

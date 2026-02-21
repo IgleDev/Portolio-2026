@@ -1,0 +1,17 @@
+---
+import { Image } from "astro:assets";
+
+const { t } = Astro.props;
+---
+
+<h2 class="text-5xl font-bold text-noinfo font-titulos text-center pt-15">{t.about.title}</h2>
+<div class="max-w-6xl mx-auto py-20">
+    <div class="flex items-center">
+        <div class="flex flex-col gap-10">
+            {t.about.desc.map((p : any) => (
+                <p class="text-[#898989] font-bold text-3xl mt-5" set:html={p}></p>
+            ))}
+        </div>
+        <Image src='/img/aboutme.webp' width={400} height={500} alt="About me" class="ml-10"/>
+    </div>
+</div>

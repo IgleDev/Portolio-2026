@@ -12,6 +12,12 @@ export default {
             "+3 years of experience.",
             "from Galicia, Spain. Specialized in developing unique web applications."
         ],
+        nav : [
+            { title : "Experience" , id : "experiencia" },
+            { title : "Projects" , id : "proyectos" },
+            { title : "Education" , id : "educacion" },
+            { title : "About me" , id : "sobre-mi" }
+        ],
         studie : "Higher Technician",
         contactButtons : {
             contact : "Contact me",
@@ -127,6 +133,73 @@ export default {
                 seeMore : "See more",
                 seeLess : "See less"
             },
+            {
+                logo: "/img/education/udemy.webp",
+                urlCert: "https://www.udemy.com/certificate/UC-2c8360d8-4da3-464a-b427-a722302e992a/",
+                siteName: "Udemy",
+                date: "Feb 2025 - Jan 2026",
+                title: "React and TypeScript",
+                description: "The complete guide creating +10 practical projects",
+                conocimientos: "Knowledge",
+                conocimientosList: [
+                    { title: "Context", tech: "Context API" },
+                    { title: "API", tech: "Zustand, Zod, MongoDB" },
+                    { title: "Router", tech: "React Router DOM" },
+                    { title: "Hooks", tech: "useReducer, useContext, useState" },
+                ],
+                seeMore: "See more",
+                seeLess: "See less"
+            },
+            {
+                logo: "/img/education/udemy.webp",
+                urlCert: "https://www.udemy.com/certificate/UC-e3213d1f-6e4a-41d2-afe9-7bdbb8bd68d6/",
+                siteName: "Udemy",
+                date: "Sept 2023 - Feb 2025",
+                title: "Master TailwindCSS",
+                description: "From zero to expert in TailwindCSS with real projects",
+                conocimientos: "Knowledge",
+                conocimientosList: [
+                    { title: "TailwindCSS v4", tech: "TailwindCSS" },
+                    { title: "TailwindCSS v3", tech: "TailwindCSS" },
+                    { title: "Basic Foundations", tech: "CSS" },
+                ],
+            },
+            {
+                logo: "/img/education/udemy.webp",
+                urlCert: "https://www.udemy.com/certificate/UC-3d23da76-0544-47da-b6a5-e8a10ba6c4a6/",
+                siteName: "Udemy",
+                date: "Sept 2023 - Feb 2024",
+                title: "Bootstrap 5: Complete course from scratch",
+                description: "The complete Bootstrap 5 course, practical and from zero",
+                conocimientos: "Knowledge",
+                conocimientosList: [
+                    { title: "Positioning", tech: "Flex, Grid, Position" },
+                    { title: "Components", tech: "Components, Forms" },
+                    { title: "Utilities", tech: "Utility classes" },
+                ],
+            },
+            {
+                logo: "/img/education/udemy.webp",
+                urlCert: "https://www.udemy.com/certificate/UC-2c17eb03-ea02-4f3d-af40-96e171d38e59/",
+                siteName: "Udemy",
+                date: "Sept 2023 - Oct 2023",
+                title: "TypeScript without borders",
+                description: "The definitive guide to TypeScript from scratch",
+                conocimientos: "Knowledge",
+                conocimientosList: [
+                    { title: "Typing", tech: "Basic, Advanced" },
+                    { title: "Object-Oriented Programming", tech: "Classes, Interfaces, Inheritance, Decorators" },
+                    { title: "Integrations", tech: "Node, React" },
+                ],
+            }
+        ]
+    },
+    about : {
+        title : "About me",
+        desc : [
+            "My name is Adrián Iglesias, although my devs call me <span class=\"text-[#DADADA]\">Igle</span>. I started programming in Visual Basic, and since then I haven't stopped.",
+            "Today I have <span class=\"text-[#DADADA]\">3 years developing</span> web and mobile applications for the <span class=\"text-[#DADADA]\">Fintech sector</span>",
+            "When I'm not programming, I'm probably with my cat Zelda."
         ]
     }
 };

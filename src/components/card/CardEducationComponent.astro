@@ -1,17 +1,23 @@
 ---
 import { Image } from "astro:assets";
-import InfoCardEducation from "../Education/InfoCardEducation.astro";
+import InfoCardEducation from "../education/InfoCardEducation.astro";
+import { Icon } from "astro-icon/components";
 const { education } = Astro.props;
 const id = (education.siteName + education.date).replace(/[^a-zA-Z0-9]/g, '-')
 ---
 
 <div class="flex flex-col border border-noinfo rounded-lg p-4 w-96 h-auto">
-    <div class="flex items-center gap-5">
-        <Image src={education.logo} alt={education.siteName} width={36} height={36}/>
-        <div>
-            <h3 class="text-titulos font-bold text-lg">{education.siteName}</h3>
-            <p class="text-sm text-simple font-bold">{education.date}</p>
+    <div class="flex items-center justify-between">
+        <div class="flex items-center gap-5">
+            <Image src={education.logo} alt={education.siteName} width={36} height={36}/>
+            <div>
+                <h3 class="text-titulos font-bold text-lg">{education.siteName}</h3>
+                <p class="text-sm text-simple font-bold">{education.date}</p>
+            </div>
         </div>
+        {education.urlCert && (
+            <a href={education.urlCert} target="_blank"><Icon class="font-bold text-xl text-titulos" name="proicons:arrow-download" /></a>
+        )}
     </div>
     <p class="text-2xl text-titulos font-bold mt-5">{education.title}</p>
     <p class="text-lg text-simple mt-3 font-bold">{education.description}</p>

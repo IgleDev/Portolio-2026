@@ -1,0 +1,63 @@
+---
+
+const { t } = Astro.props;
+
+const navItems = t.home.nav.map((item: any) => ({
+    title: item.title,
+    label: item.id,
+    url: `/#${item.id}`,
+}));
+---
+
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1 text-sm font-medium text-gray-600 px-4 py-2 rounded-full bg-white/50 shadow-sm backdrop-blur" transition:animate="none">
+    {navItems.map((link: any) => (
+        <a class="relative block px-3 py-2 rounded-full transition hover:text-[#FFB44B] text-base" aria-label={link.label} href={link.url}>
+            {link.title}
+        </a>
+    ))}
+</nav>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll("nav a");
+
+        navLinks.forEach((link) => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                const href = link.getAttribute("href");
+                const id = href?.replace("/#", "");
+                document.getElementById(id!)?.scrollIntoView({ behavior: "smooth" });
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach((item) => {
+                        item.classList.toggle("text-[#FFB44B]", item.getAttribute("aria-label") === entry.target.id);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach((section) => observer.observe(section));
+    });
+</script>
+
+<style>
+    nav {
+        animation: nav-shadow 1s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 100px;
+        background: rgba(255, 255, 255, 0.5);
+    }
+    @keyframes nav-shadow {
+        0% { background: rgba(255, 255, 255, 0); }
+        to {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            ring: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+        }
+    }
+</style>

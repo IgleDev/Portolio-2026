@@ -12,6 +12,12 @@ export default {
             "+3 anos de experiencia.",
             "de Galiza, España. Especializado no desenvolvemento de aplicacions web únicas."
         ],
+        nav : [
+            { title : "Experiencia" , id : "experiencia" },
+            { title : "Proxectos" , id : "proyectos" },
+            { title : "Educación" , id : "educacion" },
+            { title : "Sobre min" , id : "sobre-mi" }
+        ],
         studie : "Técnico Superior",
         contactButtons : {
             contact : "Contactame",
@@ -127,6 +133,73 @@ export default {
                 seeMore : "Ver máis",
                 seeLess : "Ver menos"
             },
+            {
+                logo : "/img/education/udemy.webp",
+                urlCert : "https://www.udemy.com/certificate/UC-2c8360d8-4da3-464a-b427-a722302e992a/",
+                siteName : "Udemy",
+                date : "Feb 2025 - Xan 2026",
+                title : "React e TypeScript",
+                description : "A gúia completa creando +10 proxectos prácticos",
+                conocimientos : "Coñecementos",
+                conocimientosList : [
+                    { title : "Context", tech : "Context API" },
+                    { title : "API", tech : "Zustand, Zod, MongoDB" },
+                    { title : "Router", tech : "React Router DOM" },
+                    { title : "Hooks", tech : "useReducer, useContext, useState"},
+                ],
+                seeMore : "Ver máis",
+                seeLess : "Ver menos"
+            },
+            {
+                logo : "/img/education/udemy.webp",
+                urlCert : "https://www.udemy.com/certificate/UC-e3213d1f-6e4a-41d2-afe9-7bdbb8bd68d6/",
+                siteName : "Udemy",
+                date : "Sept 2023 - Feb 2025",
+                title : "Domina TailwindCSS",
+                description : "De cero a experto en TailwindCSS con proxectos reais",
+                conocimientos : "Coñecementos",
+                conocimientosList : [
+                    { title : "TailwindCSS v4", tech : "TailwindCSS" },
+                    { title : "TailwindCSS v3", tech : "TailwindCSS" },
+                    { title : "Bases Básicas", tech : "CSS" },
+                ],
+            },
+            {
+                logo : "/img/education/udemy.webp",
+                urlCert : "https://www.udemy.com/certificate/UC-3d23da76-0544-47da-b6a5-e8a10ba6c4a6/",
+                siteName : "Udemy",
+                date : "Sept 2023 - Oct 2023",
+                title : "Bootstrap 5: Curso completo dende 0",
+                description : "O curso completo de Bootstrap 5 práctico e dende cero",
+                conocimientos : "Coñecementos",
+                conocimientosList : [
+                    { title : "Posicionamento", tech : "Flex, Grid, Position" },
+                    { title : "Componentes", tech : "Componentes, Formularios" },
+                    { title : "Utilidades", tech : "Clases de utilidade" },
+                ],
+            },
+            {
+                logo : "/img/education/udemy.webp",
+                urlCert : "https://www.udemy.com/certificate/UC-2c17eb03-ea02-4f3d-af40-96e171d38e59/",
+                siteName : "Udemy",
+                date : "Sept 2023 - Oct 2023",
+                title : "TypeScript sen fronteiras",
+                description : "Guía definitiva de TypeScript dende cero",
+                conocimientos : "Coñecementos",
+                conocimientosList : [
+                    { title : "Tipado", tech : "Básico, Avanzado" },
+                    { title : "Programación Orientada a Obxectos", tech : "Clases, Interfaces, Herencia, Decoradores" },
+                    { title : "Integracions", tech : "Node, React" },
+                ],
+            }
+        ]
+    },
+    about : {
+        title : "Sobre min",
+        desc : [
+            "Chámome Adrián Iglesias, aínda que meus devs chámanme <span class=\"text-[#DADADA]\">Igle</span>. Empecei programando en Visual Basic e dende entón non parei.",
+            "Hoxe levo <span class=\"text-[#DADADA]\">3 anos desenvolvendo</span> aplicacións webs e móbiles para o <span class=\"text-[#DADADA]\">sector Fintech</span>",
+            "Cando non estou programando, seguramente estou coa miña gata Zelda."
         ]
     }
 };
