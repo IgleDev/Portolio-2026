@@ -8,10 +8,9 @@ const navItems = t.home.nav.map((item: any) => ({
     url: `/#${item.id}`,
 }));
 ---
-
-<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1 text-sm font-medium text-gray-600 px-4 py-2 rounded-full bg-white/50 shadow-sm backdrop-blur" transition:animate="none">
+<nav class="fixed top-4 inset-x-0 mx-auto z-10 flex items-center justify-center gap-0.5 sm:gap-1 font-medium text-gray-600 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/50 shadow-sm backdrop-blur w-max max-w-[calc(100vw-2rem)]" transition:animate="none">
     {navItems.map((link: any) => (
-        <a class="relative block px-3 py-2 rounded-full transition hover:text-[#FFB44B] text-base" aria-label={link.label} href={link.url}>
+        <a class="relative block px-2 sm:px-3 py-1 sm:py-2 rounded-full transition hover:text-[#FFB44B] text-base whitespace-nowrap" aria-label={link.label} href={link.url}>
             {link.title}
         </a>
     ))}

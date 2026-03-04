@@ -13,12 +13,10 @@ const languages = [
 ---
 <ClientRouter />
 <NavBar t={t} />
-<header class="flex justify-end items-center p-5">
+<header class="flex justify-end items-center p-5 mt-10">
     <form id="lang-form" class="mr-4">
         <div class="relative">
-            <select
-            id="lang-select"
-            class="appearance-none px-4 py-2 pr-10 rounded-xl border border-gray-300
+            <select id="lang-select" class="appearance-none px-4 py-2 pr-10 rounded-xl border border-gray-300
                 bg-white text-sm font-semibold shadow-sm cursor-pointer transition hover:border-blue-400
                 focus:outline-none focus:ring-2 focus:ring-blue-500"> {
                 languages.map((langOpt) => (

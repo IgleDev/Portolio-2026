@@ -5,8 +5,8 @@ const { t } = Astro.props;
 ---
 
 <h2 class="text-5xl font-titulos text-titulos text-center">{t.education.title}</h2>
-<div class="flex justify-center mt-10">
-    <div class="grid grid-cols-3 gap-10 mt-10 p-6">
+<div class="flex justify-center mt-10 px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 mt-10 p-4 sm:p-6">
         {t.education.educationList.map((education: any) => (
             <CardEducationComponent education={education} />
         ))}

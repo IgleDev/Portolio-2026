@@ -6,7 +6,7 @@ const { education } = Astro.props;
 const id = (education.siteName + education.date).replace(/[^a-zA-Z0-9]/g, '-')
 ---
 
-<div class="flex flex-col border border-noinfo rounded-lg p-4 w-96 h-auto">
+<div class="flex flex-col border border-noinfo rounded-lg p-4 w-full max-w-sm mx-auto sm:w-96 h-auto">
     <div class="flex items-center justify-between">
         <div class="flex items-center gap-5">
             <Image src={education.logo} alt={education.siteName} width={36} height={36}/>

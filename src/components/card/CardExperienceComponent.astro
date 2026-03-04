@@ -2,18 +2,18 @@
 const { job } = Astro.props;
 ---
      
-<div class="flex justify-between items-start gap-12 mt-20">
-    <div class="flex items-start gap-4 w-1/2">
+<div class="flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-12 mt-10 lg:mt-20">
+    <div class="flex items-start gap-4 lg:w-1/2">
         <div class={job.imgClass}>
-            <img src={job.img} alt="Company logo" class="" />
+            <img src={job.img} alt="Company logo" />
         </div>
         <div>
-            <h3 class="text-titulos font-bold text-2xl w-96">{job.title}</h3>
+            <h3 class="text-titulos font-bold text-2xl lg:w-96">{job.title}</h3>
             <p class="text-base text-simple font-bold">{job.data}</p>
             <p class="text-base text-simple font-bold">{job.companyName}</p>
         </div>
     </div>
-    <div class="flex flex-col w-1/2 text-secundario text-lg font-bold leading-relaxed">
+    <div class="flex flex-col lg:w-1/2 text-secundario text-lg font-bold leading-relaxed">
         {job.description}
         <a href={job.jobInfo.url} target="_blank" class="text-resaltado shrink-0 self-start">{job.jobInfo.text}</a>
     </div>
