@@ -6,12 +6,12 @@ const { education } = Astro.props;
 const id = (education.siteName + education.date).replace(/[^a-zA-Z0-9]/g, '-')
 ---
 
-<div class="flex flex-col border border-noinfo rounded-lg p-4 w-full max-w-sm mx-auto sm:w-96 h-auto">
+<div class="flex flex-col border border-noinfo rounded-xl p-4 w-full xl:w-96 h-auto">   
     <div class="flex items-center justify-between">
         <div class="flex items-center gap-5">
             <Image src={education.logo} alt={education.siteName} width={36} height={36}/>
             <div>
-                <h3 class="text-titulos font-bold text-lg">{education.siteName}</h3>
+                <h3 class="text-titulos font-bold text-xl">{education.siteName}</h3>
                 <p class="text-sm text-simple font-bold">{education.date}</p>
             </div>
         </div>
@@ -20,11 +20,11 @@ const id = (education.siteName + education.date).replace(/[^a-zA-Z0-9]/g, '-')
         )}
     </div>
     <p class="text-2xl text-titulos font-bold mt-5">{education.title}</p>
-    <p class="text-lg text-simple mt-3 font-bold">{education.description}</p>
+    <p class="text-xl text-simple mt-3 font-bold">{education.description}</p>
     <div class="mt-6">
         <div class="flex justify-between items-center">
             <p class="text-xl text-titulos font-bold">{education.conocimientos}</p>
-            <span class="text-resaltado bg-[#AA78FF]/12 px-2 py-0.5 font-bold text-lg rounded-full">{education.conocimientosList.length}</span>
+            <span class="text-resaltado bg-[#AA78FF]/12 px-2 py-0.5 font-bold text-xl rounded-full">{education.conocimientosList.length}</span>
         </div>
         <div class="mt-5">
             {education.conocimientosList.map((item: any, index: number) => (

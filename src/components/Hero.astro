@@ -17,20 +17,20 @@ const buttonConfig : Record<string, { href: string; download?: boolean; target?:
     Github:   { href: 'https://github.com/IgleDev', target: '_blank', icon: 'proicons:github' }
 };
 ---
-<section class="p-5 lg:p-20 flex flex-col lg:flex-row md:flex-row items-center gap-0">
-	<div class="lg:ml-16">
-		<h1 class="text-3xl md:text-5xl lg:text-6xl font-titulos text-titulos">{t.home.title}</h1>
-		<h2 class="text-2xl lg:text-4xl font-titulos text-titulos mt-5">{t.home.subtitle}</h2>
-		<p class="text-lg lg:text-3xl text-secundario mt-10 font-bold w-4/5">
-			{t.home.desc[0]} <span class="text-resaltado">{t.home.studie}</span> {t.home.desc[1]}
-		</p>
-		<div class="flex gap-4 mt-12 flex-wrap">
-    		{Object.entries(t.home.contactButtons).map(([key, text]) => (
-    		    <a {...buttonConfig[key]} class="bg-titulos text-white px-4 py-2 lg:px-6 lg:py-3 rounded-full flex items-center font-semibold hover:bg-[#333333] transition-colors">
-    		        <Icon name={buttonConfig[key].icon} class="mr-2 w-6 h-6" /> {text}
-    		    </a>
-    		))}
-		</div>
-	</div>	
-	<Image src="/img/yoilustrado.webp" alt="IgleDev" width={450} height={750} class="w-72 lg:w-112.5 shrink-0 mt-10 md:mt-0"/>
+<section class="px-6 py-10 xl:p-20 flex flex-col xl:flex-row items-center gap-6">
+    <div class="xl:ml-16">
+        <h1 class="text-3xl md:text-5xl xl:text-6xl font-titulos text-titulos">{t.home.title}</h1>
+        <h2 class="text-2xl xl:text-4xl font-titulos text-titulos mt-5">{t.home.subtitle}</h2>
+        <p class="text-xl xl:text-3xl text-secundario mt-10 font-bold w-4/5">
+            {t.home.desc[0]} <span class="text-resaltado">{t.home.studie}</span> {t.home.desc[1]}
+        </p>
+        <div class="flex gap-4 mt-12 flex-wrap">
+            {Object.entries(t.home.contactButtons).map(([key, text]) => (
+                <a {...buttonConfig[key]} class="bg-titulos text-white px-4 py-2 xl:px-6 xl:py-3 rounded-full flex items-center font-semibold hover:bg-[#333333] transition-colors">
+                    <Icon name={buttonConfig[key].icon} class="mr-2 w-6 h-6" /> {text}
+                </a>
+            ))}
+        </div>
+    </div>  
+    <Image src="/img/yoilustrado.webp" alt="IgleDev" width={450} height={750} class="w-48 md:w-56 xl:w-112.5 shrink-0 self-start order-last md:order-first xl:order-last"/>
 </section>
