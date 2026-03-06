@@ -1,0 +1,88 @@
+---
+import "../../../styles/global.css"
+import { Icon } from "astro-icon/components";
+import type { Language } from "../../../types/language.type";
+import MainLayout from "../../../layouts/MainLayout.astro";
+import type { ProjectTech } from "../../../types";
+
+export async function getStaticPaths() {
+    const { default: es } = await import("../../../i18n/es");
+    const { default: en } = await import("../../../i18n/en");
+    const { default: gal } = await import("../../../i18n/gal");
+    
+    const translations = { es, en, gal };
+    const langs = ["es", "en", "gal"];
+    const paths = [];
+
+    for (const lang of langs) {
+        const t = translations[lang as Language];
+        for (const project of t.projects.projectList) {
+            paths.push({
+                params: {
+                    lang,
+                    name: project.projectTitle.toLowerCase().replace(/\s+/g, '-')
+                },
+                props: { t, project }
+            });
+        }
+    }
+    return paths;
+}
+
+const { t, project } = Astro.props;
+---
+<MainLayout lang={Astro.params.lang} t={t}>
+    <section class="px-6 py-10 lg:p-20 max-w-7xl mx-auto">
+        <div class="flex items-center gap-3 mb-10">
+            <a href={`/${Astro.params.lang}`} class="text-secundario hover:text-titulos transition">
+                <Icon name="proicons:arrow-left" class="w-5 h-5" />
+            </a>
+            <h1 class="text-4xl lg:text-5xl font-titulos font-bold text-titulos">{project.projectTitle}</h1>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch">
+            <div class="flex flex-col gap-6 w-full lg:w-full">
+                <p class="text-secundario font-bold text-lg lg:text-xl leading-relaxed">
+                    {project.projectDescLong}
+                </p>
+    
+                {project.projectTech && project.projectTech.length > 0 && (
+                    <div class="flex flex-col gap-3">
+                        <h2 class="text-titulos font-bold text-xl">{t.projects.projectTech}</h2>
+                        <div class="flex flex-wrap gap-3">
+                            {project.projectTech.map((tech: ProjectTech) => (
+                                <span class="flex items-center gap-2 border border-noinfo rounded-full px-3 py-1 text-sm font-bold text-secundario">
+                                    <Icon name={tech.icon} class="w-5 h-5" />
+                                    {tech.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                )}
+    
+                <div class="flex gap-4 mt-4 flex-wrap">
+                    {project.projectGithub !== "" ? (
+                        <a href={project.projectGithub} target="_blank"
+                            class="bg-titulos text-white px-5 py-2 rounded-full flex items-center gap-2 font-semibold hover:bg-[#333333] transition-colors">
+                            <Icon name="proicons:github" class="w-5 h-5" /> GitHub
+                        </a>
+                    ) : (
+                        <a href={project.projectUrl} target="_blank"
+                            class="bg-titulos text-white px-5 py-2 rounded-full flex items-center gap-2 font-semibold hover:bg-[#333333] transition-colors">
+                            <Icon name={project.projectIcon} class="w-5 h-5" /> {project.projectInfo}
+                        </a>
+                    )}
+                </div>
+            </div>
+    
+            {project.projectImg && project.projectImg.length > 0 && (
+                <div class="w-full lg:w-full">
+                    <img 
+                        src={project.projectImg[0].src} 
+                        alt={project.projectImg[0].alt} 
+                        class="w-full max-h-175 object-contain rounded-2xl" 
+                    />
+                </div>
+            )}
+        </div>
+    </section>
+</MainLayout>

@@ -1,14 +1,18 @@
 ---
+import type { Job, Translations } from '../../types/index';
 import CardExperienceComponent from "../card/CardExperienceComponent.astro";
 
-const { t } = Astro.props;
+interface Props {
+    t: Translations;
+}
 
+const { t } = Astro.props;
 ---
 
 <h2 class="text-5xl font-titulos text-titulos text-center md:mt-10 xl:mt-0">{t.experience.title}</h2>
 <div class="flex justify-center">
     <div class="w-full max-w-7xl flex flex-col gap-10 p-6">
-        {t.experience.jobs.map((job: any) => (
+        {t.experience.jobs.map((job: Job) => (
             <CardExperienceComponent job={job} />
         ))}
     </div>

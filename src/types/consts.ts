@@ -1,2 +1,2 @@
 export const SITE_TITLE = 'IgleDev - Adrian Iglesias';
-export const SITE_DESCRIPTION = 'Bienvenidxs a mi portfolio!';
+export const SITE_DESCRIPTION = 'Portfolio de Adrián Iglesias, Desarrollador Full-Stack de Vigo, Galicia. +3 años de experiencia creando aplicaciones web y móviles. Especializado en React, TypeScript, .NET y Node.js.';

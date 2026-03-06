@@ -1,7 +1,13 @@
 ---
 import { Image } from "astro:assets";
-import InfoCardEducation from "../education/InfoCardEducation.astro";
 import { Icon } from "astro-icon/components";
+import type { ConocimientoItem, EducationItem } from '../../types/index';
+import InfoCardEducation from "../education/InfoCardEducation.astro";
+
+interface Props {
+    education: EducationItem;
+}
+
 const { education } = Astro.props;
 const id = (education.siteName + education.date).replace(/[^a-zA-Z0-9]/g, '-')
 ---
@@ -16,7 +22,9 @@ const id = (education.siteName + education.date).replace(/[^a-zA-Z0-9]/g, '-')
             </div>
         </div>
         {education.urlCert && (
-            <a href={education.urlCert} target="_blank"><Icon class="font-bold text-xl text-titulos" name="proicons:arrow-download" /></a>
+            <a href={education.urlCert} target="_blank" aria-label={`Descargar certificado de ${education.title}`}>
+                <Icon class="font-bold text-xl text-titulos" name="proicons:arrow-download" />
+            </a>
         )}
     </div>
     <p class="text-2xl text-titulos font-bold mt-5">{education.title}</p>
@@ -27,7 +35,7 @@ const id = (education.siteName + education.date).replace(/[^a-zA-Z0-9]/g, '-')
             <span class="text-resaltado bg-[#AA78FF]/12 px-2 py-0.5 font-bold text-xl rounded-full">{education.conocimientosList.length}</span>
         </div>
         <div class="mt-5">
-            {education.conocimientosList.map((item: any, index: number) => (
+            {education.conocimientosList.map((item: ConocimientoItem, index: number) => (
                 <div data-extra={id} data-index={index} data-ver-mas={education.seeMore} 
                     data-ver-menos={education.seeLess}
                     class={index >= 3 ? 'overflow-hidden transition-all duration-300 max-h-0' : ''}>

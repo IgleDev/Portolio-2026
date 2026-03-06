@@ -1,16 +1,21 @@
 ---
+import type { Translations } from '../types/index';
+
+interface Props {
+    t: Translations;
+}
 
 const { t } = Astro.props;
 
-const navItems = t.home.nav.map((item: any) => ({
+const navItems = t.home.nav.map((item: { title: string; id: string }) => ({
     title: item.title,
     label: item.id,
     url: `/#${item.id}`,
 }));
 ---
-<nav class="fixed top-4 inset-x-0 mx-auto z-10 flex items-center justify-center gap-0.5 sm:gap-1 font-medium text-gray-600 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/50 shadow-sm backdrop-blur w-max max-w-[calc(100vw-2rem)]" transition:animate="none">
-    {navItems.map((link: any) => (
-        <a class="relative block px-2 sm:px-3 py-1 sm:py-2 rounded-full transition hover:text-[#FFB44B] text-base whitespace-nowrap" aria-label={link.label} href={link.url}>
+<nav aria-label="Navegación principal" class="fixed top-4 inset-x-0 mx-auto z-10 flex items-center justify-center gap-0.5 sm:gap-1 font-medium text-gray-600 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/50 shadow-sm backdrop-blur w-max max-w-[calc(100vw-2rem)]" transition:animate="none">
+    {navItems.map((link: { title: string; label: string; url: string }) => (
+        <a class="relative block px-2 sm:px-3 py-1 sm:py-2 rounded-full transition hover:text-[#B8860B] text-sm md:text-base whitespace-nowrap" aria-label={link.label} href={link.url}>
             {link.title}
         </a>
     ))}
@@ -18,9 +23,9 @@ const navItems = t.home.nav.map((item: any) => ({
 
 <script>
     document.addEventListener('astro:page-load', () => {
-        const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll("nav a");
-
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll("nav[aria-label='Navegación principal'] a");
+    
         navLinks.forEach((link) => {
             link.addEventListener("click", (e) => {
                 e.preventDefault();
@@ -29,17 +34,20 @@ const navItems = t.home.nav.map((item: any) => ({
                 document.getElementById(id!)?.scrollIntoView({ behavior: "smooth" });
             });
         });
-
+    
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     navLinks.forEach((item) => {
-                        item.classList.toggle("text-[#FFB44B]", item.getAttribute("aria-label") === entry.target.id);
+                        item.classList.toggle("text-[#B8860B]", item.getAttribute("aria-label") === entry.target.id);
                     });
                 }
             });
-        }, { threshold: 0.3 });
-
+        }, { 
+            threshold: 0.1,
+            rootMargin: "-20% 0px -20% 0px"
+        });
+    
         sections.forEach((section) => observer.observe(section));
     });
 </script>

@@ -1,11 +1,17 @@
 ---
+import type { Job } from '../../types/index';
+
+interface Props {
+    job: Job;
+}
+
 const { job } = Astro.props;
 ---
      
 <div class="flex flex-col md:flex-row xl:flex-row justify-between items-start gap-6 xl:gap-12 mt-10 xl:mt-20">
     <div class="flex items-start gap-4 md:w-1/2 xl:w-1/2">
         <div class={`${job.imgClass} w-12 h-12 shrink-0 flex items-center justify-center`}>            
-            <img src={job.img} alt="Company logo" class="w-full h-full object-contain" />        
+            <img src={job.img} loading="lazy" alt={job.companyName} class="w-full h-full object-contain" />        
         </div>
         <div>
             <h3 class="text-titulos font-bold text-xl xl:text-2xl xl:w-96">{job.title}</h3>

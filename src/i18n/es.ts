@@ -1,4 +1,6 @@
-export default {
+import type { Translations } from '../types/index';
+
+const es : Translations = {
     languageLabel: "Idioma",
     languageOptions: {
         es: "Español",
@@ -69,7 +71,11 @@ export default {
                 ],
                 projectGithub : "",
                 projectUrl : "https://play.google.com/store/apps/details?id=com.adealoxica.qrviscus&hl=es_419",
-                projectIcon : "proicons:globe"
+                projectIcon : "proicons:globe",
+                projectInfo : "¡Encuentralo aquí!",
+                projectImg : [
+                    { src : "/img/projects/qrvicusLog.webp", alt : "QR Vicus" },
+                ]
             },
             {
                 projectTitle : "A Tapa Celeste",
@@ -83,7 +89,11 @@ export default {
                 ],
                 projectGithub : "",
                 projectUrl : "https://atapaceleste.gal",
-                projectIcon : "proicons:globe"
+                projectIcon : "proicons:globe",
+                projectInfo : "¡Visitalo aquí!",
+                projectImg : [
+                    { src : "/img/projects/atapaceleste.webp", alt : "A Tapa Celeste" },
+                ]
             },
             {
                 projectTitle : "My Reserve",
@@ -97,9 +107,14 @@ export default {
                 ],
                 projectGithub : "https://github.com/IgleDev/MyReserve",
                 projectUrl : "",
-                projectIcon : "proicons:github"
+                projectIcon : "proicons:github",
+                projectInfo : "¡Encuentralo aquí!",
+                projectImg : [
+                    { src : "/img/projects/myreserve.webp", alt : "My Reserve" },
+                ]
             }
-        ]
+        ],
+        projectTech : "Tecnologías",
     },
     education : {
         title : "Educación y Certificaciones",
@@ -203,3 +218,5 @@ export default {
         ]
     }
 };
+
+export default es;

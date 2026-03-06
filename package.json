@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.15",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/proicons": "^1.2.19",
     "@iconify-json/vscode-icons": "^1.2.42",

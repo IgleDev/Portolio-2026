@@ -21,13 +21,13 @@ const translations = { es, gal, en };
 const t = translations[lang];
 ---
 
-<MainLayout lang={lang} t={t}>
+<MainLayout isIndex={true} lang={lang} t={t}>
   <Hero lang={lang} t={t} />
   <section id="experiencia">
-    <Experiencia lang={lang} t={t} />
+    <Experiencia t={t} />
   </section>
   <section id="proyectos" class="mt-20">
-    <Proyectos t={t}/>
+    <Proyectos t={t} lang={lang}/>
   </section>
   <section id="educacion" class="mt-30">
     <Education t={t} />

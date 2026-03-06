@@ -6,7 +6,7 @@ import BaseHead from "../components/BaseHead.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../types/consts";
 import Header from "../components/Header.astro";
 
-const { lang, t } = Astro.props;
+const { lang, t, isIndex = false } = Astro.props;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -16,7 +16,7 @@ const { lang, t } = Astro.props;
     <title>{SITE_TITLE}</title>
   </head>
   <body class="bg-[#F6F4F2]">
-    <Header lang={lang} t={t} />
+    <Header lang={lang} t={t} isIndex={isIndex} />
     <main class="mt-10">
       <slot />
     </main>
