@@ -1,14 +1,14 @@
 ---
-import "../../../styles/global.css"
+import "@/styles/global.css"
 import { Icon } from "astro-icon/components";
-import type { Language } from "../../../types/language.type";
-import MainLayout from "../../../layouts/MainLayout.astro";
-import type { ProjectTech } from "../../../types";
+import type { Language } from "@/types/language.type";
+import MainLayout from "@/layouts/MainLayout.astro";
+import type { ProjectTech } from "@/types";
 
 export async function getStaticPaths() {
-    const { default: es } = await import("../../../i18n/es");
-    const { default: en } = await import("../../../i18n/en");
-    const { default: gal } = await import("../../../i18n/gal");
+    const { default: es } = await import("@/i18n/es");
+    const { default: en } = await import("@/i18n/en");
+    const { default: gal } = await import("@/i18n/gal");
     
     const translations = { es, en, gal };
     const langs = ["es", "en", "gal"];

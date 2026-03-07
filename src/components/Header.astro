@@ -37,13 +37,21 @@ const current = languages.find(l => l.code === lang);
 
 <script>
     import { navigate } from 'astro:transitions/client';
-	document.addEventListener('astro:page-load', () => {
-		const select = document.getElementById("lang-select") as HTMLSelectElement | null;
-		select?.addEventListener("change", (event) => {
-		  const target = event.target as HTMLSelectElement;
-		  const selectedLang = target.value;
-		  const newPath = window.location.pathname.replace(/^\/(es|gal|en)/,`/${selectedLang}`);
-		  navigate(newPath);
-		});
-	});
+    document.addEventListener('astro:page-load', () => {
+        const select = document.getElementById("lang-select") as HTMLSelectElement | null;
+        select?.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const selectedLang = target.value;
+            const pathname = window.location.pathname;
+            
+            let newPath: string;
+            if (/^\/(es|gal|en)/.test(pathname)) {
+                newPath = pathname.replace(/^\/(es|gal|en)/, `/${selectedLang}`);
+            } else {
+                newPath = selectedLang === 'es' ? '/' : `/${selectedLang}${pathname}`;
+            }
+            
+            navigate(newPath);
+        });
+    });
 </script>

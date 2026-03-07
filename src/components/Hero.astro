@@ -1,14 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import en from "../i18n/en";
-import es from "../i18n/es";
-import gal from "../i18n/gal";
-import type { Language } from "../types/language.type";
 import { Icon } from "astro-icon/components";
 
-const lang = Astro.params.lang as Language;
-const translations = { es, gal, en };
-const t = translations[lang];
+const { t } = Astro.props;
 
 const buttonConfig : Record<string, { href: string; download?: boolean; target?: string; icon: string }> = {
     contact:  { href: 'mailto:adrian.iglesias.fernandez@gmail.com', icon: 'mdi:email' },

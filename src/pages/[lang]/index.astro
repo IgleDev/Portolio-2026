@@ -1,14 +1,14 @@
 ---
-import es from "../../i18n/es";
-import en from "../../i18n/en";
-import gal from "../../i18n/gal";
-import Hero from "../../components/Hero.astro";
-import MainLayout from "../../layouts/MainLayout.astro";
-import type { Language } from "../../types/language.type";
-import Experiencia from "../../components/experiencia/Experiencia.astro";
-import Proyectos from "../../components/proyectos/Proyectos.astro";
-import Education from "../../components/education/Education.astro";
-import Aboutme from "../../components/about/Aboutme.astro";
+import es from "@/i18n/es";
+import en from "@/i18n/en";
+import gal from "@/i18n/gal";
+import type { Language } from "@/types/language.type";
+import Hero from "@/components/Hero.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import Experiencia from "@/components/experiencia/Experiencia.astro";
+import Proyectos from "@/components/proyectos/Proyectos.astro";
+import Education from "@/components/education/Education.astro";
+import Aboutme from "@/components/about/Aboutme.astro";
 
 export function getStaticPaths() {
   return [{ params: { lang: "es" } }, { params : { lang : "gal" }}, { params: { lang: "en" }}];

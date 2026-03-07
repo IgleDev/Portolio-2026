@@ -1,0 +1,27 @@
+---
+import es from "@/i18n/es";
+import Hero from "@/components/Hero.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import Experiencia from "@/components/experiencia/Experiencia.astro";
+import Proyectos from "@/components/proyectos/Proyectos.astro";
+import Education from "@/components/education/Education.astro";
+import Aboutme from "@/components/about/Aboutme.astro";
+
+const lang = "es";
+const t = es;
+---
+<MainLayout isIndex={true} lang={lang} t={t}>
+  <Hero lang={lang} t={t} />
+  <section id="experiencia">
+    <Experiencia t={t} />
+  </section>
+  <section id="proyectos" class="mt-20">
+    <Proyectos t={t} lang={lang}/>
+  </section>
+  <section id="educacion" class="mt-30">
+    <Education t={t} />
+  </section>
+  <section id="sobre-mi" class="mt-20 bg-titulos p-0">
+    <Aboutme t={t} />
+  </section>
+</MainLayout>
