@@ -17,7 +17,6 @@ const ogImage = new URL(image, Astro.site).href;
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/img/logo.webp" />
-<link rel="icon" href="/favicon.ico" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL('rss.xml', Astro.site)}/>
 <meta name="generator" content={Astro.generator} />
@@ -32,6 +31,9 @@ const ogImage = new URL(image, Astro.site).href;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Adrián Iglesias Fernández" />
+<meta name="keywords" content="Desarrollador, Programador, Igledev, Web, Mobile, Pontevedra, Galicia, España, Front-End, Back-End" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:site_name" content={SITE_TITLE} />
@@ -49,3 +51,5 @@ const ogImage = new URL(image, Astro.site).href;
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
+<meta name="twitter:site" content="@IgleDev" />
+<meta name="twitter:creator" content="@IgleDev" />
