@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { SITE_TITLE } from '../types/consts';
+const iconName = 'logo';
 
 interface Props {
 	title: string;
@@ -16,7 +17,9 @@ const ogImage = new URL(image, Astro.site).href;
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/img/logo.webp" />
+<link rel="icon" href={`/img/${iconName}.png`} sizes="any" />
+<link rel="icon" type="image/png" href={`/img/${iconName}.png`} />
+<link rel="apple-touch-icon" href={`/img/${iconName}.png`} />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL('rss.xml', Astro.site)}/>
 <meta name="generator" content={Astro.generator} />
