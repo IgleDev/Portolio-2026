@@ -35,7 +35,7 @@ const es : Translations = {
                 img : "/img/work/vexiza.webp",
                 imgClass : "w-24 h-24 bg-[#DCF1DD] rounded-2xl flex items-center justify-center p-2",
                 title : "Desarrollador Full-Stack",
-                data : "Ene 2026 - Actualidad",
+                data : "Ene 2026 - Abr 2026",
                 companyName : "Vexiza S.L",
                 description : "Responsable técnico del desarrollo de aplicaciones web de alta criticidad y alcance institucional, enfocadas en la gestión de servicios públicos y administración de recursos a gran escala. Responsable de arquitecturas robustas que garantizan la seguridad y la accesibilidad.",
                 jobInfo : {
