@@ -154,7 +154,7 @@ const es : Translations = {
                 siteName : "Udemy",
                 date : "Feb 2025 - Ene 2026",
                 title : "React y TypeScript",
-                description : "La gúia completa creando +10 proyectos prácticos",
+                description : "La guía completa creando +10 proyectos prácticos",
                 conocimientos : "Conocimientos",
                 conocimientosList : [
                     { title : "Context", tech : "Context API" },

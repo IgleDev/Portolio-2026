@@ -154,7 +154,7 @@ const gal : Translations = {
                 siteName : "Udemy",
                 date : "Feb 2025 - Xan 2026",
                 title : "React e TypeScript",
-                description : "A gúia completa creando +10 proxectos prácticos",
+                description : "A guía completa creando +10 proxectos prácticos",
                 conocimientos : "Coñecementos",
                 conocimientosList : [
                     { title : "Context", tech : "Context API" },
