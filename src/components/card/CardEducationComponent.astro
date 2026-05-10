@@ -22,7 +22,7 @@ const id = (education.siteName + education.date).replace(/[^a-zA-Z0-9]/g, '-')
             </div>
         </div>
         {education.urlCert && (
-            <a href={education.urlCert} target="_blank" aria-label={`Descargar certificado de ${education.title}`}>
+            <a href={education.urlCert} rel="noopener noreferrer" target="_blank" aria-label={`Descargar certificado de ${education.title}`}>
                 <Icon class="font-bold text-xl text-titulos" name="proicons:arrow-download" />
             </a>
         )}

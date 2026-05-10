@@ -4,11 +4,11 @@ import { Icon } from "astro-icon/components";
 
 const { t } = Astro.props;
 
-const buttonConfig : Record<string, { href: string; download?: boolean; target?: string; icon: string }> = {
-    contact:  { href: 'mailto:adrian.iglesias.fernandez@gmail.com', icon: 'mdi:email' },
-    cv:       { href: '/download/AdriánIglesiasFernández.pdf', download: true, icon: 'mdi:download' },
-    LinkedIn: { href: 'https://linkedin.com/in/adriiglesias', target: '_blank', icon: 'mdi:linkedin' },
-    Github:   { href: 'https://github.com/IgleDev', target: '_blank', icon: 'proicons:github' }
+const buttonConfig : Record<string, { href: string; download?: boolean; target?: string; icon: string, rel : string }> = {
+    contact:  { href: 'mailto:adrian.iglesias.fernandez@gmail.com', icon: 'mdi:email', rel : 'noopener noreferrer' },
+    cv:       { href: '/download/AdriánIglesiasFernández.pdf', download: true, icon: 'mdi:download', rel : 'noopener noreferrer' },
+    LinkedIn: { href: 'https://linkedin.com/in/adriiglesias', target: '_blank', icon: 'mdi:linkedin', rel : 'noopener noreferrer' },
+    Github:   { href: 'https://github.com/IgleDev', target: '_blank', icon: 'proicons:github', rel : 'noopener noreferrer' }
 };
 ---
 <section class="px-6 py-10 xl:p-20 flex flex-col xl:flex-row items-center gap-6">

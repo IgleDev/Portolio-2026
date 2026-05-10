@@ -15,7 +15,7 @@ const navItems = t.home.nav.map((item: { title: string; id: string }) => ({
 ---
 <nav aria-label="Navegación principal" class="fixed top-4 inset-x-0 mx-auto z-10 flex items-center justify-center gap-0.5 sm:gap-1 font-medium text-gray-600 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/50 shadow-sm backdrop-blur w-max max-w-[calc(100vw-2rem)]" transition:animate="none">
     {navItems.map((link: { title: string; label: string; url: string }) => (
-        <a class="relative block px-2 sm:px-3 py-1 sm:py-2 rounded-full transition hover:text-[#B8860B] text-sm md:text-base whitespace-nowrap" aria-label={link.label} href={link.url}>
+        <a class="relative block px-2 sm:px-3 py-1 sm:py-2 rounded-full transition hover:text-[#B8860B] text-sm md:text-base whitespace-nowrap" aria-label={link.label} href={link.url} rel="noopener noreferrer">
             {link.title}
         </a>
     ))}

@@ -23,6 +23,11 @@ const ogImage = new URL(image, Astro.site).href;
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL('rss.xml', Astro.site)}/>
 <meta name="generator" content={Astro.generator} />
+<meta name="theme-color" content="#F6F4F2" />
+<meta name="geo.region" content="ES-GA" />
+<meta name="geo.placename" content="Vigo" />
+<meta name="geo.position" content="42.2406;-8.7207" />
+<meta name="ICBM" content="42.2406, -8.7207" />
 
 <!-- Font preloads -->
 <link rel="preload" href="/fonts/MuseoModerno-Bold.ttf" as="font" type="font/truetype" crossorigin />
@@ -36,15 +41,17 @@ const ogImage = new URL(image, Astro.site).href;
 <meta name="description" content={description} />
 <meta name="robots" content="index, follow" />
 <meta name="author" content="Adrián Iglesias Fernández" />
-<meta name="keywords" content="Desarrollador, Programador, Igledev, Web, Mobile, Pontevedra, Galicia, España, Front-End, Back-End" />
+<meta name="keywords" content="desarrollador IA freelance, automatización con IA, desarrollador web Vigo, software para empresas, desarrollo aplicaciones web, desarrollador full stack Galicia, inteligencia artificial para negocios, desarrollo MVP startup, asistentes IA personalizados, automatización de procesos" />
 
 <!-- Open Graph / Facebook -->
+<meta property="og:locale" content="es_ES" />
 <meta property="og:site_name" content={SITE_TITLE} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content="IgleDev - Desarrollo de Software e Inteligencia Artificial" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 
@@ -54,5 +61,43 @@ const ogImage = new URL(image, Astro.site).href;
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content="IgleDev - Desarrollo de Software e Inteligencia Artificial" />
 <meta name="twitter:site" content="@IgleDev" />
 <meta name="twitter:creator" content="@IgleDev" />
+
+<!-- Article -->
+<meta property="article:author" content="Adrián Iglesias Fernández" />
+
+<!-- Schema.org -->
+<script
+	type="application/ld+json"
+	set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "ProfessionalService",
+		"name": "IgleDev",
+		"image": `${Astro.site}/img/logo.png`,
+		"url": Astro.site,
+		"@id": Astro.site,
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Vigo",
+			"addressRegion": "Galicia",
+			"addressCountry": "ES"
+		},
+		"founder": {
+			"@type": "Person",
+			"name": "Adrián Iglesias Fernández"
+		},
+		"areaServed": "España",
+		"serviceType": [
+			"Desarrollo web",
+			"Automatización con IA",
+			"Software a medida",
+			"Aplicaciones web"
+		],
+		"sameAs": [
+			"https://github.com/IgleDev",
+			"https://www.linkedin.com/in/adriiglesias/"
+		]
+	})}
+/>

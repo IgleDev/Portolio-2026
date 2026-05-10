@@ -1,2 +1,2 @@
-export const SITE_TITLE = 'IgleDev - Adrián Iglesias';
-export const SITE_DESCRIPTION = 'Soy Adrián, desarrollador Full-Stack de Vigo. Creo aplicaciones web y móviles con React, TypeScript, .NET y Node.js. Con +3 de años de experiencia en el sector';
+export const SITE_TITLE = 'IgleDev | Desarrollo de Software, IA y Automatización';
+export const SITE_DESCRIPTION = 'Desarrollador de Vigo especializado en software a medida, automatización e Inteligencia Artificial para empresas.';

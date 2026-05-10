@@ -34,7 +34,7 @@ const { t, project } = Astro.props;
 <MainLayout lang={Astro.params.lang} t={t}>
     <section class="px-6 py-10 lg:p-20 max-w-7xl mx-auto">
         <div class="flex items-center gap-3 mb-10">
-            <a href={`/${Astro.params.lang}`} class="text-secundario hover:text-titulos transition">
+            <a rel="noopener noreferrer" href={`/${Astro.params.lang}`} class="text-secundario hover:text-titulos transition">
                 <Icon name="proicons:arrow-left" class="w-5 h-5" />
             </a>
             <h1 class="text-4xl lg:text-5xl font-titulos font-bold text-titulos">{project.projectTitle}</h1>
@@ -61,12 +61,12 @@ const { t, project } = Astro.props;
     
                 <div class="flex gap-4 mt-4 flex-wrap">
                     {project.projectGithub !== "" ? (
-                        <a href={project.projectGithub} target="_blank"
+                        <a rel="noopener noreferrer" href={project.projectGithub} target="_blank"
                             class="bg-titulos text-white px-5 py-2 rounded-full flex items-center gap-2 font-semibold hover:bg-[#333333] transition-colors">
                             <Icon name="proicons:github" class="w-5 h-5" /> GitHub
                         </a>
                     ) : (
-                        <a href={project.projectUrl} target="_blank"
+                        <a rel="noopener noreferrer" href={project.projectUrl} target="_blank"
                             class="bg-titulos text-white px-5 py-2 rounded-full flex items-center gap-2 font-semibold hover:bg-[#333333] transition-colors">
                             <Icon name={project.projectIcon} class="w-5 h-5" /> {project.projectInfo}
                         </a>

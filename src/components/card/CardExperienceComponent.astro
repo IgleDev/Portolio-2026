@@ -21,6 +21,6 @@ const { job } = Astro.props;
     </div>
     <div class="flex flex-col md:w-1/2 xl:w-1/2 text-secundario text-base xl:text-xl font-bold leading-relaxed">
         {job.description}
-        <a href={job.jobInfo.url} target="_blank" class="text-resaltado shrink-0 self-start">{job.jobInfo.text}</a>
+        <a href={job.jobInfo.url} rel="noopener noreferrer" target="_blank" class="text-resaltado shrink-0 self-start">{job.jobInfo.text}</a>
     </div>
 </div>
