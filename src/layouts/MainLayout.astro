@@ -6,12 +6,21 @@ import BaseHead from "../components/BaseHead.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../types/consts";
 import Header from "../components/Header.astro";
 
-const { lang, t, isIndex = false } = Astro.props;
+interface Props {
+  lang: string;
+  t: any;
+  isIndex?: boolean;
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const { lang, t, isIndex = false, title = SITE_TITLE, description = SITE_DESCRIPTION, image } = Astro.props;
 ---
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}>
+    <BaseHead title={title} description={description} image={image}>
     <ClientRouter />
   </head>
   <body class="bg-[#F6F4F2]">

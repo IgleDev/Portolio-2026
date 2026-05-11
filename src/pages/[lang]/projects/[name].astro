@@ -4,6 +4,7 @@ import { Icon } from "astro-icon/components";
 import type { Language } from "@/types/language.type";
 import MainLayout from "@/layouts/MainLayout.astro";
 import type { ProjectTech } from "@/types";
+import { SITE_DESCRIPTION, SITE_IMAGE } from "@/types/consts";
 
 export async function getStaticPaths() {
     const { default: es } = await import("@/i18n/es");
@@ -30,8 +31,11 @@ export async function getStaticPaths() {
 }
 
 const { t, project } = Astro.props;
+const pageTitle = `${project.projectTitle} | IgleDev`;
+const pageDescription = project.projectDescLong?.slice(0, 160) ?? SITE_DESCRIPTION;
+const pageImage = project.projectImg?.[0]?.src ?? SITE_IMAGE;
 ---
-<MainLayout lang={Astro.params.lang} t={t}>
+<MainLayout title={pageTitle} description={pageDescription} image={pageImage} lang={Astro.params.lang} t={t}>
     <section class="px-6 py-10 lg:p-20 max-w-7xl mx-auto">
         <div class="flex items-center gap-3 mb-10">
             <a rel="noopener noreferrer" href={`/${Astro.params.lang}`} class="text-secundario hover:text-titulos transition">
