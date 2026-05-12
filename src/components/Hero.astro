@@ -4,9 +4,9 @@ import { Icon } from "astro-icon/components";
 
 const { t } = Astro.props;
 
-const buttonConfig : Record<string, { href: string; download?: boolean; target?: string; icon: string, rel : string }> = {
+const buttonConfig : Record<string, { href: string; download?: string; target?: string; icon: string, rel : string }> = {
     contact:  { href: 'mailto:adrian.iglesias.fernandez@gmail.com', icon: 'mdi:email', rel : 'noopener noreferrer' },
-    cv:       { href: '/download/AdriánIglesiasFernández.pdf', download: true, icon: 'mdi:download', rel : 'noopener noreferrer' },
+    cv:       { href: '/download/AdriánIglesiasFernándezCV.pdf', download: 'AdriánIglesiasFernándezCV.pdf', icon: 'mdi:download', rel : 'noopener noreferrer' },
     LinkedIn: { href: 'https://linkedin.com/in/adriiglesias', target: '_blank', icon: 'mdi:linkedin', rel : 'noopener noreferrer' },
     Github:   { href: 'https://github.com/IgleDev', target: '_blank', icon: 'proicons:github', rel : 'noopener noreferrer' }
 };
