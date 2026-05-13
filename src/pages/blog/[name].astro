@@ -24,23 +24,32 @@ const pageImage = blog.imgBlog ? `/img/blog/${blog.imgBlog}` : SITE_BLOG_IMAGE;
 ---
 <BlogLayout title={pageTitle} description={pageDescription} image={pageImage}>
     <section class="flex justify-center">
-        <article class="flex flex-col">
-            <h1 class="text-center font-titulos text-5xl text-wrap">{blog.title}</h1>
+        <article class="flex flex-col w-full max-w-4xl">
+            <h1 class="text-center font-titulos text-3xl sm:text-4xl md:text-5xl text-wrap px-2">
+                {blog.title}
+            </h1>
             <div class="w-full flex justify-center mt-5">
                 <Image transition:name={`blog-${blog.titleHref}`} width={1200} height={900} loading="eager" src={`/img/blog/${blog.imgBlog}`} alt={`Imagen del articulo sobre ${blog.titleHref}`}
-                    class="w-full max-w-5xl h-125 md:h-175 object-cover rounded-[40px]"
+                    class="w-full h-56 sm:h-80 md:h-125 lg:h-175 object-cover rounded-[20px] sm:rounded-[40px]"
                 />
             </div>
-            {blog.paragraph.map((para) => (
-                <p class="text-2xl mt-10">{para}</p>
-            ))}
-
-            <div class="flex items-center justify-between mt-10">
-                <div class="flex flex-col">
-                    <span class="flex items-center text-noinfo"><Icon name="mdi:clock-outline" class='mr-1' /> {blog.timeRead}</span>
-                    <span class="flex items-center text-noinfo"><Icon name="mdi:calendar-badge-outline" class="mr-1" /> Publicado el {blog.dateCreated}</span>
+            <div class="px-2 sm:px-0">
+                {blog.paragraph.map((para) => (
+                    <p class="text-lg sm:text-xl md:text-2xl mt-8 leading-relaxed">{para}</p>
+                ))}
+            </div>
+            <div class="flex items-center justify-between mt-10 px-2 sm:px-0 flex-wrap gap-4">
+                <div class="flex flex-col gap-1">
+                    <span class="flex items-center text-noinfo text-sm sm:text-base">
+                        <Icon name="mdi:clock-outline" class='mr-1' /> {blog.timeRead}
+                    </span>
+                    <span class="flex items-center text-noinfo text-sm sm:text-base">
+                        <Icon name="mdi:calendar-badge-outline" class="mr-1" /> Publicado el {blog.dateCreated}
+                    </span>
                 </div>
-                <a href="https://www.linkedin.com/in/adriiglesias/" target="_blank" rel="noopener noreferrer" class="text-noinfo font-bold">@IgleDev</a>
+                <a href="https://www.linkedin.com/in/adriiglesias/" target="_blank" rel="noopener noreferrer" class="text-noinfo font-bold text-sm sm:text-base hover:underline">
+                    @IgleDev
+                </a>
             </div>
         </article>
     </section>
