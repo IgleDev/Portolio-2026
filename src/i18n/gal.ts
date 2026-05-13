@@ -19,7 +19,7 @@ const gal : Translations = {
             { title : "Proxectos" , id : "proyectos" },
             { title : "Educación" , id : "educacion" },
             { title : "Sobre min" , id : "sobre-mi" },
-            { title : "Blog", id : "/blog" }
+            { title : "Blog", id : "/blog", external : true }
         ],
         studie : "Técnico Superior",
         contactButtons : {

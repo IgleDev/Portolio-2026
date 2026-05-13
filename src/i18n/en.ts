@@ -19,7 +19,7 @@ const en : Translations = {
             { title : "Projects" , id : "proyectos" },
             { title : "Education" , id : "educacion" },
             { title : "About me" , id : "sobre-mi" },
-            { title : "Blog", id : "/blog" }
+            { title : "Blog", id : "/blog", external : true }
         ],
         studie : "Higher Technician",
         contactButtons : {

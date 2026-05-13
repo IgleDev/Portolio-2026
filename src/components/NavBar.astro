@@ -15,11 +15,11 @@ const navItems = t.home.nav.map((item: { title: string; id: string, external? : 
     external: item.external ?? false,
 }));
 ---
-<nav aria-label="Navegación principal" class="fixed top-4 inset-x-0 mx-auto z-10 flex items-center justify-center gap-0.5 sm:gap-1 font-medium text-gray-600 px-2 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/50 shadow-sm backdrop-blur w-max max-w-[calc(100vw-2rem)]" transition:animate="none">
+<nav aria-label="Navegación principal" class="fixed top-4 inset-x-0 mx-auto z-10 flex items-center justify-center gap-0 font-medium text-gray-600 px-2 py-1.5 rounded-full bg-white/50 shadow-sm backdrop-blur w-max max-w-[calc(100vw-1rem)]" transition:animate="none">
     {navItems.map((link: { title: string; label: string; url: string, external? : boolean }) => (
-        <a class="relative flex items-center px-2 sm:px-3 py-1 sm:py-2 rounded-full transition hover:text-[#B8860B] text-sm md:text-base whitespace-nowrap"
+        <a class="relative flex items-center px-1.5 py-1 sm:px-3 sm:py-2 rounded-full transition hover:text-[#B8860B] text-sm sm:text-sm md:text-base whitespace-nowrap"
         aria-label={link.label} data-external={link.external ? "true" : undefined} href={link.url} rel="noopener noreferrer">
-            {link.title} {link.external && <Icon name="ci:arrow-up-right-md" /> }
+            {link.title} {link.external && <Icon name="ci:arrow-up-right-md" class="w-3 h-3 sm:w-4 sm:h-4" /> }
         </a>
     ))}
 </nav>
