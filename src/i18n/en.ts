@@ -18,7 +18,8 @@ const en : Translations = {
             { title : "Experience" , id : "experiencia" },
             { title : "Projects" , id : "proyectos" },
             { title : "Education" , id : "educacion" },
-            { title : "About me" , id : "sobre-mi" }
+            { title : "About me" , id : "sobre-mi" },
+            { title : "Blog", id : "/blog" }
         ],
         studie : "Higher Technician",
         contactButtons : {

@@ -1,6 +1,7 @@
 export interface NavItem {
     title: string;
     id: string;
+    external? : boolean
 }
 
 export interface ContactButtons {
@@ -97,4 +98,14 @@ export interface Translations {
         title: string;
         desc: string[];
     };
+}
+
+export interface iBlog {
+    title : string,
+    type : string,
+    dateCreated : string,
+    timeRead : string,
+    imgBlog : string,
+    titleHref : string
+    paragraph : string[],
 }

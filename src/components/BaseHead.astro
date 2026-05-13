@@ -101,3 +101,20 @@ const ogImage = new URL(image, Astro.site).href;
 		]
 	})}
 />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"headline": title,
+	"description": description,
+	"image": image,
+	"author": {
+		"@type": "Person",
+		"name": "Adrián Iglesias Fernández"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "IgleDev"
+	}
+	})} 
+/>

@@ -5,6 +5,7 @@ import type { Language } from "@/types/language.type";
 import MainLayout from "@/layouts/MainLayout.astro";
 import type { ProjectTech } from "@/types";
 import { SITE_DESCRIPTION, SITE_IMAGE } from "@/types/consts";
+import Image from "astro/components/Image.astro";
 
 export async function getStaticPaths() {
     const { default: es } = await import("@/i18n/es");
@@ -38,7 +39,7 @@ const pageImage = project.projectImg?.[0]?.src ?? SITE_IMAGE;
 <MainLayout title={pageTitle} description={pageDescription} image={pageImage} lang={Astro.params.lang} t={t}>
     <section class="px-6 py-10 lg:p-20 max-w-7xl mx-auto">
         <div class="flex items-center gap-3 mb-10">
-            <a rel="noopener noreferrer" href={`/${Astro.params.lang}`} class="text-secundario hover:text-titulos transition">
+            <a rel="noopener noreferrer" href={`/${Astro.params.lang}`} rel="noopener noreferrer" aria-label={`Volver a proyectos`} class="text-secundario hover:text-titulos transition">
                 <Icon name="proicons:arrow-left" class="w-5 h-5" />
             </a>
             <h1 class="text-4xl lg:text-5xl font-titulos font-bold text-titulos">{project.projectTitle}</h1>
@@ -80,11 +81,7 @@ const pageImage = project.projectImg?.[0]?.src ?? SITE_IMAGE;
     
             {project.projectImg && project.projectImg.length > 0 && (
                 <div class="w-full lg:w-full">
-                    <img 
-                        src={project.projectImg[0].src} 
-                        alt={project.projectImg[0].alt} 
-                        class="w-full max-h-175 object-contain rounded-2xl" 
-                    />
+                    <Image width={525} height={700} loading="eager" src={project.projectImg[0].src} alt={project.projectImg[0].alt} class="w-full max-h-175 object-contain rounded-2xl"  />
                 </div>
             )}
         </div>

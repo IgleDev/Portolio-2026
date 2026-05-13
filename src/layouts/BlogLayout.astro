@@ -1,0 +1,32 @@
+---
+import "../styles/global.css";
+import "../styles/webcore.scss"
+import { ClientRouter } from "astro:transitions";
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_BLOG_DESCRIPTION, SITE_BLOG_TITLE } from "../types/consts";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+const { title = SITE_BLOG_TITLE, description = SITE_BLOG_DESCRIPTION, image } = Astro.props;
+---
+<!doctype html>
+<html lang='es'>
+  <head>
+    <BaseHead title={title} description={description} image={image} />
+    <ClientRouter />
+  </head>
+  <body class="bg-[#F6F4F2]">
+    <main class="mt-30">
+      <section class="max-w-7xl mx-auto px-6 py-16">
+        <button onclick="history.back()" aria-label="Volver" class="text-secundario hover:text-titulos transition cursor-pointer">
+            <Icon name="proicons:arrow-left" class="w-10 h-10" />
+        </button>
+        <slot />
+      </section>
+    </main>
+  </body>
+</html>

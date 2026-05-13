@@ -19,7 +19,8 @@ const es : Translations = {
             { title : "Experiencia" , id : "experiencia" },
             { title : "Proyectos" , id : "proyectos" },
             { title : "Educación" , id : "educacion" },
-            { title : "Sobre mi" , id : "sobre-mi" }
+            { title : "Sobre mi" , id : "sobre-mi" },
+            { title : "Blog", id : "blog", external : true }
         ],
         contactButtons : {
             contact : "Contactame",

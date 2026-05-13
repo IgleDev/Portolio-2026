@@ -1,0 +1,20 @@
+{
+    "blogs" : [
+        {
+            "title" : "Vigo404. A nova comunidade viguesa de desenvolvedores de software",
+            "type" : "COMUNIDAD",
+            "dateCreated" : "2025-07-22",
+            "timeRead" : "3 MIN",
+            "imgBlog" : "Vigo404.webp",
+            "titleHref" : "Vigo404",
+            "paragraph": [
+                "Nos últimos anos, Galiza comezou a demostrar que tamén pode ser un lugar onde nace innovación, talento e comunidade arredor da tecnoloxía. Dentro dese movemento aparece Vigo404, unha comunidade creada por galegos e para galegos, pensada para unir persoas apaixonadas polo desenvolvemento, o deseño, a tecnoloxía e a creación dixital nun entorno moderno, aberto e inclusivo.",
+                "Vigo404 non é simplemente un grupo de programación. É un espazo onde compartir ideas, aprender en conxunto e construír relacións entre persoas. A comunidade nace coa intención de demostrar que na Galiza tamén existe talento de sobra para proxectos grandes, innovadores e con identidade propia, sen necesidade de marchar fóra.",
+                "Un dos piares fundamentais da comunidade é a lingua. Vigo404 aposta polo uso do galego como parte natural da identidade da comunidade, normalizando a súa presenza dentro do sector tecnolóxico e creando un espazo onde falar galego non sexa algo raro, senón algo orgulloso. A tecnoloxía tamén pode construírse desde a nosa cultura, coa nosa forma de expresarnos e coa nosa maneira de entender o mundo.",
+                "Vigo404 é un espazo seguro para persoas LGBTQIA+, para xente nova que busca o seu sitio dentro do sector e para calquera persoa que queira participar sen medo a ser xulgada. A diversidade considérase unha parte esencial da creatividade e da innovación, porque os mellores proxectos nacen cando existen diferentes formas de pensar, vivir e crear.",
+                "Entre os obxectivos da comunidade está organizar quedadas, eventos, charlas, hackathons e actividades relacionadas coa tecnoloxía en Vigo e noutras zonas da Galiza. A idea é conectar persoas que moitas veces traballan illadas, estudan pola súa conta ou simplemente non coñecen máis xente coas mesmas inquietudes. Vigo404 quere converterse nun punto de encontro para colaborar, aprender e medrar xuntos.",
+                "Vigo404 busca: Crear un ambiente humano, creativo e cercano. Un lugar onde se valore tanto o coñecemento técnico como as persoas que hai detrás. Porque ao final, a tecnoloxía naceu co obxectivo de conectar xente."
+            ]
+        }
+    ]
+}
