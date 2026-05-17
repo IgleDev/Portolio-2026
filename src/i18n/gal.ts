@@ -11,7 +11,7 @@ const gal : Translations = {
         title: "Ola! Eu son ADRIAN IGLESIAS",
         subtitle: "Desenvolvedor Full-Stack",
         desc : [
-            "+3 anos de experiencia.",
+            "+2 anos de experiencia.",
             "de Galiza, España. Especializado no desenvolvemento de aplicacions web únicas."
         ],
         nav : [

@@ -11,7 +11,7 @@ const es : Translations = {
         title: "Hola! Soy ADRIAN IGLESIAS",
         subtitle: "Desarrollador Full-Stack",
         desc : [
-            "+3 años de experiencia.",
+            "+2 años de experiencia.",
             "de Galicia, España. Especializado en el desarrollo de aplicaciones web únicas."
         ],
         studie : "Técnico Superior",
