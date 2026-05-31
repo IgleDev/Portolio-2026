@@ -151,6 +151,22 @@ const en : Translations = {
             },
             {
                 logo: "/img/education/udemy.webp",
+                urlCert: "https://www.udemy.com/certificate/UC-81996c9b-211e-4911-a5e7-cb221668f8bf/",
+                siteName: "Udemy",
+                date: "Nov 2025 - May 2026",
+                title: "Astro",
+                description: "The Framework for Content-Oriented Websites",
+                conocimientos: "Knowledge",
+                conocimientosList: [
+                    { title: "Basic Foundations", tech: "Dynamic Routes, Static Generation, Astro Themes, RSS Feed" },
+                    { title: "Server", tech: "SSR, AstroDB, Server Actions, Astro Islands" },
+                    { title: "Databases", tech: "Turso, Prisma, PostgreSQL" },
+                ],
+                seeMore: "See more",
+                seeLess: "See less"
+            },
+            {
+                logo: "/img/education/udemy.webp",
                 urlCert: "https://www.udemy.com/certificate/UC-2c8360d8-4da3-464a-b427-a722302e992a/",
                 siteName: "Udemy",
                 date: "Feb 2025 - Jan 2026",

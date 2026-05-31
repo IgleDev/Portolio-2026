@@ -137,7 +137,7 @@ const es : Translations = {
                 logo : "/img/education/fpfomento.webp",
                 siteName : "F.P Montecastelo",
                 date : "Sep 2020 - Jun 2022",
-                title : "Técnico Medio en Sistemas Microinformáticos y Redes",
+                title : "Técnico en Sistemas Microinformáticos y Redes",
                 description : "Ciclo medio enfocado en las bases del conocimiento de redes y sistemas",
                 conocimientos : "Conocimientos",
                 conocimientosList : [
@@ -148,6 +148,22 @@ const es : Translations = {
                 ],
                 seeMore : "Ver más",
                 seeLess : "Ver menos"
+            },
+            {
+                logo: "/img/education/udemy.webp",
+                urlCert: "https://www.udemy.com/certificate/UC-81996c9b-211e-4911-a5e7-cb221668f8bf/",
+                siteName: "Udemy",
+                date: "Nov 2025 - May 2026",
+                title: "Astro",
+                description: "El Framework para sitios web orientados al contenido",
+                conocimientos: "Conocimientos",
+                conocimientosList: [
+                    { title: "Bases", tech: "Rutas Dinámicas, Paginación Estática, Astro Themes, RSS Feed" },
+                    { title: "Servidor", tech: "SSR, AstroDB, Server Actions, Astro Islands" },
+                    { title: "Bases de datos", tech: "Turso, Prisma, PostgreSQL" },
+                ],
+                seeMore: "Ver más",
+                seeLess: "Ver menos"
             },
             {
                 logo : "/img/education/udemy.webp",
