@@ -230,7 +230,7 @@ const en : Translations = {
         title : "About me",
         desc : [
             "My name is Adrián Iglesias, although my devs call me <span class=\"text-[#DADADA]\">Igle</span>. I started programming in Visual Basic, and since then I haven't stopped.",
-            "Today I have <span class=\"text-[#DADADA]\">3 years developing</span> web and mobile applications for the <span class=\"text-[#DADADA]\">Fintech sector</span>",
+            "Today I have <span class=\"text-[#DADADA]\">2 years developing</span> web and mobile applications for companies <span class=\"text-[#DADADA]\">(B2B)</span>, specialized in  <span class=\"text-[#DADADA]\">automation and Artificial Intelligence.</span>",
             "When I'm not programming, I'm probably with my cat Zelda."
         ]
     }

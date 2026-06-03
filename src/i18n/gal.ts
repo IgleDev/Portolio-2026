@@ -230,7 +230,7 @@ const gal : Translations = {
         title : "Sobre min",
         desc : [
             "Chámome Adrián Iglesias, aínda que meus devs chámanme <span class=\"text-[#DADADA]\">Igle</span>. Empecei programando en Visual Basic e dende entón non parei.",
-            "Hoxe levo <span class=\"text-[#DADADA]\">3 anos desenvolvendo</span> aplicacións webs e móbiles para o <span class=\"text-[#DADADA]\">sector Fintech</span>",
+            "Hoxe levo <span class=\"text-[#DADADA]\">2 anos desenvolvendo</span> aplicacións webs e móbiles para empresas <span class=\"text-[#DADADA]\">(B2B)</span>, especializado na <span class=\"text-[#DADADA]\">automatización e Intelixencia Artificial.</span>",
             "Cando non estou programando, seguramente estou coa miña gata Zelda."
         ]
     }

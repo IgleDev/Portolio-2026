@@ -230,7 +230,7 @@ const es : Translations = {
         title : "Sobre mí",
         desc : [
             "Me llamo Adrián Iglesias, aunque mis devs me llaman <span class=\"text-[#DADADA]\">Igle</span>. Empecé programando en Visual Basic y desde entonces no he parado.",
-            "Hoy llevo <span class=\"text-[#DADADA]\">3 años desarrollando</span> aplicaciones web y móviles para el <span class=\"text-[#DADADA]\">sector Fintech</span>",
+            "Hoy llevo <span class=\"text-[#DADADA]\">2 años desarrollando</span> aplicaciones web y móviles para empresas <span class=\"text-[#DADADA]\">(B2B)</span>, especializado en <span class=\"text-[#DADADA]\">automatización e Inteligencia Artificial.</span>",
             "Cuando no estoy programando, seguramente estoy con mi gata Zelda."
         ]
     }
