@@ -76,6 +76,12 @@ const gal : Translations = {
                 projectInfo : "¡Visitalo aquí!",
                 projectImg : [
                     { src : "/img/projects/qrvicusLog.webp", alt : "QR Vicus" },
+                ],
+                projectInformation : [
+                    "Máis de 500 descargas en múltiples ximnasios. Xestión completa de entradas, saídas e bonos de clientes.",
+                    "Os ximnasios perdían diñeiro con pulseiras magnéticas e Tags físicos. Un sistema caro e difícil de xestionar.",
+                    "Desenvolvín a interface visual completa, priorizando unha experiencia sinxela e intuitiva para o usuario final.",
+                    "Máis de 500 descargas e gran aceptación por parte do cliente, que eliminou por completo o custo das pulseiras."
                 ]
             },
             {
@@ -94,6 +100,12 @@ const gal : Translations = {
                 projectInfo : "¡Visitalo aquí!",
                 projectImg : [
                     { src : "/img/projects/atapaceleste.webp", alt : "A Tapa Celeste" },
+                ],
+                projectInformation : [
+                    "Máis de 100 visitas diarias. Xestión completa de eventos, actividades, merchandising e pago de cota online.",
+                    "A peña non tiña presenza online, o que limitaba o seu crecemento e obrigaba a xestionar eventos e cotas manualmente.",
+                    "Desenvolvín toda a aplicación, dende a interface visual ata a integración da pasarela de pago, cos cores do equipo como guía de deseño.",
+                    "Gran aceptación por parte dos peñistas e presidentes: crecemento de socios, eliminación da xestión manual e aumento de vendas de produtos."
                 ]
             },
             {
@@ -112,10 +124,17 @@ const gal : Translations = {
                 projectInfo : "¡Visitalo aquí!",
                 projectImg : [
                     { src : "/img/projects/myreserve.webp", alt : "My Reserve" },
+                ],
+                projectInformation : [
+                    "Proxecto seleccionado entre os 4 mellores de máis de 120 alumnos. Nota final: 9.",
+                    "Moitas peluquerías de barrio xestionan as súas reservas de forma tradicional, un método ineficiente e propenso a erros.",
+                    "Desenvolvín a interface visual completa e o servidor.",
+                    "Un 9 no TFG e recoñecemento entre os mellores proxectos da promoción."
                 ]
             }
         ],
-        projectTech : "Tecnoloxías"
+        projectTech : "Tecnoloxías",
+        projectInfoResult : ["Impacto", "O Problema", "Miña Contribución", "Resultado"],
     },
     education : {
         title : "Educación e Certificacións",

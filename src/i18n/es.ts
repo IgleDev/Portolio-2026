@@ -76,6 +76,12 @@ const es : Translations = {
                 projectInfo : "¡Encuentralo aquí!",
                 projectImg : [
                     { src : "/img/projects/qrvicusLog.webp", alt : "QR Vicus" },
+                ],
+                projectInformation : [
+                    "Más de 500 descargas en múltiples gimnasios. Gestión completa de entradas, salidas y bonos de clientes.",
+                    "Los gimnasios perdían dinero con pulseras magnéticas y Tags físicos. Un sistema caro y difícil de gestionar.",
+                    "Desarrollé la interfaz visual completa, priorizando una experiencia sencilla e intuitiva para el usuario final.",
+                    "Más de 500 descargas y gran aceptación por parte del cliente, que eliminó por completo el coste de las pulseras."
                 ]
             },
             {
@@ -94,6 +100,12 @@ const es : Translations = {
                 projectInfo : "¡Visitalo aquí!",
                 projectImg : [
                     { src : "/img/projects/atapaceleste.webp", alt : "A Tapa Celeste" },
+                ],
+                projectInformation : [
+                    "Más de 100 visitas diarias. Gestión completa de eventos, actividades, merchandising y pago de cuota online.",
+                    "La peña no tenía presencia online, algo que limitaba su crecimiento y obligaba a gestionar eventos y cuotas manualmente.",
+                    "Desarrollé toda la aplicación, desde la interfaz visual hasta la integración de la pasarela de pago, con los colores del equipo como guía de diseño.",
+                    "Gran aceptación por peñistas y presidentes: crecimiento de socios, eliminación de la gestión manual y aumento de ventas de productos."
                 ]
             },
             {
@@ -112,10 +124,17 @@ const es : Translations = {
                 projectInfo : "¡Encuentralo aquí!",
                 projectImg : [
                     { src : "/img/projects/myreserve.webp", alt : "My Reserve" },
+                ],
+                projectInformation : [
+                    "Proyecto seleccionado entre los 4 mejores de más de 120 alumnos. Nota final: 9.",
+                    "Muchas peluquerías de barrio gestionan sus reservas de forma tradicional, un método ineficiente y propenso a errores.",
+                    "Desarrollé la interfaz visual completa y el servidor.",
+                    "Un 9 en el TFG y reconocimiento entre los mejores proyectos de la promoción."
                 ]
             }
         ],
         projectTech : "Tecnologías",
+        projectInfoResult : ["Impacto", "El Problema", "Mi Contribución", "Resultado"],
     },
     education : {
         title : "Educación y Certificaciones",

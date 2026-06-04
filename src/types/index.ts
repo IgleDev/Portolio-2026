@@ -31,6 +31,7 @@ export interface Project {
     projectIcon: string;
     projectInfo: string;
     projectImg: ProjectImage[];
+    projectInformation : string[]
 }
 
 export interface JobInfo {
@@ -89,6 +90,7 @@ export interface Translations {
         title: string;
         projectList: Project[];
         projectTech: string;
+        projectInfoResult : string[];
     };
     education: {
         title: string;

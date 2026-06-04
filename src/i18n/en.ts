@@ -76,6 +76,12 @@ const en : Translations = {
                 projectInfo : "See it here!",
                 projectImg : [
                     { src : "/img/projects/qrvicusLog.webp", alt : "QR Vicus" },
+                ],
+                projectInformation : [
+                    "Over 500 downloads across multiple gyms. Full management of client check-ins, check-outs and membership bonuses.",
+                    "Gyms were losing money using magnetic wristbands and physical Tags. An expensive system that made bonus tracking a hassle.",
+                    "I developed the complete visual interface, prioritizing a simple and intuitive experience for the end user.",
+                    "Over 500 downloads and great client satisfaction, who completely eliminated the cost of physical wristbands."
                 ]
             },
             {
@@ -94,6 +100,12 @@ const en : Translations = {
                 projectInfo : "See it here!",
                 projectImg : [
                     { src : "/img/projects/atapaceleste.webp", alt : "A Tapa Celeste" },
+                ],
+                projectInformation : [
+                    "More than 100 daily visits. Full management of events, activities, merchandising and online membership payments.",
+                    "The fan club had no online presence, limiting its growth and forcing manual management of events and membership fees.",
+                    "I developed the entire application, from the visual interface to the payment gateway integration, using the team's colors as a design guide.",
+                    "Great reception from members and presidents: membership growth, elimination of manual management and increased product sales."
                 ]
             },
             {
@@ -112,10 +124,17 @@ const en : Translations = {
                 projectInfo : "See it here!",
                 projectImg : [
                     { src : "/img/projects/myreserve.webp", alt : "My Reserve" },
+                ],
+                projectInformation : [
+                    "Project selected among the 4 best out of more than 120 students. Final grade: 9/10",
+                    "Many local hairdressers manage their bookings traditionally, an inefficient method prone to errors.",
+                    "I developed the complete visual interface and the server.",
+                    "A 9/10 on the final project and recognition among the best projects of the class."
                 ]
             }           
         ],
-        projectTech : "Technologies"
+        projectTech : "Technologies",
+        projectInfoResult : ["Impact", "The Problem", "My Contribution", "Result"],
     },
     education : {
         title : "Education & Certifications",

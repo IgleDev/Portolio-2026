@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components";
 import type { Language } from "@/types/language.type";
 import MainLayout from "@/layouts/MainLayout.astro";
 import type { ProjectTech } from "@/types";
-import { SITE_DESCRIPTION, SITE_IMAGE } from "@/types/consts";
+import { SITE_DESCRIPTION, SITE_IMAGE, SITE_TITLE } from "@/types/consts";
 import Image from "astro/components/Image.astro";
 
 export async function getStaticPaths() {
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
 }
 
 const { t, project } = Astro.props;
-const pageTitle = `${project.projectTitle} | IgleDev`;
+const pageTitle = `${project.projectTitle} | ${SITE_TITLE}`;
 const pageDescription = project.projectDescLong?.slice(0, 160) ?? SITE_DESCRIPTION;
 const pageImage = project.projectImg?.[0]?.src ?? SITE_IMAGE;
 ---
@@ -84,6 +84,22 @@ const pageImage = project.projectImg?.[0]?.src ?? SITE_IMAGE;
                     <Image width={525} height={700} loading="eager" src={project.projectImg[0].src} alt={project.projectImg[0].alt} class="w-full max-h-175 object-contain rounded-2xl"  />
                 </div>
             )}
+        </div>
+        <div class="flex flex-col items-center mt-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-4 w-full">
+                {t.projects.projectInfoResult.map((info) => (
+                    <div class="mb-4 lg:odd:text-left lg:even:text-right">
+                        <ul class="list-disc list-inside text-secundario font-bold text-lg lg:text-xl leading-relaxed">
+                            <li class="text-2xl">{info}</li>
+                        </ul>
+                        {project.projectInformation && project.projectInformation.length > 0 && ( 
+                            <p class="text-secundario text-lg lg:text-xl leading-relaxed mt-2">
+                                {project.projectInformation[t.projects.projectInfoResult.indexOf(info)]}
+                            </p>
+                        )}
+                    </div>
+                ))}
+            </div>
         </div>
     </section>
 </MainLayout>
