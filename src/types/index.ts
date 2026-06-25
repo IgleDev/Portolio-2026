@@ -96,6 +96,10 @@ export interface Translations {
         title: string;
         educationList: EducationItem[];
     };
+    recomendation : {
+        title : string;
+        recomendationList : iRecomendationList[];
+    }
     about: {
         title: string;
         desc: string[];
@@ -110,4 +114,17 @@ export interface iBlog {
     imgBlog : string,
     titleHref : string
     paragraph : string[],
+}
+
+export interface iRecomendationList {
+    img : string,
+    name : string,
+    profession : string,
+    network : iNetwork,
+    text : string
+}
+
+interface iNetwork {
+    github? : string,
+    linkedIn? : string,
 }

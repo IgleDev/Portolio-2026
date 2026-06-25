@@ -1,0 +1,19 @@
+---
+import type { Translations } from '@/types'
+import CardRecomendation from './CardRecomendation.astro'
+
+interface Props {
+    t : Translations
+}
+
+const { t } = Astro.props
+---
+
+<h2 class="text-3xl sm:text-3xl md:text-5xl lg:text-5xl font-titulos text-titulos text-center md:mt-10 xl:mt-10">{t.recomendation.title}</h2>
+<div class="flex flex-row w-full justify-center">
+    <div class="flex flex-row flex-wrap gap-6 justify-center px-4">
+        {t.recomendation.recomendationList.map((recomendation) => (
+            <CardRecomendation recomendation={recomendation} />
+        ))}
+    </div>
+</div>

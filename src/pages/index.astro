@@ -6,6 +6,7 @@ import Experiencia from "@/components/experiencia/Experiencia.astro";
 import Proyectos from "@/components/proyectos/Proyectos.astro";
 import Education from "@/components/education/Education.astro";
 import Aboutme from "@/components/about/Aboutme.astro";
+import Recomendaciones from "@/components/recomendaciones/Recomendaciones.astro";
 
 const lang = "es";
 const t = es;
@@ -16,10 +17,13 @@ const t = es;
     <Experiencia t={t} />
   </section>
   <section id="proyectos" class="mt-20">
-    <Proyectos t={t} lang={lang}/>
+    <Proyectos t={t} lang={lang} />
   </section>
   <section id="educacion" class="mt-30">
     <Education t={t} />
+  </section>
+  <section id="recomendaciones">
+    <Recomendaciones t={t} />
   </section>
   <section id="sobre-mi" class="mt-20 bg-titulos p-0">
     <Aboutme t={t} />

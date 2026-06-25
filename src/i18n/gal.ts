@@ -245,6 +245,21 @@ const gal : Translations = {
             }
         ]
     },
+    recomendation : {
+        title : "Recomendacións",
+        recomendationList : [
+            {
+                img : 'https://media.licdn.com/dms/image/v2/D4D03AQEL2oZVfKfAsg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732008085356?e=1784160000&v=beta&t=JFPVnQ2FpNTwILkMnz0sbcLmRWM7rUqivdbE7FJVjXA',
+                name : 'Jose Ramón Ríos Sieiro',
+                profession : 'Director Formación Profesional Montecastelo',
+                network : {
+                    github : 'https://github.com/realramonrs',
+                    linkedIn : 'https://www.linkedin.com/in/jose-ram%C3%B3n-r%C3%ADos-sieiro-24a80153/',
+                },
+                text : 'Antigo alumno de FP Montecastelo, destacou polo seu traballo, madurez, responsabilidade e bo carácter. Unha persoa na que se pode confiar.'
+            }
+        ]
+    },
     about : {
         title : "Sobre min",
         desc : [

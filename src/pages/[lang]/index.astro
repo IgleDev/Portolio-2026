@@ -9,6 +9,7 @@ import Experiencia from "@/components/experiencia/Experiencia.astro";
 import Proyectos from "@/components/proyectos/Proyectos.astro";
 import Education from "@/components/education/Education.astro";
 import Aboutme from "@/components/about/Aboutme.astro";
+import Recomendaciones from "@/components/recomendaciones/Recomendaciones.astro";
 
 export function getStaticPaths() {
   return [{ params: { lang: "es" } }, { params : { lang : "gal" }}, { params: { lang: "en" }}];
@@ -31,6 +32,9 @@ const t = translations[lang];
   </section>
   <section id="educacion" class="mt-30">
     <Education t={t} />
+  </section>
+   <section id="recomendaciones" class="mt-20">
+    <Recomendaciones t={t} />
   </section>
   <section id="sobre-mi" class="mt-20 bg-titulos p-0">
     <Aboutme t={t} />

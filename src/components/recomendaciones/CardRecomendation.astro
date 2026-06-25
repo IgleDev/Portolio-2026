@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets'
+import type { iRecomendationList } from '@/types'
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    recomendation : iRecomendationList
+}
+
+
+const { recomendation } = Astro.props;
+
+const buttonConfig : Record<string, { href: string; target?: string; icon: string, rel: string }> = {
+    linkedIn: { href: recomendation.network.linkedIn ?? '#', target: '_blank', icon: 'mdi:linkedin', rel: 'noopener noreferrer' },
+    github:   { href: recomendation.network.github ?? '#',   target: '_blank', icon: 'proicons:github', rel: 'noopener noreferrer' }
+};
+---
+
+<div class="flex flex-row mt-15">
+    <div class="flex flex-col items-center justify-center w-86">
+        <Image src={recomendation.img} width={400} height={500} alt="About me" class="w-32 md:w-32 xl:w-40 rounded-full shrink-0"/>
+        <div class="flex gap-4 mt-5 flex-wrap">
+            {Object.entries(recomendation.network).map(([key]) => (
+                <a {...buttonConfig[key]} class="text-titulos px-4 py-2 xl:px-6 xl:py-2 flex items-center font-semibold">
+                    <Icon name={buttonConfig[key].icon} class="mr-2 w-6 h-6" />
+                </a>
+            ))}
+        </div>
+        <div class="text-center">
+            <h3 class="text-titulos text-xl mt-5">{recomendation.name}</h3>  
+            <p class="text-titulos text-2xl font-bold mt-2">{recomendation.profession}</p>
+        </div>
+        <div class="text-wrap m-5">
+            <p class="text-lg"><i>"{recomendation.text}"</i></p>
+        </div>
+    </div>
+</div>
