@@ -21,8 +21,8 @@ const buttonConfig : Record<string, { href: string; target?: string; icon: strin
         <Image src={recomendation.img} width={400} height={500} alt="About me" class="w-32 md:w-32 xl:w-40 rounded-full shrink-0"/>
         <div class="flex gap-4 mt-5 flex-wrap">
             {Object.entries(recomendation.network).map(([key]) => (
-                <a {...buttonConfig[key]} class="text-titulos px-4 py-2 xl:px-6 xl:py-2 flex items-center font-semibold">
-                    <Icon name={buttonConfig[key].icon} class="mr-2 w-6 h-6" />
+                <a {...buttonConfig[key]} aria-label={key} class="text-titulos px-4 py-2 xl:px-6 xl:py-2 flex items-center font-semibold">
+                    <Icon name={buttonConfig[key].icon} class="mr-2 w-6 h-6" aria-hidden="true"/>
                 </a>
             ))}
         </div>
