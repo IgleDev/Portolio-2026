@@ -13,7 +13,7 @@ const { t, lang } = Astro.props;
 
 <h2 class="text-5xl font-titulos text-titulos text-center">{t.projects.title}</h2>
 <div class="flex justify-center mt-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 p-6 mt-5 xl:flex xl:flex-wrap xl:flex-row">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 p-6 mt-5">
         {t.projects.projectList.map((project: Project) => (
             <CardProjectComponent project={project} lang={lang} />
         ))}

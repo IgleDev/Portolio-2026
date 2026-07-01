@@ -62,31 +62,34 @@ const es : Translations = {
         title : "Proyectos",
         projectList : [
             {
-                projectTitle : "QR Vicus",
-                projectDesc : "📲​ App móvil con QR para controlar accesos en gimnasios.",
-                projectDescLong : "Aplicación móvil para la gestión de entrada y salida de personas en múltiples gimnasios de Vigo y alrededores, utilizando códigos QR para un proceso rápido y eficiente.",
+                projectTitle : "Inkly",
+                projectDate : "2026-07-01",
+                projectDesc : "Plataforma digital para escribir, publicar y descubrir historias.",
+                projectDescLong : "Proyecto diseñado como red social de escritura, donde los usuarios pueden crear, compartir y explorar historias de otros autores en un espacio sencillo e intuitivo.",
                 projectTech : [
-                    { name : "NativeScript", icon : "nativescript" },
-                    { name : "Angular", icon : "vscode-icons:file-type-angular" },
-                    { name : "TypeScript", icon : "vscode-icons:file-type-typescript" },
+                    { name : "React", icon : "vscode-icons:file-type-reactjs" },
+                    { name : "Node.js", icon : "vscode-icons:file-type-node" },
+                    { name : "Express", icon : "express" },
+                    { name : "MongoDB", icon : "vscode-icons:file-type-mongo"}
                 ],
-                projectGithub : "",
-                projectUrl : "https://play.google.com/store/apps/details?id=com.adealoxica.qrviscus&hl=es_419",
-                projectIcon : "proicons:globe",
+                projectGithub : "https://github.com/IgleDev/Inkly",
+                projectUrl : "https://inkly-dev.vercel.app/",
+                projectIcon : "proicons:github",
                 projectInfo : "¡Encuentralo aquí!",
                 projectImg : [
-                    { src : "/img/projects/qrvicusLog.webp", alt : "QR Vicus" },
+                    { src : "/img/projects/inkly.webp", alt : "Inkly" },
                 ],
                 projectInformation : [
-                    "Más de 500 descargas en múltiples gimnasios. Gestión completa de entradas, salidas y bonos de clientes.",
-                    "Los gimnasios perdían dinero con pulseras magnéticas y Tags físicos. Un sistema caro y difícil de gestionar.",
-                    "Desarrollé la interfaz visual completa, priorizando una experiencia sencilla e intuitiva para el usuario final.",
-                    "Más de 500 descargas y gran aceptación por parte del cliente, que eliminó por completo el coste de las pulseras."
+                    "Quise crear Inkly para poner a prueba y mejorar mi nivel en React, combinándolo con MongoDB como base de datos.",
+                    "Muchas plataformas de escritura resultan poco intuitivas o sobrecargadas, dificultando compartir y descubrir historias de forma sencilla.",
+                    "Desarrollé el proyecto por completo, tanto la interfaz visual (cliente) como el servidor.",
+                    "El resultado fue una plataforma funcional que me permitió consolidar conocimientos en React y bases de datos NoSQL, aplicables a proyectos reales."
                 ]
             },
             {
                 projectTitle : "A Tapa Celeste",
-                projectDesc : "🖥️​ Web de la peña celtista con eventos, fotos y merchandising.",
+                projectDate : "2025-07-31",
+                projectDesc : "Web de la peña celtista con eventos, fotos y merchandising.",
                 projectDescLong : "Web dedicada a la peña de aficionados del Celta \"A Tapa Celeste\", que ofrece información sobre la peña, eventos, actividades, contactos, merchandising, imágenes de nuestros peñistas y demás.",
                 projectTech : [
                     { name : "React", icon : "vscode-icons:file-type-reactjs" },
@@ -109,8 +112,33 @@ const es : Translations = {
                 ]
             },
             {
+                projectTitle : "QR Vicus",
+                projectDate : "2025-01-09",
+                projectDesc : "App móvil con QR para controlar accesos en gimnasios.",
+                projectDescLong : "Aplicación móvil para la gestión de entrada y salida de personas en múltiples gimnasios de Vigo y alrededores, utilizando códigos QR para un proceso rápido y eficiente.",
+                projectTech : [
+                    { name : "NativeScript", icon : "nativescript" },
+                    { name : "Angular", icon : "vscode-icons:file-type-angular" },
+                    { name : "TypeScript", icon : "vscode-icons:file-type-typescript" },
+                ],
+                projectGithub : "",
+                projectUrl : "https://play.google.com/store/apps/details?id=com.adealoxica.qrviscus&hl=es_419",
+                projectIcon : "proicons:globe",
+                projectInfo : "¡Encuentralo aquí!",
+                projectImg : [
+                    { src : "/img/projects/qrvicusLog.webp", alt : "QR Vicus" },
+                ],
+                projectInformation : [
+                    "Más de 500 descargas en múltiples gimnasios. Gestión completa de entradas, salidas y bonos de clientes.",
+                    "Los gimnasios perdían dinero con pulseras magnéticas y Tags físicos. Un sistema caro y difícil de gestionar.",
+                    "Desarrollé la interfaz visual completa, priorizando una experiencia sencilla e intuitiva para el usuario final.",
+                    "Más de 500 descargas y gran aceptación por parte del cliente, que eliminó por completo el coste de las pulseras."
+                ]
+            },
+            {
                 projectTitle : "My Reserve",
-                projectDesc : "✂️ Sistema digital sencillo para gestionar reservas en peluquerías.",
+                projectDate : "2024-12-21",
+                projectDesc : "Sistema digital sencillo para gestionar reservas en peluquerías.",
                 projectDescLong : "Proyecto diseñado para la gestión de reservas en peluquerías, reemplazando el método tradicional por un sistema digitalizado, sencillo e intuitivo.",
                 projectTech : [
                     { name : ".NET", icon : "net" },
@@ -131,7 +159,7 @@ const es : Translations = {
                     "Desarrollé la interfaz visual completa y el servidor.",
                     "Un 9 en el TFG y reconocimiento entre los mejores proyectos de la promoción."
                 ]
-            }
+            },
         ],
         projectTech : "Tecnologías",
         projectInfoResult : ["Impacto", "El Problema", "Mi Contribución", "Resultado"],

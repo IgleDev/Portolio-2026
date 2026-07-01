@@ -62,30 +62,33 @@ const gal : Translations = {
         title : "Proxectos",
         projectList : [
             {
-                projectTitle : "QR Vicus",
-                projectDesc : "📲 App móbil con QR para controlar accesos en ximnasios.",
-                projectDescLong : "Aplicación mobil para a xestión da entrada e saída de persoas en múltiples ximnasios de Vigo e cercanias, empregando códigos QR para un proceso rápido e eficiente.",
+                projectTitle : "Inkly",
+                projectDate : "2025-07-01",
+                projectDesc : "Plataforma dixital para escribir, publicar e descubrir historias.",
+                projectDescLong : "Proxecto deseñado como rede social de escritura, onde os usuarios poden crear, compartir e explorar historias doutros autores nun espazo sinxelo e intuitivo.",
                 projectTech : [
-                    { name : "NativeScript", icon : "nativescript" },
-                    { name : "Angular", icon : "vscode-icons:file-type-angular" },
-                    { name : "TypeScript", icon : "vscode-icons:file-type-typescript" },
+                    { name : "React", icon : "vscode-icons:file-type-reactjs" },
+                    { name : "Node.js", icon : "vscode-icons:file-type-node" },
+                    { name : "Express", icon : "express" },
+                    { name : "MongoDB", icon : "vscode-icons:file-type-mongo"}
                 ],
-                projectGithub : "",
-                projectUrl : "https://play.google.com/store/apps/details?id=com.adealoxica.qrviscus&hl=es_419",
-                projectIcon : "proicons:globe",
-                projectInfo : "¡Visitalo aquí!",
+                projectGithub : "https://github.com/IgleDev/Inkly",
+                projectUrl : "https://inkly-dev.vercel.app/",
+                projectIcon : "proicons:github",
+                projectInfo : "Atópao aquí!",
                 projectImg : [
-                    { src : "/img/projects/qrvicusLog.webp", alt : "QR Vicus" },
+                    { src : "/img/projects/inkly.webp", alt : "Inkly" },
                 ],
                 projectInformation : [
-                    "Máis de 500 descargas en múltiples ximnasios. Xestión completa de entradas, saídas e bonos de clientes.",
-                    "Os ximnasios perdían diñeiro con pulseiras magnéticas e Tags físicos. Un sistema caro e difícil de xestionar.",
-                    "Desenvolvín a interface visual completa, priorizando unha experiencia sinxela e intuitiva para o usuario final.",
-                    "Máis de 500 descargas e gran aceptación por parte do cliente, que eliminou por completo o custo das pulseiras."
+                    "Quixen crear Inkly para poñer a proba e mellorar o meu nivel en React, combinándoo con MongoDB como base de datos.",
+                    "Moitas plataformas de escritura resultan pouco intuitivas ou sobrecargadas, dificultando compartir e descubrir historias de forma sinxela.",
+                    "Desenvolvín o proxecto por completo, tanto a interface visual (cliente) coma o servidor.",
+                    "O resultado foi unha plataforma funcional que me permitiu consolidar coñecementos en React e bases de datos NoSQL, aplicables a proxectos reais."
                 ]
             },
             {
                 projectTitle : "A Tapa Celeste",
+                projectDate : "2025-07-31",
                 projectDesc : "🖥️ Web da peña celtista con eventos, fotos e merchandising.",
                 projectDescLong : "Web adicada a peña dos siareiros do Celta \"A Tapa Celeste\" que ofrece información sobre a peña, eventos, actividades, contactos, merchandising, imaxes dos nosos peñistas e demáis.",
                 projectTech : [
@@ -109,8 +112,33 @@ const gal : Translations = {
                 ]
             },
             {
+                projectTitle : "QR Vicus",
+                projectDate : "2025-01-09",
+                projectDesc : "📲 App móbil con QR para controlar accesos en ximnasios.",
+                projectDescLong : "Aplicación mobil para a xestión da entrada e saída de persoas en múltiples ximnasios de Vigo e cercanias, empregando códigos QR para un proceso rápido e eficiente.",
+                projectTech : [
+                    { name : "NativeScript", icon : "nativescript" },
+                    { name : "Angular", icon : "vscode-icons:file-type-angular" },
+                    { name : "TypeScript", icon : "vscode-icons:file-type-typescript" },
+                ],
+                projectGithub : "",
+                projectUrl : "https://play.google.com/store/apps/details?id=com.adealoxica.qrviscus&hl=es_419",
+                projectIcon : "proicons:globe",
+                projectInfo : "¡Visitalo aquí!",
+                projectImg : [
+                    { src : "/img/projects/qrvicusLog.webp", alt : "QR Vicus" },
+                ],
+                projectInformation : [
+                    "Máis de 500 descargas en múltiples ximnasios. Xestión completa de entradas, saídas e bonos de clientes.",
+                    "Os ximnasios perdían diñeiro con pulseiras magnéticas e Tags físicos. Un sistema caro e difícil de xestionar.",
+                    "Desenvolvín a interface visual completa, priorizando unha experiencia sinxela e intuitiva para o usuario final.",
+                    "Máis de 500 descargas e gran aceptación por parte do cliente, que eliminou por completo o custo das pulseiras."
+                ]
+            },
+            {
                 projectTitle : "My Reserve",
-                projectDesc : "✂️ Sistema dixital sinxelo para xestionar reservas en peluquerías.",
+                projectDate : "2024-12-21",
+                projectDesc : "Sistema dixital sinxelo para xestionar reservas en peluquerías.",
                 projectDescLong : "Proxecto deseñado para a xestión de reservas en peluquerías, reemprazando o método tradicional por un sistema dixitalizado, sencillo e intuitivo.",
                 projectTech : [
                     { name : ".NET", icon : "net" },
@@ -131,7 +159,7 @@ const gal : Translations = {
                     "Desenvolvín a interface visual completa e o servidor.",
                     "Un 9 no TFG e recoñecemento entre os mellores proxectos da promoción."
                 ]
-            }
+            },
         ],
         projectTech : "Tecnoloxías",
         projectInfoResult : ["Impacto", "O Problema", "Miña Contribución", "Resultado"],

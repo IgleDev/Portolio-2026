@@ -62,31 +62,34 @@ const en : Translations = {
         title : "Projects",
         projectList : [
             {
-                projectTitle : "QR Vicus",
-                projectDesc : "📲 Mobile QR app to manage gym access quickly.",
-                projectDescLong : "Mobile application for managing the check-in and check-out of people across multiple gyms in Vigo and nearby areas, using QR codes for a fast and efficient process.",
+                projectTitle : "Inkly",
+                projectDate : "2026-07-01",
+                projectDesc : "Digital platform to write, publish and discover stories.",
+                projectDescLong : "Project designed as a writing-focused social network, where users can create, share and explore stories from other authors in a simple and intuitive space.",
                 projectTech : [
-                    { name : "NativeScript", icon : "nativescript" },
-                    { name : "Angular", icon : "vscode-icons:file-type-angular" },
-                    { name : "TypeScript", icon : "vscode-icons:file-type-typescript" },
+                    { name : "React", icon : "vscode-icons:file-type-reactjs" },
+                    { name : "Node.js", icon : "vscode-icons:file-type-node" },
+                    { name : "Express", icon : "express" },
+                    { name : "MongoDB", icon : "vscode-icons:file-type-mongo"}
                 ],
-                projectGithub : "",
-                projectUrl : "https://play.google.com/store/apps/details?id=com.adealoxica.qrviscus&hl=es_419",
-                projectIcon : "proicons:globe",
-                projectInfo : "See it here!",
+                projectGithub : "https://github.com/IgleDev/Inkly",
+                projectUrl : "https://inkly-dev.vercel.app/",
+                projectIcon : "proicons:github",
+                projectInfo : "Check it out here!",
                 projectImg : [
-                    { src : "/img/projects/qrvicusLog.webp", alt : "QR Vicus" },
+                    { src : "/img/projects/inkly.webp", alt : "Inkly" },
                 ],
                 projectInformation : [
-                    "Over 500 downloads across multiple gyms. Full management of client check-ins, check-outs and membership bonuses.",
-                    "Gyms were losing money using magnetic wristbands and physical Tags. An expensive system that made bonus tracking a hassle.",
-                    "I developed the complete visual interface, prioritizing a simple and intuitive experience for the end user.",
-                    "Over 500 downloads and great client satisfaction, who completely eliminated the cost of physical wristbands."
+                    "I created Inkly to test and improve my React skills, combining it with MongoDB as the database.",
+                    "Many writing platforms are unintuitive or overloaded, making it hard to share and discover stories in a simple way.",
+                    "I developed the entire project myself, both the frontend interface and the server.",
+                    "The result was a fully functional platform that helped me consolidate my knowledge of React and NoSQL databases, applicable to real-world projects."
                 ]
             },
             {
                 projectTitle : "A Tapa Celeste",
-                projectDesc : "🖥️ Supporters club website with events, photos, and merchandising.",
+                projectDate : "2025-07-31",
+                projectDesc : "Supporters club website with events, photos, and merchandising.",
                 projectDescLong : "Website dedicated to the Celta supporters club \"A Tapa Celeste\", providing information about the group, events, activities, contact details, merchandising, photos of our members, and more.",
                 projectTech : [
                     { name : "React", icon : "vscode-icons:file-type-reactjs" },
@@ -109,8 +112,33 @@ const en : Translations = {
                 ]
             },
             {
+                projectTitle : "QR Vicus",
+                projectDate : "2025-01-09",
+                projectDesc : "Mobile QR app to manage gym access quickly.",
+                projectDescLong : "Mobile application for managing the check-in and check-out of people across multiple gyms in Vigo and nearby areas, using QR codes for a fast and efficient process.",
+                projectTech : [
+                    { name : "NativeScript", icon : "nativescript" },
+                    { name : "Angular", icon : "vscode-icons:file-type-angular" },
+                    { name : "TypeScript", icon : "vscode-icons:file-type-typescript" },
+                ],
+                projectGithub : "",
+                projectUrl : "https://play.google.com/store/apps/details?id=com.adealoxica.qrviscus&hl=es_419",
+                projectIcon : "proicons:globe",
+                projectInfo : "See it here!",
+                projectImg : [
+                    { src : "/img/projects/qrvicusLog.webp", alt : "QR Vicus" },
+                ],
+                projectInformation : [
+                    "Over 500 downloads across multiple gyms. Full management of client check-ins, check-outs and membership bonuses.",
+                    "Gyms were losing money using magnetic wristbands and physical Tags. An expensive system that made bonus tracking a hassle.",
+                    "I developed the complete visual interface, prioritizing a simple and intuitive experience for the end user.",
+                    "Over 500 downloads and great client satisfaction, who completely eliminated the cost of physical wristbands."
+                ]
+            },
+            {
                 projectTitle : "My Reserve",
-                projectDesc : "✂️ Simple digital system to manage hair salon bookings.",
+                projectDate : "2024-12-21",
+                projectDesc : "Simple digital system to manage hair salon bookings.",
                 projectDescLong : "Project designed for managing reservations in hair salons, replacing the traditional method with a digitalized, simple, and intuitive system.",
                 projectTech : [
                     { name : ".NET", icon : "net" },
@@ -131,7 +159,7 @@ const en : Translations = {
                     "I developed the complete visual interface and the server.",
                     "A 9/10 on the final project and recognition among the best projects of the class."
                 ]
-            }           
+            },
         ],
         projectTech : "Technologies",
         projectInfoResult : ["Impact", "The Problem", "My Contribution", "Result"],

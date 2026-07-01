@@ -23,6 +23,7 @@ export interface ProjectImage {
 
 export interface Project {
     projectTitle: string;
+    projectDate : string;
     projectDesc: string;
     projectDescLong: string;
     projectTech: ProjectTech[];
