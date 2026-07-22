@@ -10,8 +10,8 @@ const { t } = Astro.props
 ---
 
 <h2 class="text-3xl sm:text-3xl md:text-5xl lg:text-5xl font-titulos text-titulos text-center md:mt-10 xl:mt-10">{t.recomendation.title}</h2>
-<div class="flex flex-row w-full justify-center">
-    <div class="flex flex-row flex-wrap gap-6 justify-center px-4">
+<div class="w-full flex justify-center px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch justify-items-center max-w-6xl w-full">
         {t.recomendation.recomendationList.map((recomendation) => (
             <CardRecomendation recomendation={recomendation} />
         ))}

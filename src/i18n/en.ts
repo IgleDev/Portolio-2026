@@ -62,6 +62,30 @@ const en : Translations = {
         title : "Projects",
         projectList : [
             {
+                projectTitle : "Brétema Formación",
+                projectDate : "2026-07-21",
+                projectDesc: "Specialized online courses. Training designed to boost your digital skills.",
+                projectDescLong : "Specialized online courses and learning packs in Artificial Intelligence, Big Data, and Web Development. Learn at your own pace, earn your certificate, and let us take care of the rest. You just choose what you want to learn.",
+                projectTech : [
+                    { name : "Astro", icon : "vscode-icons:file-type-astro" },
+                    { name : "Typescript", icon : "vscode-icons:file-type-typescript" },
+                    { name : "Resend", icon : "resend" },
+                ],
+                projectGithub : "",
+                projectUrl : "https://formacion.bretemahr.com/",
+                projectIcon : "proicons:globe",
+                projectInfo : "Check it out here!",
+                projectImg : [
+                    { src : "/img/projects/bretemaformacion.webp", alt : "Bretema Formación" },
+                ],
+                projectInformation : [
+                    "I contributed to the development of Brétema HR's online learning platform, helping create a modern, intuitive, and user-focused experience.",
+                    "The goal was to provide a platform where anyone could easily access specialized training while simplifying the enrollment process and access to course content.",
+                    "I contributed to frontend development, feature integration, and UX/UI optimization, working closely with the client to tailor the platform to their needs.",
+                    "The result is a platform that enables Brétema HR to manage its training catalog and provide a professional learning experience for its students."
+                ]
+            },
+            {
                 projectTitle : "Inkly",
                 projectDate : "2026-07-01",
                 projectDesc : "Digital platform to write, publish and discover stories.",
@@ -277,14 +301,27 @@ const en : Translations = {
         title : "Recomendations",
         recomendationList : [
             {
-                img : 'https://media.licdn.com/dms/image/v2/D4D03AQEL2oZVfKfAsg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732008085356?e=1784160000&v=beta&t=JFPVnQ2FpNTwILkMnz0sbcLmRWM7rUqivdbE7FJVjXA',
+                img : 'https://media.licdn.com/dms/image/v2/D4D03AQEL2oZVfKfAsg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732008085356?e=1786579200&v=beta&t=hXrQ7NGHRte4w5uB5rqWiI8PQCg62ZoL8XQfzHxPCB4',
                 name : 'Jose Ramón Ríos Sieiro',
                 profession : 'Vocational Training Director at Montecastelo',
                 network : {
                     github : 'https://github.com/realramonrs',
                     linkedIn : 'https://www.linkedin.com/in/jose-ram%C3%B3n-r%C3%ADos-sieiro-24a80153/',
                 },
-                text : 'Former student at Montecastelo Vocational Training, he stood out for his work ethic, maturity, responsibility and good character. A person you can rely on.'
+                text : 'Former student at Montecastelo Vocational Training, he stood out for his work ethic, maturity, responsibility and good character. A person you can rely on.',
+                more : '',
+                less : ''
+            },
+            {
+               img : 'https://media.licdn.com/dms/image/v2/D5603AQGvK59Z54674w/profile-displayphoto-scale_400_400/B56Z6DzSdBGgAg-/0/1780327725236?e=1786579200&v=beta&t=mIxRGLDAH7WsvZs-iclOLafPRzw1-cJJf_rK2k9OG4A',
+               name : 'Alberto Pérez Penedo',
+               profession : 'CEO & HR Consultant/Headhunter',
+               network : {
+                linkedIn : 'https://www.linkedin.com/in/albertoperezpenedo/'
+               },
+               text : 'I had the opportunity to work with Adrián on the development of Brétema HRs online training landing page, and the experience was extremely positive. From the very beginning, he demonstrated great responsiveness, efficiency, and attention to detail, quickly understanding our needs and turning them into a clear, functional, and well-crafted solution. What stood out the most was his ability to explain technical concepts in a simple and understandable way, which is incredibly valuable for those of us without a technical background. He makes complex things easy to understand, suggests practical solutions, and pays close attention to every detail to ensure the final result perfectly matches the projects needs. A highly skilled, approachable, and solution-oriented professional. I would definitely recommend him!',
+               more : 'Read more',
+               less : 'Read less'
             }
         ]
     },

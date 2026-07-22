@@ -62,6 +62,30 @@ const es : Translations = {
         title : "Proyectos",
         projectList : [
             {
+                projectTitle : "Brétema Formación",
+                projectDate : "2026-07-21",
+                projectDesc: "Cursos en linea. Formación para impulsar tus competencias digitales.",
+                projectDescLong : "Cursos y packs en liena especializados en Inteligencia Artificial, Big Data y Desarrollo Web. Aprende a tu ritmo, obtén tu certificado y deja que nosotros nos encarguemos de todo. Tu solo escoge lo que quieres aprender.",
+                projectTech : [
+                    { name : "Astro", icon : "vscode-icons:file-type-astro" },
+                    { name : "Typescript", icon : "vscode-icons:file-type-typescript" },
+                    { name : "Resend", icon : "resend" },
+                ],
+                projectGithub : "",
+                projectUrl : "https://formacion.bretemahr.com/",
+                projectIcon : "proicons:globe",
+                projectInfo : "¡Encuentralo aquí!",
+                projectImg : [
+                    { src : "/img/projects/bretemaformacion.webp", alt : "Bretema Formación" },
+                ],
+                projectInformation: [
+                    "Colaboré en el desarrollo de la plataforma de formación online de Brétema HR, participando en la creación de una experiencia moderna, intuitiva y adaptada.",
+                    "El objetivo era ofrecer un espacio donde cualquier persona pudiera acceder fácilmente a formación especializada, simplificando el proceso y acceso a los contenidos.",
+                    "Contribuí al desarrollo del frontend, integración de funcionalidades y optimización del UX/UI, trabajando con el cliente para adaptar la plataforma a sus necesidades.",
+                    "El resultado fue una plataforma que permite gestionar la oferta formativa de Brétema HR y ofrecer una experiencia profesional a los estudiantes."
+                ]
+            },
+            {
                 projectTitle : "Inkly",
                 projectDate : "2026-07-01",
                 projectDesc : "Plataforma digital para escribir, publicar y descubrir historias.",
@@ -277,14 +301,27 @@ const es : Translations = {
         title : "Recomendaciones",
         recomendationList : [
             {
-                img : 'https://media.licdn.com/dms/image/v2/D4D03AQEL2oZVfKfAsg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732008085356?e=1784160000&v=beta&t=JFPVnQ2FpNTwILkMnz0sbcLmRWM7rUqivdbE7FJVjXA',
+                img : 'https://media.licdn.com/dms/image/v2/D4D03AQEL2oZVfKfAsg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732008085356?e=1786579200&v=beta&t=hXrQ7NGHRte4w5uB5rqWiI8PQCg62ZoL8XQfzHxPCB4',
                 name : 'Jose Ramón Ríos Sieiro',
                 profession : 'Director Formación Profesional Montecastelo',
                 network : {
                     github : 'https://github.com/realramonrs',
                     linkedIn : 'https://www.linkedin.com/in/jose-ram%C3%B3n-r%C3%ADos-sieiro-24a80153/',
                 },
-                text : 'Antiguo alumno de FP Montecastelo, destacó por su trabajo, madurez, responsabilidad y buen carácter. Persona en la que se puede confiar.'
+                text : 'Antiguo alumno de FP Montecastelo, destacó por su trabajo, madurez, responsabilidad y buen carácter. Persona en la que se puede confiar.',
+                more : '',
+                less : ''
+            },
+            {
+               img : 'https://media.licdn.com/dms/image/v2/D5603AQGvK59Z54674w/profile-displayphoto-scale_400_400/B56Z6DzSdBGgAg-/0/1780327725236?e=1786579200&v=beta&t=mIxRGLDAH7WsvZs-iclOLafPRzw1-cJJf_rK2k9OG4A',
+               name : 'Alberto Pérez Penedo',
+               profession : 'CEO & HR Consultant/Headhunter',
+               network : {
+                linkedIn : 'https://www.linkedin.com/in/albertoperezpenedo/'
+               },
+               text : 'He tenido la oportunidad de trabajar con Adrián en el desarrollo de la landing page de formación online de Brétema HR y la experiencia ha sido muy positiva. Desde el primer momento mostró una gran atención, rapidez y eficiencia, entendiendo lo que necesitábamos y llevándolo a una solución clara, funcional y cuidada. Destacaría especialmente su capacidad para explicar la parte técnica de forma sencilla, algo muy valioso cuando quienes estamos al otro lado no tenemos un perfil técnico. Hace fácil lo complejo, propone soluciones y cuida los detalles para que el resultado final encaje con lo que el proyecto necesita. Un profesional resolutivo, cercano y muy recomendable!!',
+               more : 'Leer más',
+               less : 'Leer menos'
             }
         ],
     },

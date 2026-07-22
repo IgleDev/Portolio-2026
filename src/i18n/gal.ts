@@ -62,8 +62,32 @@ const gal : Translations = {
         title : "Proxectos",
         projectList : [
             {
+                projectTitle : "Brétema Formación",
+                projectDate : "2026-07-21",
+                projectDesc: "Cursos en liña. Formación para impulsar as túas competencias dixitais.",
+                projectDescLong : "Cursos e packs en liña especializados en Intelixencia Artificial, Big Data e Desenvolvemento Web. Aprende ao teu ritmo, obtén o teu certificado e deixa que nós nos encarguemos de todo. Ti só escolles o que queres aprender.",
+                projectTech : [
+                    { name : "Astro", icon : "vscode-icons:file-type-astro" },
+                    { name : "Typescript", icon : "vscode-icons:file-type-typescript" },
+                    { name : "Resend", icon : "resend" },
+                ],
+                projectGithub : "",
+                projectUrl : "https://formacion.bretemahr.com/",
+                projectIcon : "proicons:globe",
+                projectInfo : "Atópao aquí!",
+                projectImg : [
+                    { src : "/img/projects/bretemaformacion.webp", alt : "Bretema Formación" },
+                ],
+                projectInformation : [
+                    "Colaborei no desenvolvemento da plataforma de formación en liña de Brétema HR, participando na creación dunha experiencia moderna, intuitiva e adaptada.",
+                    "O obxectivo era ofrecer un espazo onde calquera persoa puidese acceder facilmente a formación especializada, simplificando o proceso e o acceso aos contidos.",
+                    "Contribuín ao desenvolvemento do frontend, á integración de funcionalidades e á optimización da UX/UI, traballando co cliente para adaptar a plataforma ás súas necesidades.",
+                    "O resultado foi unha plataforma que permite xestionar a oferta formativa de Brétema HR e ofrecer unha experiencia profesional ao alumnado."
+                ]
+            },
+            {
                 projectTitle : "Inkly",
-                projectDate : "2025-07-01",
+                projectDate : "2026-07-01",
                 projectDesc : "Plataforma dixital para escribir, publicar e descubrir historias.",
                 projectDescLong : "Proxecto deseñado como rede social de escritura, onde os usuarios poden crear, compartir e explorar historias doutros autores nun espazo sinxelo e intuitivo.",
                 projectTech : [
@@ -277,14 +301,27 @@ const gal : Translations = {
         title : "Recomendacións",
         recomendationList : [
             {
-                img : 'https://media.licdn.com/dms/image/v2/D4D03AQEL2oZVfKfAsg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732008085356?e=1784160000&v=beta&t=JFPVnQ2FpNTwILkMnz0sbcLmRWM7rUqivdbE7FJVjXA',
+                img : 'https://media.licdn.com/dms/image/v2/D4D03AQEL2oZVfKfAsg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732008085356?e=1786579200&v=beta&t=hXrQ7NGHRte4w5uB5rqWiI8PQCg62ZoL8XQfzHxPCB4',
                 name : 'Jose Ramón Ríos Sieiro',
                 profession : 'Director Formación Profesional Montecastelo',
                 network : {
                     github : 'https://github.com/realramonrs',
                     linkedIn : 'https://www.linkedin.com/in/jose-ram%C3%B3n-r%C3%ADos-sieiro-24a80153/',
                 },
-                text : 'Antigo alumno de FP Montecastelo, destacou polo seu traballo, madurez, responsabilidade e bo carácter. Unha persoa na que se pode confiar.'
+                text : 'Antigo alumno de FP Montecastelo, destacou polo seu traballo, madurez, responsabilidade e bo carácter. Unha persoa na que se pode confiar.',
+                more : '',
+                less : ''
+            }, 
+            {
+               img : 'https://media.licdn.com/dms/image/v2/D5603AQGvK59Z54674w/profile-displayphoto-scale_400_400/B56Z6DzSdBGgAg-/0/1780327725236?e=1786579200&v=beta&t=mIxRGLDAH7WsvZs-iclOLafPRzw1-cJJf_rK2k9OG4A',
+               name : 'Alberto Pérez Penedo',
+               profession : 'CEO & HR Consultant/Headhunter',
+               network : {
+                linkedIn : 'https://www.linkedin.com/in/albertoperezpenedo/'
+               },
+               text : 'Tiven a oportunidade de traballar con Adrián no desenvolvemento da landing page de formación en liña de Brétema HR, e a experiencia foi moi positiva. Dende o primeiro momento amosou unha grande atención, rapidez e eficiencia, entendendo perfectamente o que precisabamos e transformándoo nunha solución clara, funcional e ben coidada. Destacaría especialmente a súa capacidade para explicar a parte técnica dun xeito sinxelo e comprensible, algo moi valioso para quen non temos un perfil técnico. Fai doado o complexo, propón solucións e coida cada detalle para que o resultado final encaixe perfectamente coas necesidades do proxecto. Un profesional resolutivo, próximo e moi recomendable!',
+               more : 'Ler maís',
+               less : 'Ler menos',
             }
         ]
     },

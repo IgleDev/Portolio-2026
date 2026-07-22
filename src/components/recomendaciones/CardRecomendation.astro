@@ -1,12 +1,11 @@
 ---
 import { Image } from 'astro:assets'
-import type { iRecomendationList } from '@/types'
+import type { iRecomendationList, Translations } from '@/types'
 import { Icon } from "astro-icon/components";
 
 interface Props {
     recomendation : iRecomendationList
 }
-
 
 const { recomendation } = Astro.props;
 
@@ -16,9 +15,11 @@ const buttonConfig : Record<string, { href: string; target?: string; icon: strin
 };
 ---
 
-<div class="flex flex-row mt-15">
-    <div class="flex flex-col items-center justify-center w-86">
+<div class="flex flex-row mt-15 mx-2 mb-6 h-full">
+    <div class="flex flex-col items-center w-86 h-full bg-white/5 rounded-2xl p-6">
+
         <Image src={recomendation.img} width={400} height={500} alt="About me" class="w-32 md:w-32 xl:w-40 rounded-full shrink-0"/>
+
         <div class="flex gap-4 mt-5 flex-wrap">
             {Object.entries(recomendation.network).map(([key]) => (
                 <a {...buttonConfig[key]} aria-label={key} class="text-titulos px-4 py-2 xl:px-6 xl:py-2 flex items-center font-semibold">
@@ -26,12 +27,92 @@ const buttonConfig : Record<string, { href: string; target?: string; icon: strin
                 </a>
             ))}
         </div>
+
         <div class="text-center">
-            <h3 class="text-titulos text-xl mt-5">{recomendation.name}</h3>  
+            <h3 class="text-titulos text-xl mt-5">{recomendation.name}</h3>
             <p class="text-titulos text-2xl font-bold mt-2">{recomendation.profession}</p>
         </div>
-        <div class="text-wrap m-5">
-            <p class="text-lg"><i>"{recomendation.text}"</i></p>
+
+        <div class="w-full flex flex-col items-center mt-2">
+            <p class="text-lg text-center text-clamp" data-text data-expanded="false">
+                <i>"{recomendation.text}"</i>
+            </p>
+            <button
+                type="button"
+                class="read-more-btn hidden text-titulos font-semibold mt-2 underline text-sm cursor-pointer"
+                data-toggle
+                data-read-more={recomendation.more}
+                data-read-less={recomendation.less}
+            >
+                {recomendation.more}
+            </button>
         </div>
+
+        <div class="flex-1"></div>
     </div>
 </div>
+
+<style>
+    .text-clamp {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .text-clamp.expanded {
+        -webkit-line-clamp: unset;
+        overflow: visible;
+    }
+</style>
+
+<script>
+    function checkOverflow(textEl: HTMLElement, btn: HTMLButtonElement) {
+        const wasExpanded = textEl.classList.contains('expanded');
+        if (wasExpanded) textEl.classList.remove('expanded');
+
+        const isOverflowing = textEl.scrollHeight > textEl.clientHeight + 1;
+        btn.classList.toggle('hidden', !isOverflowing);
+
+        if (wasExpanded) textEl.classList.add('expanded');
+    }
+
+    function setupReadMore() {
+        const textEls = document.querySelectorAll<HTMLElement>('[data-text]');
+
+        textEls.forEach((textEl) => {
+            const wrapper = textEl.parentElement;
+            const btn = wrapper?.querySelector<HTMLButtonElement>('[data-toggle]');
+            if (!btn) return;
+
+            checkOverflow(textEl, btn);
+
+            // evitamos enganchar o listener máis dunha vez no mesmo botón
+            if (btn.dataset.bound === 'true') return;
+            btn.dataset.bound = 'true';
+
+            const readMoreLabel = btn.dataset.readMore ?? '';
+            const readLessLabel = btn.dataset.readLess ?? '';
+
+            window.addEventListener('load', () => checkOverflow(textEl, btn));
+
+            const ro = new ResizeObserver(() => checkOverflow(textEl, btn));
+            ro.observe(textEl);
+
+            btn.addEventListener('click', () => {
+                const expanded = textEl.getAttribute('data-expanded') === 'true';
+                if (expanded) {
+                    textEl.classList.remove('expanded');
+                    textEl.setAttribute('data-expanded', 'false');
+                    btn.textContent = readMoreLabel;
+                } else {
+                    textEl.classList.add('expanded');
+                    textEl.setAttribute('data-expanded', 'true');
+                    btn.textContent = readLessLabel;
+                }
+            });
+        });
+    }
+
+    document.addEventListener('astro:page-load', setupReadMore);
+    setupReadMore();
+</script>

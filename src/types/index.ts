@@ -122,7 +122,9 @@ export interface iRecomendationList {
     name : string,
     profession : string,
     network : iNetwork,
-    text : string
+    text : string,
+    more : string,
+    less : string,
 }
 
 interface iNetwork {
