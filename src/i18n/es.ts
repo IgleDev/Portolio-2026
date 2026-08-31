@@ -301,7 +301,7 @@ const es : Translations = {
         title : "Recomendaciones",
         recomendationList : [
             {
-                img : 'https://media.licdn.com/dms/image/v2/D4D03AQEL2oZVfKfAsg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732008085356?e=1786579200&v=beta&t=hXrQ7NGHRte4w5uB5rqWiI8PQCg62ZoL8XQfzHxPCB4',
+                img : '/img/recomendation/jose-ramon.webp',
                 name : 'Jose Ramón Ríos Sieiro',
                 profession : 'Director Formación Profesional Montecastelo',
                 network : {
@@ -313,7 +313,7 @@ const es : Translations = {
                 less : ''
             },
             {
-               img : 'https://media.licdn.com/dms/image/v2/D5603AQGvK59Z54674w/profile-displayphoto-scale_400_400/B56Z6DzSdBGgAg-/0/1780327725236?e=1786579200&v=beta&t=mIxRGLDAH7WsvZs-iclOLafPRzw1-cJJf_rK2k9OG4A',
+               img : '/img/recomendation/alberto-perez.webp',
                name : 'Alberto Pérez Penedo',
                profession : 'CEO & HR Consultant/Headhunter',
                network : {
