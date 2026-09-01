@@ -1,0 +1,35 @@
+---
+import Layout404 from "@/layouts/404Layout.astro";
+import es from "@/i18n/es";
+---
+
+<Layout404 lang="es" t={es}>
+    <div class="flex flex-col items-center justify-center px-4 sm:px-6 w-full">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-8 sm:gap-12 lg:gap-24 w-full">
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                <h1 class="text-[6rem] sm:text-[8rem] lg:text-[10rem] xl:text-[12rem] leading-none font-bold text-titulos font-titulos">
+                    404
+                </h1>
+
+                <p class="mt-4 sm:mt-6 text-2xl sm:text-3xl lg:text-4xl font-semibold text-titulos">
+                    PÁGINA NO ENCONTRADA
+                </p>
+            </div>
+
+            <div class="flex items-center justify-center w-full md:w-auto">
+                <img
+                    src="/img/404.webp"
+                    alt="Página no encontrada"
+                    class="w-full max-w-70 sm:max-w-87.5 md:max-w-[40vw] lg:max-w-[45vw] min-w-0"
+                />
+            </div>
+        </div>
+
+        <a
+            href="/es"
+            class="mt-8 sm:mt-10 lg:mt-12 bg-titulos text-white px-4 py-2 xl:px-6 xl:py-3 rounded-full flex items-center font-semibold hover:bg-[#333333] transition-colors text-sm sm:text-base"
+        >
+            IR AL INICIO
+        </a>
+    </div>
+</Layout404>

@@ -13,7 +13,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-
+  
   i18n : {
     defaultLocale : 'es',
     locales : ['es', 'gal', 'en'],
@@ -21,6 +21,5 @@ export default defineConfig({
       prefixDefaultLocale : false,
     }
   },
-
   integrations: [icon(), webcore()]
 });

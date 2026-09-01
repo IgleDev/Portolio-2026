@@ -20,6 +20,10 @@ export const defaultRedirect = "/es";
 const lang = Astro.params.lang as Language;
 const translations = { es, gal, en };
 const t = translations[lang];
+
+if(!t) {
+  return Astro.redirect('/404');
+}
 ---
 
 <MainLayout isIndex={true} lang={lang} t={t}>
