@@ -325,6 +325,14 @@ const gal : Translations = {
             }
         ]
     },
+    comunidad : {
+        title : "Comunidade",
+        desc : "¡Únete á comunidade de Vigo404 e forma parte dun grupo de persoas apasionadas pola tecnoloxía!",
+        play : "Xogar",
+        close : "Pechar",
+        join : "Unirse",
+        ayuda : "Preme espazo ou toca a pantalla para saltar"
+    },
     about : {
         title : "Sobre min",
         desc : [

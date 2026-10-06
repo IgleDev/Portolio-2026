@@ -325,6 +325,14 @@ const en : Translations = {
             }
         ]
     },
+    comunidad : {
+        title : "Community",
+        desc : "Join the Vigo404 community and become part of a group of people passionate about technology!",
+        play : "Play",
+        close : "Close",
+        join : "Join",
+        ayuda : "Press space or tap the screen to jump"
+    },
     about : {
         title : "About me",
         desc : [

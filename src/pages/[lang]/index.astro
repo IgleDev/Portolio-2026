@@ -2,13 +2,14 @@
 import es from "@/i18n/es";
 import en from "@/i18n/en";
 import gal from "@/i18n/gal";
-import type { Language } from "@/types/language.type";
 import Hero from "@/components/Hero.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
-import Experiencia from "@/components/experiencia/Experiencia.astro";
+import type { Language } from "@/types/language.type";
+import Aboutme from "@/components/about/Aboutme.astro";
 import Proyectos from "@/components/proyectos/Proyectos.astro";
 import Education from "@/components/education/Education.astro";
-import Aboutme from "@/components/about/Aboutme.astro";
+import Communityrunner from "@/components/Communityrunner.astro";
+import Experiencia from "@/components/experiencia/Experiencia.astro";
 import Recomendaciones from "@/components/recomendaciones/Recomendaciones.astro";
 
 export function getStaticPaths() {
@@ -37,10 +38,13 @@ if(!t) {
   <section id="educacion" class="mt-30">
     <Education t={t} />
   </section>
-   <section id="recomendaciones" class="mt-20">
+  <section id="recomendaciones" class="mt-20">
     <Recomendaciones t={t} />
   </section>
-  <section id="sobre-mi" class="mt-20 bg-titulos p-0">
+  <section>
+    <Communityrunner t={t} />
+  </section>
+  <section id="sobre-mi" class="bg-titulos p-0">
     <Aboutme t={t} />
   </section>
 </MainLayout>

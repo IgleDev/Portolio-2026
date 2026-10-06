@@ -1,238 +1,281 @@
 ---
+import type { Translations } from '@/types';
+
 interface Props {
-    title?: string;
-    text?: string;
-    ctaLabel?: string;
-    ctaHref?: string;
-    hint?: string;
+    t: Translations;
 }
-const {
-    title = "Comunidade",
-    text = "Únete e forma parte de Vigo404.",
-    ctaLabel = "Únete",
-    ctaHref = "#",
-    hint = "Preme espazo ou toca a pantalla para saltar",
-} = Astro.props;
+
+const { t } = Astro.props;
+
+const BODY = [
+    "........XXXXXXX.",
+    "........XX.XXXXX",
+    "........XXXXXXXX",
+    "........XXXXXXXX",
+    "........XXXXX...",
+    "X.......XXXX....",
+    "X......XXXXXX.X.",
+    "XX....XXXXXXXXX.",
+    "XXX..XXXXXXXXX..",
+    "XXXXXXXXXXXXX...",
+    ".XXXXXXXXXXXX...",
+    "..XXXXXXXXXX....",
+    "...XXXXXXXX.....",
+];
+const LEGS = [
+    ["....XXX..XXX....", "....XX..........."],
+    ["....XXX..XXX....", "..........XX...."],
+];
+
+const rects = [...BODY, ...LEGS[0]].flatMap((row, y) =>
+    [...row].flatMap((c, x) => (c === "X" ? [{ x, y }] : []))
+);
+const sprite = JSON.stringify({ body: BODY, legs: LEGS });
 ---
 
-<section class="vigo-runner" data-runner>
+<article class="vigo-dino" data-dino={sprite}>
     <div class="mx-auto max-w-3xl px-6 py-16 lg:py-24 flex flex-col items-center text-center gap-6">
-        <h2 class="font-titulos font-bold text-4xl lg:text-5xl">{title}</h2>
-        <p class="text-lg lg:text-xl leading-relaxed max-w-prose">{text}</p>
+        <svg viewBox="0 0 926 640" class="w-48 lg:w-72 h-auto" role="img"
+            aria-label="Dinosaurio con portátil" shape-rendering="crispEdges">
+            <path fill="var(--runner-accent)" fill-rule="evenodd" d="M273 635L172 635L172 626L172 616L141 616L110 616L110 606L110 596L89 596L68 596L68 586L68 575L58 575L47 575L47 564L47 554L37 554L27 554L27 543L27 532L16 532L6 532L6 502L6 473L17 473L28 473L28 484L28 495L48 495L67 495L67 506L67 517L109 517L151 517L151 506L151 495L161 495L171 495L171 481L171 467L181 467L191 467L191 446L191 425L201 425L211 425L211 408L211 391L220 391L230 391L230 380L230 370L238 370L246 370L246 362L246 355L254 355L262 355L262 344L262 333L272 333L283 333L283 322L283 310L293 310L303 310L303 288L303 266L313 266L323 266L323 234L323 202L334 202L344 202L344 175L344 148L354 148L364 148L364 132L364 115L354 115L343 115L343 104L343 93L332 93L322 93L322 72L322 52L344 52L367 52L367 72L367 92L374 92L382 92L382 72L382 52L391 52L400 52L400 40L400 29L410 29L421 29L421 18L421 7L512 7L604 7L604 18L604 29L616 29L627 29L627 40L627 51L638 51L648 51L648 68L648 85L681 85L714 85L714 96L714 107L724 107L735 107L735 164L735 220L636 220L536 220L536 210L536 199L525 199L514 199L514 210L514 221L524 221L535 221L535 232L535 243L603 243L671 243L671 254L671 265L638 265L604 265L604 276L604 287L543 287L482 287L482 354L482 422L494 422L506 422L506 432L506 443L526 443L547 443L547 454L547 466L558 466L569 466L569 484L569 503L550 503L532 503L532 492L532 482L518 482L504 482L504 473L504 464L494 464L483 464L483 455L483 446L456 446L429 446L429 456L429 467L456 467L482 467L482 478L482 489L492 489L501 489L501 504L501 518L472 518L443 518L443 504L443 490L432 490L421 490L421 523L421 556L409 556L397 556L397 570L397 584L386 584L374 584L374 610L374 635L273 635ZM615 633L399 633L399 623L399 613L411 613L423 613L423 594L423 575L496 575L568 575L568 568L568 560L576 560L583 560L583 530L583 500L590 500L598 500L598 473L598 446L606 446L614 446L614 420L614 394L622 394L629 394L629 386L629 379L636 379L642 379L642 372L642 364L782 364L921 364L921 382L921 401L914 401L906 401L906 423L906 445L898 445L891 445L891 471L891 497L884 497L876 497L876 520L876 542L868 542L861 542L861 560L861 579L854 579L846 579L846 596L846 613L838 613L831 613L831 623L831 633L615 633ZM730 545L740 545L740 538L740 530L742 530L744 530L744 522L744 515L746 515L749 515L749 507L749 499L752 499L754 499L754 490L754 481L756 481L758 481L758 472L758 464L760 464L763 464L763 456L763 449L764 449L766 449L766 439L766 429L756 429L747 429L747 437L747 445L745 445L743 445L743 454L743 462L740 462L737 462L737 470L737 479L736 479L734 479L734 488L734 496L732 496L729 496L729 504L729 511L727 511L725 511L725 520L725 528L723 528L721 528L721 536L721 545L730 545ZM790 531L799 531L799 523L799 515L806 515L814 515L814 508L814 501L822 501L830 501L830 488L830 475L822 475L814 475L814 468L814 460L806 460L799 460L799 452L799 445L790 445L781 445L781 455L781 465L788 465L796 465L796 473L796 481L803 481L810 481L810 488L810 496L803 496L796 496L796 504L796 511L788 511L781 511L781 521L781 531L790 531ZM698 530L707 530L707 520L707 511L700 511L692 511L692 503L692 495L684 495L677 495L677 488L677 480L684 480L692 480L692 472L692 465L700 465L707 465L707 456L707 446L698 446L690 446L690 453L690 460L682 460L675 460L675 468L675 476L667 476L659 476L659 488L659 501L667 501L675 501L675 508L675 516L682 516L690 516L690 523L690 530L698 530ZM252 332L239 332L239 319L239 306L252 306L265 306L265 319L265 332L252 332ZM282 265L261 265L261 244L261 223L282 223L303 223L303 244L303 265L282 265ZM313 193L303 193L303 183L303 173L292 173L282 173L282 154L282 135L308 135L334 135L334 154L334 173L328 173L323 173L323 183L323 193L313 193ZM703 159L714 159L714 148L714 137L703 137L692 137L692 148L692 159L703 159ZM517 141L530 141L530 120L530 100L517 100L504 100L504 120L504 141L517 141Z" />
+        </svg>
 
-        <canvas
-            tabindex="0"
-            aria-label="Xogo: o polbo salta as boias. Espazo ou frecha arriba para saltar."
-            class="w-full h-auto cursor-pointer rounded-xl outline-none"></canvas>
-        <p class="text-sm opacity-70">{hint}</p>
+        <h2 class="font-titulos font-bold text-4xl lg:text-5xl">{t.comunidad.title}</h2>
+        <p class="text-lg lg:text-xl leading-relaxed max-w-prose">{t.comunidad.desc}</p>
 
-        <a href={ctaHref} class="runner-cta font-bold px-6 py-2 rounded-full transition hover:opacity-80">
-            {ctaLabel}
-        </a>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="https://t.me/vigo404" target="_blank" class="btn btn-fill">{t.comunidad.join}</a>
+            <button
+                type="button"
+                class="btn btn-outline"
+                aria-expanded="false"
+                aria-controls="dino-game"
+                data-play
+                data-play-label={t.comunidad.play}
+                data-close-label={t.comunidad.close}>{t.comunidad.play}</button
+            >
+        </div>
+
+        <div id="dino-game" hidden class="w-full flex flex-col items-center gap-3">
+            <canvas
+                tabindex="0"
+                aria-label="Google Dino Game"
+                class="w-full h-auto cursor-pointer rounded-xl"></canvas>
+            <p class="text-sm opacity-70">{t.comunidad.ayuda}</p>
+        </div>
     </div>
-</section>
+</article>
 
 <style>
-    /* Cambia estas variables polas cores de Vigo404 */
-    .vigo-runner {
-        --runner-bg: #202124;
+    .vigo-dino {
+        --runner-bg: #222222;
         --runner-fg: #9aa0a6;
         --runner-hi: #e8eaed;
+        --runner-accent: #F2A73B;
         background: var(--runner-bg);
         color: var(--runner-hi);
+        border-bottom: 1px solid rgb(255 255 255 / 0.08);
     }
+    .ground {
+        fill: var(--runner-fg);
+    }
+    .btn {
+        font-weight: 700;
+        padding: 0.5rem 1.5rem;
+        border-radius: 9999px;
+        border: 2px solid var(--runner-hi);
+        transition: opacity 0.15s;
+        cursor: pointer;
+    }
+    .btn:hover {
+        opacity: 0.8;
+    }
+    .btn-fill {
+        background: var(--runner-hi);
+        color: var(--runner-bg);
+    }
+    .btn-outline {
+        background: transparent;
+        color: var(--runner-hi);
+    }
+    .btn:focus-visible,
     canvas:focus-visible {
         outline: 2px solid var(--runner-hi);
         outline-offset: 4px;
     }
-    .runner-cta {
-        background: var(--runner-hi);
-        color: var(--runner-bg);
-    }
 </style>
 
 <script>
-    const root = document.querySelector<HTMLElement>("[data-runner]")!;
-    const canvas = root.querySelector("canvas")!;
-    const ctx = canvas.getContext("2d")!;
+    document.addEventListener("astro:page-load", () => {
+        const root = document.querySelector<HTMLElement>("[data-dino]");
+        if (!root) return;
+        if (root.dataset.initialized === "true") return;
+        root.dataset.initialized = "true";
+        const panel = root.querySelector<HTMLElement>("#dino-game")!;
+        const playBtn = root.querySelector<HTMLButtonElement>("[data-play]")!;
+        const canvas = root.querySelector("canvas")!;
+        const ctx = canvas.getContext("2d")!;
+        const { body: BODY, legs: LEGS } = JSON.parse(root.dataset.dino!) as {
+            body: string[];
+            legs: string[][];
+        };
 
-    const W = 600, H = 160, GROUND = H - 28, S = 4;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = W * dpr;
-    canvas.height = H * dpr;
-    ctx.scale(dpr, dpr);
+        const W = 600, H = 160, GROUND = H - 28, DS = 3, BS = 4;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        ctx.scale(dpr, dpr);
 
-    const css = getComputedStyle(root);
-    const BG = css.getPropertyValue("--runner-bg").trim() || "#202124";
-    const FG = css.getPropertyValue("--runner-fg").trim() || "#9aa0a6";
-    const HI = css.getPropertyValue("--runner-hi").trim() || "#e8eaed";
-    const FONT = css.fontFamily;
+        const css = getComputedStyle(root);
+        const BG = css.getPropertyValue("--runner-bg").trim() || "#202124";
+        const FG = css.getPropertyValue("--runner-fg").trim() || "#9aa0a6";
+        const HI = css.getPropertyValue("--runner-hi").trim() || "#e8eaed";
+        const FONT = css.fontFamily;
 
-    // Sprites: X = píxel, . = oco
-    const POLBO = [
-        "....XXXX....",
-        "...XXXXXX...",
-        "..XXXXXXXX..",
-        "..XX.XX.XX..",
-        "..XXXXXXXX..",
-        "..XXXXXXXX..",
-        "...XXXXXX...",
-        "..XXXXXXXX..",
-    ];
-    const LEGS = [
-        [".XX.XX.XX.XX", ".X..X..X..X."],
-        ["XX.XX.XX.XX.", ".X..X..X...X"],
-    ];
-    const BOIA = [
-        "...X...",
-        "...X...",
-        ".XXXXX.",
-        "XXXXXXX",
-        "XX...XX",
-        "XXXXXXX",
-        ".XXXXX.",
-        "..XXX..",
-    ];
+        const BOIA = [
+            "...X...",
+            "...X...",
+            ".XXXXX.",
+            "XXXXXXX",
+            "XX...XX",
+            "XXXXXXX",
+            ".XXXXX.",
+            "..XXX..",
+        ];
 
-    const PW = 12 * S, PH = (POLBO.length + 2) * S, PX = 40;
-    const OW = 7 * S, OH = BOIA.length * S;
+        const PW = 16 * DS, PH = (BODY.length + 2) * DS, PX = 40;
+        const OW = 7 * BS, OH = BOIA.length * BS;
 
-    type Obstacle = { x: number; n: number };
-    let state: "idle" | "run" | "over" = "idle";
-    let y = GROUND - PH, vy = 0, speed = 6, score = 0, offset = 0, frameN = 0;
-    let obstacles: Obstacle[] = [];
-    let untilSpawn = 300, last = 0, raf = 0;
-    let hi = 0;
-    try { hi = Number(localStorage.getItem("vigo-runner-hi")) || 0; } catch {}
+        type Obstacle = { x: number; n: number };
+        let state: "idle" | "run" | "over" = "idle";
+        let y = GROUND - PH, vy = 0, speed = 6, score = 0, offset = 0, frameN = 0;
+        let obstacles: Obstacle[] = [];
+        let untilSpawn = 300, last = 0, raf = 0, hi = 0;
+        try { hi = Number(localStorage.getItem("vigo-runner-hi")) || 0; } catch {}
 
-    function sprite(rows: string[], x: number, yy: number) {
-        for (let j = 0; j < rows.length; j++)
-            for (let i = 0; i < rows[j].length; i++)
-                if (rows[j][i] === "X") ctx.fillRect(x + i * S, yy + j * S, S, S);
-    }
-
-    function reset() {
-        y = GROUND - PH; vy = 0; speed = 6; score = 0; obstacles = []; untilSpawn = 300;
-    }
-
-    function jump() {
-        if (y >= GROUND - PH) vy = -9.5;
-    }
-
-    function input() {
-        if (state === "run") return jump();
-        reset();
-        state = "run";
-        last = performance.now();
-        raf = requestAnimationFrame(frame);
-    }
-
-    function hit(o: Obstacle) {
-        const ox = o.x + 4, ow = o.n * OW - 8;
-        return PX + 6 < ox + ow && PX + PW - 6 > ox && y + PH - 4 > GROUND - OH + 4;
-    }
-
-    function update(k: number) {
-        vy += 0.55 * k;
-        y = Math.min(y + vy * k, GROUND - PH);
-        if (y >= GROUND - PH) vy = 0;
-
-        speed = Math.min(14, speed + 0.002 * k);
-        offset -= speed * k;
-        score += speed * k * 0.05;
-        frameN += k;
-
-        untilSpawn -= speed * k;
-        if (untilSpawn <= 0) {
-            obstacles.push({ x: W + 20, n: Math.random() < 0.3 ? 2 : 1 });
-            untilSpawn = 260 + Math.random() * 260;
+        function sprite(rows: string[], x: number, yy: number, s: number) {
+            for (let j = 0; j < rows.length; j++)
+                for (let i = 0; i < rows[j].length; i++)
+                    if (rows[j][i] === "X") ctx.fillRect(x + i * s, yy + j * s, s, s);
         }
-        obstacles.forEach((o) => (o.x -= speed * k));
-        obstacles = obstacles.filter((o) => o.x > -OW * 2);
 
-        if (obstacles.some(hit)) {
-            state = "over";
-            if (score > hi) {
-                hi = score;
-                try { localStorage.setItem("vigo-runner-hi", String(Math.floor(hi))); } catch {}
+        function reset() {
+            y = GROUND - PH; vy = 0; speed = 6; score = 0; obstacles = []; untilSpawn = 300;
+        }
+
+        function input() {
+            if (state === "run") {
+                if (y >= GROUND - PH) vy = -9.5;
+                return;
+            }
+            reset();
+            state = "run";
+            last = performance.now();
+            raf = requestAnimationFrame(frame);
+        }
+
+        function hit(o: Obstacle) {
+            const ox = o.x + 4, ow = o.n * OW - 8;
+            return PX + 6 < ox + ow && PX + PW - 6 > ox && y + PH - 4 > GROUND - OH + 4;
+        }
+
+        function update(k: number) {
+            vy += 0.55 * k;
+            y = Math.min(y + vy * k, GROUND - PH);
+            if (y >= GROUND - PH) vy = 0;
+
+            speed = Math.min(14, speed + 0.002 * k);
+            offset -= speed * k;
+            score += speed * k * 0.05;
+            frameN += k;
+
+            untilSpawn -= speed * k;
+            if (untilSpawn <= 0) {
+                obstacles.push({ x: W + 20, n: Math.random() < 0.3 ? 2 : 1 });
+                untilSpawn = 260 + Math.random() * 260;
+            }
+            obstacles.forEach((o) => (o.x -= speed * k));
+            obstacles = obstacles.filter((o) => o.x > -OW * 2);
+
+            if (obstacles.some(hit)) {
+                state = "over";
+                if (score > hi) {
+                    hi = score;
+                    try { localStorage.setItem("vigo-runner-hi", String(Math.floor(hi))); } catch {}
+                }
             }
         }
-    }
 
-    function render() {
-        ctx.fillStyle = BG;
-        ctx.fillRect(0, 0, W, H);
+        function render() {
+            ctx.fillStyle = BG;
+            ctx.fillRect(0, 0, W, H);
 
-        // chan
-        ctx.fillStyle = FG;
-        ctx.fillRect(0, GROUND, W, 2);
-        for (let i = 0; i < 8; i++) {
-            const x = (((i * 83 + offset) % W) + W) % W;
-            ctx.fillRect(x, GROUND + 8 + (i % 3) * 5, 6 + (i % 2) * 6, 2);
-        }
+            ctx.fillStyle = FG;
+            ctx.fillRect(0, GROUND, W, 2);
+            for (let i = 0; i < 8; i++) {
+                const x = (((i * 83 + offset) % W) + W) % W;
+                ctx.fillRect(x, GROUND + 8 + (i % 3) * 5, 6 + (i % 2) * 6, 2);
+            }
 
-        // obstáculos
-        obstacles.forEach((o) => {
-            for (let n = 0; n < o.n; n++) sprite(BOIA, o.x + n * OW, GROUND - OH);
-        });
+            obstacles.forEach((o) => {
+                for (let n = 0; n < o.n; n++) sprite(BOIA, o.x + n * OW, GROUND - OH, BS);
+            });
 
-        // polbo
-        ctx.fillStyle = HI;
-        const onGround = y >= GROUND - PH;
-        const f = state === "run" && onGround ? Math.floor(frameN / 6) % 2 : 0;
-        sprite(POLBO, PX, y);
-        sprite(LEGS[f], PX, y + POLBO.length * S);
-
-        // puntuación
-        ctx.fillStyle = FG;
-        ctx.font = `bold 14px ${FONT}`;
-        ctx.textAlign = "right";
-        const pad = (n: number) => String(Math.floor(n)).padStart(5, "0");
-        ctx.fillText(`HI ${pad(hi)}   ${pad(score)}`, W - 12, 22);
-
-        ctx.textAlign = "center";
-        if (state === "over") {
             ctx.fillStyle = HI;
-            ctx.font = `bold 20px ${FONT}`;
-            ctx.fillText("FIN DO XOGO", W / 2, 62);
-            ctx.font = `14px ${FONT}`;
-            ctx.fillText("Preme para tentalo de novo", W / 2, 86);
-        } else if (state === "idle") {
-            ctx.fillStyle = HI;
-            ctx.font = `14px ${FONT}`;
-            ctx.fillText("Preme para comezar", W / 2, 70);
+            const onGround = y >= GROUND - PH;
+            const f = state === "run" && onGround ? Math.floor(frameN / 6) % LEGS.length : 0;
+            sprite(BODY, PX, y, DS);
+            sprite(LEGS[f] ?? LEGS[0], PX, y + BODY.length * DS, DS);
+
+            ctx.fillStyle = FG;
+            ctx.font = `bold 14px ${FONT}`;
+            ctx.textAlign = "right";
+            const pad = (n: number) => String(Math.floor(n)).padStart(5, "0");
+            ctx.fillText(`HI ${pad(hi)}   ${pad(score)}`, W - 12, 22);
         }
-    }
 
-    function frame(t: number) {
-        const k = Math.min((t - last) / 16.67, 3);
-        last = t;
-        update(k);
-        render();
-        if (state === "run") raf = requestAnimationFrame(frame);
-    }
-
-    canvas.addEventListener("keydown", (e) => {
-        if (e.code === "Space" || e.code === "ArrowUp") {
-            e.preventDefault();
-            input();
+        function frame(t: number) {
+            const k = Math.min((t - last) / 16.67, 3);
+            last = t;
+            update(k);
+            render();
+            if (state === "run") raf = requestAnimationFrame(frame);
         }
-    });
-    canvas.addEventListener("pointerdown", (e) => {
-        e.preventDefault();
-        canvas.focus();
-        input();
-    });
 
-    // para o xogo se a sección sae da pantalla
-    new IntersectionObserver(([entry]) => {
-        if (!entry.isIntersecting && state === "run") {
+        function stop() {
             cancelAnimationFrame(raf);
             state = "idle";
             reset();
             render();
         }
-    }).observe(root);
 
-    render();
+        playBtn.addEventListener("click", () => {
+            const opening = panel.hidden;
+            panel.hidden = !opening;
+            playBtn.setAttribute("aria-expanded", String(opening));
+            playBtn.textContent = opening ? playBtn.dataset.closeLabel! : playBtn.dataset.playLabel!;
+            if (opening) {
+                render();
+                canvas.focus();
+            } else {
+                stop();
+            }
+        });
+
+        canvas.addEventListener("keydown", (e) => {
+            if (e.code === "Space" || e.code === "ArrowUp") {
+                e.preventDefault();
+                input();
+            }
+        });
+        canvas.addEventListener("pointerdown", (e) => {
+            e.preventDefault();
+            canvas.focus();
+            input();
+        });
+
+        new IntersectionObserver(([entry]) => {
+            if (!entry.isIntersecting && state === "run") stop();
+        }).observe(root);
+    });
 </script>

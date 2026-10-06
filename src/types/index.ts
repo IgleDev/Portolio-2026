@@ -101,6 +101,14 @@ export interface Translations {
         title : string;
         recomendationList : iRecomendationList[];
     }
+    comunidad : {
+        title : string;
+        desc : string;
+        play : string;
+        close : string;
+        join : string;
+        ayuda : string;
+    }
     about: {
         title: string;
         desc: string[];

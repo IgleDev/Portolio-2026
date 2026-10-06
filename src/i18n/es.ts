@@ -325,6 +325,14 @@ projectDescLong: "Desarrollo completo del ecosistema digital de Brétema HR: la 
             }
         ],
     },
+    comunidad : {
+        title : "Comunidad",
+        desc : "¡Únete a la comunidad de Vigo404 y forma parte de un grupo de personas apasionadas por la tecnología!",
+        play : "Jugar",
+        close : "Cerrar",
+        join : "Unirse",
+        ayuda : "Presiona espacio o toca la pantalla para saltar"
+    },
     about : {
         title : "Sobre mí",
         desc : [

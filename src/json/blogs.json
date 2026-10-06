@@ -1,9 +1,9 @@
 {
     "blogs" : [
         {
-            "title" : "Vigo404. A nova comunidade viguesa de desenvolvedores de software",
+            "title" : "Vigo404. A nova comunidade viguesa de desenvolvedores de software.",
             "type" : "COMUNIDAD",
-            "dateCreated" : "2026-05-13",
+            "dateCreated" : "2026-07-02",
             "timeRead" : "2 MIN",
             "imgBlog" : "Vigo404.webp",
             "titleHref" : "Vigo404",
@@ -16,6 +16,43 @@
                 "Vigo404 busca: Crear un ambiente humano, creativo e cercano. Un lugar onde se valore tanto o coñecemento técnico como as persoas que hai detrás. Porque ao final, a tecnoloxía naceu co obxectivo de conectar xente."
             ],
             "slug" : "vigo404"
+        },
+        {
+            "title" : "OpenClaw Builders Night Vigo. Crear un agente de IA en un par de horas.",
+            "type" : "EVENTO",
+            "dateCreated" : "2026-04-29",
+            "timeRead" : "2 MIN",
+            "imgBlog" : "openclaw.webp",
+            "titleHref" : "OpenClaw Builders Night Vigo",
+            "paragraph": [
+                "OpenClaw Builders Night Vigo. Debe ser uno de los primeros eventos de Inteligencia Artificial que se hicieron en Vigo. Cuando todo esto empezó a coger forma, los amigos de Hyperion Ventures y Glue Digital nos dieron la oportunidad de probar el potencial de un agente de Inteligencia Artificial. Hasta ese momento, todo esto me parecía ciencia ficción. Era la primera vez que salía de lo que hasta entonces conocía como el ChatGPT, Claude o Gemini tradicional.",
+                "El evento comenzó con una charla de presentación y, después, con tres ponentes de perfiles muy diferentes, alguno incluso alejado del mundo de la informática. A través de sus presentaciones nos enseñaron a utilizar los agentes de forma óptima y escalable: cómo organizarlos, cómo separarlos y cómo integrarlos con los diferentes servicios que podemos utilizar.",
+                "Y entonces llegó la hora de empezar a construir. Primero había que instalarlo todo en nuestros equipos y conseguir que funcionara. Eso era lo importante. Después ya iríamos viendo cómo llevarlo más allá.",
+                "Nos proporcionaron tres claves de diferentes compañías de Inteligencia Artificial: ChatGPT, Claude y Gemini. Cada uno podía elegir la que más le gustara y, como en ese momento Claude estaba en la cresta de la ola, nos decantamos por él.",
+                "Nuestro grupo decidió seguir la idea de utilizar varios agentes en lugar de construir un «monolito» en el que un único agente se encargara de todo. La idea era bastante sencilla: un bot que cada 15 minutos analizara las acciones del índice S&P 500 y nos enviara un mensaje por Telegram con un resumen de las acciones que más subían y las que más bajaban. Un segundo agente se encargaba de controlar nuestras acciones y enviarnos avisos sobre su estado, incluso de forma urgente si era necesario.",
+                "Presentamos el proyecto delante de todos los asistentes y nos dieron la enhorabuena por haber conseguido construir algo funcional y, sobre todo, por conseguir que no «fallara» durante la demostración.",
+                "Una vez terminada la fase de construcción, llegó el networking y la comida. Pudimos hablar con los ponentes y con el resto de asistentes, comentar dudas, diferentes maneras de hacer las cosas, de qué trabajábamos y qué estábamos haciendo cada uno. Fue una gran oportunidad para conocer a gente del sector que, sinceramente, parecía haber salido de las mismísimas piedras.",
+                "Nunca cerré una discoteca, pero puedo decir que cerré un evento de programación. Hablé con todo el mundo, conocí a gente espectacular y aprendí un montón. ¿Lo único malo? Que al terminar el evento ya no tenía la licencia de Claude."
+            ],
+            "slug" : "openclaw-builders-night-vigo"
+        },
+        {
+            "title" : "A LareiraConf 2026. Mi primera conferencia de software.",
+            "type" : "CONFERENCIA",
+            "dateCreated" : "2026-03-21",
+            "timeRead" : "2 MIN",
+            "imgBlog" : "lareira.webp",
+            "titleHref" : "Lareira Conf 2026",
+            "paragraph": [
+                "Siempre quise ir a una conferencia de software, pero no sabía ni dónde se celebraban ni cómo enterarme. Un día, haciendo scroll por LinkedIn, me topé con la página de la LareiraConf, que ya había tenido una edición el año anterior. Lo vi y me dije: no puedo faltar. Avisé a mis amigos del mundo del desarrollo y allá nos fuimos, a la aventura y sin conocer a nadie.",
+                "Eran dos días. El primero fue un tardeo de charlas y toma de contacto, y enseguida hicimos amigos que al día siguiente nos acompañaron durante el evento. Al llegar me sentí como un niño entrando en un kiosco y viendo todas las chuches esperando a ser probadas. Al terminar la jornada nos fuimos a tomar algo y a cenar, y el día siguiente prometía.",
+                "El recinto estaba lleno de actividades. Llegué y me dieron una mochila «Feito a Man» con un grimorio donde aparecían todos los partners y comunidades del evento. Para completarlo había que pasar por cada stand, conseguir su pegatina y guardarla en el grimorio. También había una aplicación web para registrar tu progreso y tener más opciones en el sorteo final.",
+                "Los ponentes fueron una auténtica locura. El primero fue el conocido Midudev, en su primera visita a Galiza, y después vinieron más gente del sector con charlas impresionantes y propuestas flipantes que animaban a seguir construyendo y a seguir haciendo comunidad.",
+                "Se habló de muchísimas cosas: de cómo engañar a los clientes con datos (yo no dije nada), de Inteligencia Artificial, de los SaaS (Software as a Service) y de cómo antes se hacían cosas impresionantes con 4 MB de RAM, mientras que ahora sin 8 GB no somos nadie. Sabía que me iba a deslumbrar, pero no tanto, y volví a casa con la cabeza llena de ideas y ganas de construir.",
+                "La comida fue toda una experiencia, y la gente que conocimos y con la que conectamos fue genial. Una pena no poder quedarme a la cena, pero mi entrada no lo permitía. Fue un día inmejorable que recomiendo a cualquiera a quien le guste el software y la tecnología y quiera conocer a gente con su misma pasión. Espero repetir la experiencia el año que viene.",
+                "Pese a que no me tocó nada en el sorteo, me marcho con ganas de crear, aprender y compartir lo que sé con otras personas. ¿Crearé una comunidad de programación? ¿Empezaré a desarrollar software OpenSource? No lo sé, el futuro es incierto, pero sí sé que me voy con ganas de seguir aprendiendo y creciendo en este mundillo."
+            ],
+            "slug" : "lareiraconf-2026"
         }
     ]
 }
