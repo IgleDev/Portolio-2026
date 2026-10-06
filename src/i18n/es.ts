@@ -62,10 +62,10 @@ const es : Translations = {
         title : "Proyectos",
         projectList : [
             {
-                projectTitle : "Brétema Formación",
+                projectTitle : "Brétema HR Consulting",
                 projectDate : "2026-07-21",
-                projectDesc: "Cursos en linea. Formación para impulsar tus competencias digitales.",
-                projectDescLong : "Cursos y packs en liena especializados en Inteligencia Artificial, Big Data y Desarrollo Web. Aprende a tu ritmo, obtén tu certificado y deja que nosotros nos encarguemos de todo. Tu solo escoge lo que quieres aprender.",
+                projectDesc: "Web corporativa, plataforma de formación online y asesoría de Brétema HR.",
+projectDescLong: "Desarrollo completo del ecosistema digital de Brétema HR: la web principal, la plataforma de formación online de cursos de formación online con certificado y el portal de asesoría.",
                 projectTech : [
                     { name : "Astro", icon : "vscode-icons:file-type-astro" },
                     { name : "Typescript", icon : "vscode-icons:file-type-typescript" },
@@ -76,13 +76,13 @@ const es : Translations = {
                 projectIcon : "proicons:globe",
                 projectInfo : "¡Encuentralo aquí!",
                 projectImg : [
-                    { src : "/img/projects/bretemaformacion.webp", alt : "Bretema Formación" },
+                    { src : "/img/projects/bretema.webp", alt : "Bretema Formación" },
                 ],
                 projectInformation: [
-                    "Colaboré en el desarrollo de la plataforma de formación online de Brétema HR, participando en la creación de una experiencia moderna, intuitiva y adaptada.",
-                    "El objetivo era ofrecer un espacio donde cualquier persona pudiera acceder fácilmente a formación especializada, simplificando el proceso y acceso a los contenidos.",
-                    "Contribuí al desarrollo del frontend, integración de funcionalidades y optimización del UX/UI, trabajando con el cliente para adaptar la plataforma a sus necesidades.",
-                    "El resultado fue una plataforma que permite gestionar la oferta formativa de Brétema HR y ofrecer una experiencia profesional a los estudiantes."
+                    "Me encargué de todo el desarrollo digital de Brétema HR: la web principal (bretemahr.com), la plataforma de formación (formacion.bretemahr.com) y el portal de asesoría (asesoria.bretemahr.com).",
+                    "El objetivo era reunir bajo una misma identidad tres webs con propósitos distintos, para que cualquier persona pudiera conocer la empresa, acceder a formación especializada o contactar con la asesoría de forma sencilla.",
+                    "Diseñé el UX/UI de las tres webs, desarrollé el frontend con Astro y TypeScript, implementé el envío de correos con Resend para formularios y contacto, y me ocupé del despliegue y el alojamiento en Vercel, subdominios incluidos.",
+                    "El resultado es un ecosistema de tres webs coherentes y en producción, que permite a Brétema HR presentar sus servicios, gestionar su oferta formativa y recibir las consultas de clientes y estudiantes."
                 ]
             },
             {

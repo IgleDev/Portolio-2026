@@ -62,10 +62,10 @@ const en : Translations = {
         title : "Projects",
         projectList : [
             {
-                projectTitle : "Brétema Formación",
+                projectTitle : "Brétema HR Consulting",
                 projectDate : "2026-07-21",
-                projectDesc: "Specialized online courses. Training designed to boost your digital skills.",
-                projectDescLong : "Specialized online courses and learning packs in Artificial Intelligence, Big Data, and Web Development. Learn at your own pace, earn your certificate, and let us take care of the rest. You just choose what you want to learn.",
+                projectDesc: "Corporate website, online training platform and advisory portal for Brétema HR.",
+                projectDescLong: "Complete development of Brétema HR's digital ecosystem: the main website, the online training platform with courses with certificate, and the advisory portal.",
                 projectTech : [
                     { name : "Astro", icon : "vscode-icons:file-type-astro" },
                     { name : "Typescript", icon : "vscode-icons:file-type-typescript" },
@@ -76,13 +76,13 @@ const en : Translations = {
                 projectIcon : "proicons:globe",
                 projectInfo : "Check it out here!",
                 projectImg : [
-                    { src : "/img/projects/bretemaformacion.webp", alt : "Bretema Formación" },
+                    { src : "/img/projects/bretema.webp", alt : "Bretema Formación" },
                 ],
-                projectInformation : [
-                    "I contributed to the development of Brétema HR's online learning platform, helping create a modern, intuitive, and user-focused experience.",
-                    "The goal was to provide a platform where anyone could easily access specialized training while simplifying the enrollment process and access to course content.",
-                    "I contributed to frontend development, feature integration, and UX/UI optimization, working closely with the client to tailor the platform to their needs.",
-                    "The result is a platform that enables Brétema HR to manage its training catalog and provide a professional learning experience for its students."
+                projectInformation: [
+                    "I took care of the entire digital development of Brétema HR: the main website (bretemahr.com), the training platform (formacion.bretemahr.com) and the advisory portal (asesoria.bretemahr.com).",
+                    "The goal was to bring three websites with different purposes together under a single identity, so that anyone could learn about the company, access specialized training or contact the advisory service easily.",
+                    "I designed the UX/UI of all three sites, built the frontend with Astro and TypeScript, implemented email sending with Resend for forms and contact, and handled deployment and hosting on Vercel, subdomains included.",
+                    "The result is an ecosystem of three consistent, live websites that lets Brétema HR present its services, manage its training offering and receive inquiries from clients and students."
                 ]
             },
             {

@@ -1,5 +1,5 @@
 ---
-import "@/styles/global.css"
+import "@/styles/global.css";
 import { Icon } from "astro-icon/components";
 import type { Language } from "@/types/language.type";
 import MainLayout from "@/layouts/MainLayout.astro";
@@ -11,7 +11,7 @@ export async function getStaticPaths() {
     const { default: es } = await import("@/i18n/es");
     const { default: en } = await import("@/i18n/en");
     const { default: gal } = await import("@/i18n/gal");
-    
+
     const translations = { es, en, gal };
     const langs = ["es", "en", "gal"];
     const paths = [];
@@ -22,9 +22,9 @@ export async function getStaticPaths() {
             paths.push({
                 params: {
                     lang,
-                    name: project.projectTitle.toLowerCase().replace(/\s+/g, '-')
+                    name: project.projectTitle.toLowerCase().replace(/\s+/g, "-"),
                 },
-                props: { t, project }
+                props: { t, project },
             });
         }
     }
@@ -32,74 +32,107 @@ export async function getStaticPaths() {
 }
 
 const { t, project } = Astro.props;
+const { lang } = Astro.params;
+
 const pageTitle = `${project.projectTitle} | ${SITE_TITLE}`;
 const pageDescription = project.projectDescLong?.slice(0, 160) ?? SITE_DESCRIPTION;
 const pageImage = project.projectImg?.[0]?.src ?? SITE_IMAGE;
+
+const details = t.projects.projectInfoResult
+    .map((title: string, i: number) => ({
+        title,
+        text: project.projectInformation?.[i],
+    }))
+    .filter((d: { text?: string }) => d.text);
+
+
+const linkify = (text: string) =>
+    text.replace(
+        /\b((?:[a-z0-9-]+\.)?bretemahr\.com)\b/gi,
+        '<a href="https://$1" target="_blank" rel="noopener noreferrer" class="font-bold text-titulos underline underline-offset-4 hover:opacity-70 transition">$1</a>'
+    );
+
+const hasGithub = project.projectGithub !== "";
+const ctaHref = hasGithub ? project.projectGithub : project.projectUrl;
 ---
-<MainLayout title={pageTitle} description={pageDescription} image={pageImage} lang={Astro.params.lang} t={t}>
+
+<MainLayout title={pageTitle} description={pageDescription} image={pageImage} lang={lang} t={t}>
     <section class="px-6 py-10 lg:p-20 max-w-7xl mx-auto">
-        <div class="flex items-center gap-3 mb-10">
-            <a rel="noopener noreferrer" href={`/${Astro.params.lang}`} rel="noopener noreferrer" aria-label={`Volver a proyectos`} class="text-secundario hover:text-titulos transition">
+        <!-- Cabeceira -->
+        <header class="flex items-center gap-3 mb-10">
+            <a
+                rel="noopener noreferrer"
+                href={`/${lang}`}
+                aria-label={t.projects.back ?? "Back"}
+                class="text-secundario hover:text-titulos transition"
+            >
                 <Icon name="proicons:arrow-left" class="w-5 h-5" />
             </a>
-            <h1 class="text-4xl lg:text-5xl font-titulos font-bold text-titulos">{project.projectTitle}</h1>
-        </div>
-        <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch">
-            <div class="flex flex-col gap-6 w-full lg:w-full">
-                <p class="text-secundario font-bold text-lg lg:text-xl leading-relaxed">
+            <h1 class="text-4xl lg:text-5xl font-titulos font-bold text-titulos">
+                {project.projectTitle}
+            </h1>
+        </header>
+
+        <!-- Resumo + imaxe -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            <div class="flex flex-col gap-6">
+                <p class="text-secundario font-bold text-lg lg:text-xl leading-relaxed max-w-prose">
                     {project.projectDescLong}
                 </p>
-    
-                {project.projectTech && project.projectTech.length > 0 && (
+
+                {project.projectTech?.length > 0 && (
                     <div class="flex flex-col gap-3">
                         <h2 class="text-titulos font-bold text-xl">{t.projects.projectTech}</h2>
-                        <div class="flex flex-wrap gap-3">
+                        <ul class="flex flex-wrap gap-3">
                             {project.projectTech.map((tech: ProjectTech) => (
-                                <span class="flex items-center gap-2 border border-noinfo rounded-full px-3 py-1 text-sm font-bold text-secundario">
+                                <li class="flex items-center gap-2 border border-noinfo rounded-full px-3 py-1 text-sm font-bold text-secundario">
                                     <Icon name={tech.icon} class="w-5 h-5" />
                                     {tech.name}
-                                </span>
+                                </li>
                             ))}
-                        </div>
+                        </ul>
                     </div>
                 )}
-    
-                <div class="flex gap-4 mt-4 flex-wrap">
-                    {project.projectGithub !== "" ? (
-                        <a rel="noopener noreferrer" href={project.projectGithub} target="_blank"
-                            class="bg-titulos text-white px-5 py-2 rounded-full flex items-center gap-2 font-semibold hover:bg-[#333333] transition-colors">
-                            <Icon name="proicons:github" class="w-5 h-5" /> GitHub
-                        </a>
-                    ) : (
-                        <a rel="noopener noreferrer" href={project.projectUrl} target="_blank"
-                            class="bg-titulos text-white px-5 py-2 rounded-full flex items-center gap-2 font-semibold hover:bg-[#333333] transition-colors">
-                            <Icon name={project.projectIcon} class="w-5 h-5" /> {project.projectInfo}
-                        </a>
-                    )}
+
+                <div class="mt-2">
+                    <a
+                        rel="noopener noreferrer"
+                        href={ctaHref}
+                        target="_blank"
+                        class="inline-flex items-center gap-2 bg-titulos text-white px-5 py-2 rounded-full font-semibold hover:bg-[#333333] transition-colors"
+                    >
+                        <Icon name={hasGithub ? "proicons:github" : project.projectIcon} class="w-5 h-5" />
+                        {hasGithub ? "GitHub" : project.projectInfo}
+                    </a>
                 </div>
             </div>
-    
-            {project.projectImg && project.projectImg.length > 0 && (
-                <div class="w-full lg:w-full">
-                    <Image width={525} height={700} loading="eager" src={project.projectImg[0].src} alt={project.projectImg[0].alt} class="w-full max-h-175 object-contain rounded-2xl"  />
+
+            {project.projectImg?.length > 0 && (
+                <div class="lg:sticky lg:top-10">
+                    <Image
+                        width={525}
+                        height={700}
+                        loading="eager"
+                        src={project.projectImg[0].src}
+                        alt={project.projectImg[0].alt}
+                        class="w-full max-h-175 object-contain rounded-2xl"
+                    />
                 </div>
             )}
         </div>
-        <div class="flex flex-col items-center mt-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-4 w-full">
-                {t.projects.projectInfoResult.map((info) => (
-                    <div class="mb-4 lg:odd:text-left lg:even:text-right">
-                        <ul class="list-disc list-inside text-secundario font-bold text-lg lg:text-xl leading-relaxed">
-                            <li class="text-2xl">{info}</li>
-                        </ul>
-                        {project.projectInformation && project.projectInformation.length > 0 && ( 
-                            <p class="text-secundario text-lg lg:text-xl leading-relaxed mt-2">
-                                {project.projectInformation[t.projects.projectInfoResult.indexOf(info)]}
-                            </p>
-                        )}
+
+        <!-- Detalles: filas con título á esquerda e texto á dereita -->
+        {details.length > 0 && (
+            <dl class="mt-16 lg:mt-24 border-t border-noinfo">
+                {details.map((d: { title: string; text: string }) => (
+                    <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-2 lg:gap-16 py-6 lg:py-8 border-b border-noinfo">
+                        <dt class="text-titulos font-titulos font-bold text-2xl">
+                            {d.title}
+                        </dt>
+                        <dd class="text-secundario text-lg lg:text-xl leading-relaxed max-w-prose" set:html={linkify(d.text)} />
                     </div>
                 ))}
-            </div>
-        </div>
+            </dl>
+        )}
     </section>
 </MainLayout>

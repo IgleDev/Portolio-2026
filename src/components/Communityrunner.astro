@@ -1,0 +1,238 @@
+---
+interface Props {
+    title?: string;
+    text?: string;
+    ctaLabel?: string;
+    ctaHref?: string;
+    hint?: string;
+}
+const {
+    title = "Comunidade",
+    text = "Únete e forma parte de Vigo404.",
+    ctaLabel = "Únete",
+    ctaHref = "#",
+    hint = "Preme espazo ou toca a pantalla para saltar",
+} = Astro.props;
+---
+
+<section class="vigo-runner" data-runner>
+    <div class="mx-auto max-w-3xl px-6 py-16 lg:py-24 flex flex-col items-center text-center gap-6">
+        <h2 class="font-titulos font-bold text-4xl lg:text-5xl">{title}</h2>
+        <p class="text-lg lg:text-xl leading-relaxed max-w-prose">{text}</p>
+
+        <canvas
+            tabindex="0"
+            aria-label="Xogo: o polbo salta as boias. Espazo ou frecha arriba para saltar."
+            class="w-full h-auto cursor-pointer rounded-xl outline-none"></canvas>
+        <p class="text-sm opacity-70">{hint}</p>
+
+        <a href={ctaHref} class="runner-cta font-bold px-6 py-2 rounded-full transition hover:opacity-80">
+            {ctaLabel}
+        </a>
+    </div>
+</section>
+
+<style>
+    /* Cambia estas variables polas cores de Vigo404 */
+    .vigo-runner {
+        --runner-bg: #202124;
+        --runner-fg: #9aa0a6;
+        --runner-hi: #e8eaed;
+        background: var(--runner-bg);
+        color: var(--runner-hi);
+    }
+    canvas:focus-visible {
+        outline: 2px solid var(--runner-hi);
+        outline-offset: 4px;
+    }
+    .runner-cta {
+        background: var(--runner-hi);
+        color: var(--runner-bg);
+    }
+</style>
+
+<script>
+    const root = document.querySelector<HTMLElement>("[data-runner]")!;
+    const canvas = root.querySelector("canvas")!;
+    const ctx = canvas.getContext("2d")!;
+
+    const W = 600, H = 160, GROUND = H - 28, S = 4;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.scale(dpr, dpr);
+
+    const css = getComputedStyle(root);
+    const BG = css.getPropertyValue("--runner-bg").trim() || "#202124";
+    const FG = css.getPropertyValue("--runner-fg").trim() || "#9aa0a6";
+    const HI = css.getPropertyValue("--runner-hi").trim() || "#e8eaed";
+    const FONT = css.fontFamily;
+
+    // Sprites: X = píxel, . = oco
+    const POLBO = [
+        "....XXXX....",
+        "...XXXXXX...",
+        "..XXXXXXXX..",
+        "..XX.XX.XX..",
+        "..XXXXXXXX..",
+        "..XXXXXXXX..",
+        "...XXXXXX...",
+        "..XXXXXXXX..",
+    ];
+    const LEGS = [
+        [".XX.XX.XX.XX", ".X..X..X..X."],
+        ["XX.XX.XX.XX.", ".X..X..X...X"],
+    ];
+    const BOIA = [
+        "...X...",
+        "...X...",
+        ".XXXXX.",
+        "XXXXXXX",
+        "XX...XX",
+        "XXXXXXX",
+        ".XXXXX.",
+        "..XXX..",
+    ];
+
+    const PW = 12 * S, PH = (POLBO.length + 2) * S, PX = 40;
+    const OW = 7 * S, OH = BOIA.length * S;
+
+    type Obstacle = { x: number; n: number };
+    let state: "idle" | "run" | "over" = "idle";
+    let y = GROUND - PH, vy = 0, speed = 6, score = 0, offset = 0, frameN = 0;
+    let obstacles: Obstacle[] = [];
+    let untilSpawn = 300, last = 0, raf = 0;
+    let hi = 0;
+    try { hi = Number(localStorage.getItem("vigo-runner-hi")) || 0; } catch {}
+
+    function sprite(rows: string[], x: number, yy: number) {
+        for (let j = 0; j < rows.length; j++)
+            for (let i = 0; i < rows[j].length; i++)
+                if (rows[j][i] === "X") ctx.fillRect(x + i * S, yy + j * S, S, S);
+    }
+
+    function reset() {
+        y = GROUND - PH; vy = 0; speed = 6; score = 0; obstacles = []; untilSpawn = 300;
+    }
+
+    function jump() {
+        if (y >= GROUND - PH) vy = -9.5;
+    }
+
+    function input() {
+        if (state === "run") return jump();
+        reset();
+        state = "run";
+        last = performance.now();
+        raf = requestAnimationFrame(frame);
+    }
+
+    function hit(o: Obstacle) {
+        const ox = o.x + 4, ow = o.n * OW - 8;
+        return PX + 6 < ox + ow && PX + PW - 6 > ox && y + PH - 4 > GROUND - OH + 4;
+    }
+
+    function update(k: number) {
+        vy += 0.55 * k;
+        y = Math.min(y + vy * k, GROUND - PH);
+        if (y >= GROUND - PH) vy = 0;
+
+        speed = Math.min(14, speed + 0.002 * k);
+        offset -= speed * k;
+        score += speed * k * 0.05;
+        frameN += k;
+
+        untilSpawn -= speed * k;
+        if (untilSpawn <= 0) {
+            obstacles.push({ x: W + 20, n: Math.random() < 0.3 ? 2 : 1 });
+            untilSpawn = 260 + Math.random() * 260;
+        }
+        obstacles.forEach((o) => (o.x -= speed * k));
+        obstacles = obstacles.filter((o) => o.x > -OW * 2);
+
+        if (obstacles.some(hit)) {
+            state = "over";
+            if (score > hi) {
+                hi = score;
+                try { localStorage.setItem("vigo-runner-hi", String(Math.floor(hi))); } catch {}
+            }
+        }
+    }
+
+    function render() {
+        ctx.fillStyle = BG;
+        ctx.fillRect(0, 0, W, H);
+
+        // chan
+        ctx.fillStyle = FG;
+        ctx.fillRect(0, GROUND, W, 2);
+        for (let i = 0; i < 8; i++) {
+            const x = (((i * 83 + offset) % W) + W) % W;
+            ctx.fillRect(x, GROUND + 8 + (i % 3) * 5, 6 + (i % 2) * 6, 2);
+        }
+
+        // obstáculos
+        obstacles.forEach((o) => {
+            for (let n = 0; n < o.n; n++) sprite(BOIA, o.x + n * OW, GROUND - OH);
+        });
+
+        // polbo
+        ctx.fillStyle = HI;
+        const onGround = y >= GROUND - PH;
+        const f = state === "run" && onGround ? Math.floor(frameN / 6) % 2 : 0;
+        sprite(POLBO, PX, y);
+        sprite(LEGS[f], PX, y + POLBO.length * S);
+
+        // puntuación
+        ctx.fillStyle = FG;
+        ctx.font = `bold 14px ${FONT}`;
+        ctx.textAlign = "right";
+        const pad = (n: number) => String(Math.floor(n)).padStart(5, "0");
+        ctx.fillText(`HI ${pad(hi)}   ${pad(score)}`, W - 12, 22);
+
+        ctx.textAlign = "center";
+        if (state === "over") {
+            ctx.fillStyle = HI;
+            ctx.font = `bold 20px ${FONT}`;
+            ctx.fillText("FIN DO XOGO", W / 2, 62);
+            ctx.font = `14px ${FONT}`;
+            ctx.fillText("Preme para tentalo de novo", W / 2, 86);
+        } else if (state === "idle") {
+            ctx.fillStyle = HI;
+            ctx.font = `14px ${FONT}`;
+            ctx.fillText("Preme para comezar", W / 2, 70);
+        }
+    }
+
+    function frame(t: number) {
+        const k = Math.min((t - last) / 16.67, 3);
+        last = t;
+        update(k);
+        render();
+        if (state === "run") raf = requestAnimationFrame(frame);
+    }
+
+    canvas.addEventListener("keydown", (e) => {
+        if (e.code === "Space" || e.code === "ArrowUp") {
+            e.preventDefault();
+            input();
+        }
+    });
+    canvas.addEventListener("pointerdown", (e) => {
+        e.preventDefault();
+        canvas.focus();
+        input();
+    });
+
+    // para o xogo se a sección sae da pantalla
+    new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting && state === "run") {
+            cancelAnimationFrame(raf);
+            state = "idle";
+            reset();
+            render();
+        }
+    }).observe(root);
+
+    render();
+</script>
