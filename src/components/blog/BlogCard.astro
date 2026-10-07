@@ -4,25 +4,49 @@ import type { iBlog } from '../../types/index';
 import Image from "astro/components/Image.astro";
 
 interface Props {
-    blog : iBlog
+    blog: iBlog
 }
 const { blog } = Astro.props;
+const href = `/blog/${blog.titleHref.toLowerCase().replace(/\s+/g, '-')}`;
 ---
 
-<article class="bg-[#f5f5f5] rounded-[35px] p-5 max-w-96 shadow-md border border-gray-200 grayscale hover:grayscale-0 transition-all">
-    <div class="rounded-[25px] overflow-hidden mb-6">
-        <Image src=`/img/blog/${blog.imgBlog}` loading="eager" transition:name={`blog-${blog.titleHref}`} width={450} height={750} alt="Post Blog" class="w-full h-60 object-cover" />
+<article
+    class="group relative flex h-full w-full max-w-96 flex-col rounded-[35px] border border-gray-200 bg-[#f5f5f5] p-5 shadow-md
+           transition duration-300 hover:-translate-y-1 hover:shadow-xl
+           [@media(hover:hover)]:grayscale hover:grayscale-0 focus-within:grayscale-0
+           has-[a:focus-visible]:ring-2 has-[a:focus-visible]:ring-black has-[a:focus-visible]:ring-offset-2"
+>
+    <div class="mb-6 overflow-hidden rounded-[25px]">
+        <Image
+            src={`/img/blog/${blog.imgBlog}`}
+            transition:name={`blog-${blog.titleHref}`}
+            width={700}
+            height={470}
+            alt=""
+            class="aspect-[3/2] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
     </div>
-    <div class="flex justify-between items-center text-[10px] uppercase tracking-[2px] text-gray-500 mb-4">
-        <span class="font-semibold">{blog.type}</span>
+
+    <div class="mb-4 flex items-center justify-between gap-3 text-xs font-semibold uppercase tracking-widest text-gray-600">
+        <span>{blog.type}</span>
         <div class="flex items-center gap-3">
-          <span class="flex items-center font-semibold"><Icon name="mdi:calendar-badge-outline" class="mr-1" />{blog.dateCreated}</span>
-          <span class="flex items-center font-semibold"><Icon name="mdi:clock-outline" class='mr-1' />{blog.timeRead}</span>
+            <span class="flex items-center gap-1">
+                <Icon name="mdi:calendar-badge-outline" aria-hidden="true" />{blog.dateCreated}
+            </span>
+            <span class="flex items-center gap-1">
+                <Icon name="mdi:clock-outline" aria-hidden="true" />{blog.timeRead}
+            </span>
         </div>
     </div>
-    <h2 class="text-xl leading-tight font-medium text-black mb-8">{blog.title}</h2>
-    <a href=`/blog/${blog.titleHref.toLowerCase().replace(/\s+/g, '-')}` rel="noopener noreferrer" aria-label={`Leer artículo sobre ${blog.titleHref}`}
-        class="bg-black text-white px-8 py-3 rounded-2xl text-sm hover:scale-105 transition-all duration-300 shadow-lg cursor-pointer">
+
+    <h2 class="mb-8 line-clamp-3 text-xl font-medium leading-tight text-black">
+        <a href={href} class="outline-none after:absolute after:inset-0 after:rounded-[35px]">
+            {blog.title}
+        </a>
+    </h2>
+
+    <span class="mt-auto inline-flex items-center gap-2 self-start rounded-2xl bg-black px-8 py-3 text-sm text-white shadow-lg transition-colors group-hover:bg-neutral-800">
         Saber más
-    </a>
+        <Icon name="proicons:arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+    </span>
 </article>

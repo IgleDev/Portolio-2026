@@ -3,54 +3,176 @@ import { blogs } from '@/json/blogs.json'
 import { Icon } from 'astro-icon/components';
 import Image from 'astro/components/Image.astro';
 import BlogLayout from '@/layouts/BlogLayout.astro';
-import { SITE_BLOG_DESCRIPTION, SITE_BLOG_IMAGE, SITE_BLOG_TITLE } from '@/types/consts';
+import { SITE_BLOG_DESCRIPTION, SITE_BLOG_IMAGE } from '@/types/consts';
 
-export async function getStaticPaths() { 
-    const paths = [];
-    for (const blog of blogs) {
-        paths.push({
-            params: {
-                name: blog.titleHref.toLowerCase().replace(/\s+/g, '-')
-            },
-            props: { blog }
-        });
-    }
-    return paths;
+export async function getStaticPaths() {
+    const slug = (s: string) => s.toLowerCase().replace(/\s+/g, '-');
+    return blogs.map((blog, i) => ({
+        params: { name: slug(blog.titleHref) },
+        props: { blog, prev: blogs[i - 1] ?? null, next: blogs[i + 1] ?? null },
+    }));
 }
-const { blog } = Astro.props;
+
+const { blog, prev, next } = Astro.props;
+const slug = (s: string) => s.toLowerCase().replace(/\s+/g, '-');
+
 const pageTitle = `${blog.titleHref} | IgleDev`;
 const pageDescription = blog.paragraph[0]?.slice(0, 160) ?? SITE_BLOG_DESCRIPTION;
 const pageImage = blog.imgBlog ? `/img/blog/${blog.imgBlog}` : SITE_BLOG_IMAGE;
+
+const pill =
+    'inline-flex items-center gap-2 border border-noinfo rounded-full px-3 py-1 text-sm font-bold text-secundario';
+const btn =
+    'inline-flex items-center gap-2 rounded-full px-5 py-2 font-semibold transition-colors cursor-pointer';
 ---
+
 <BlogLayout title={pageTitle} description={pageDescription} image={pageImage}>
-    <section class="flex justify-center">
-        <article class="flex flex-col w-full max-w-4xl">
-            <h1 class="text-center font-titulos text-3xl sm:text-4xl md:text-5xl text-wrap px-2">
+    <div id="read-progress" class="fixed top-0 inset-x-0 z-50 h-1 origin-left scale-x-0 bg-titulos" aria-hidden="true"></div>
+
+    <article class="mx-auto w-full max-w-4xl px-4 sm:px-6 py-10 sm:py-16">
+        <header class="flex flex-col items-center gap-6 text-center">
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class={pill}><Icon name="mdi:calendar-badge-outline" aria-hidden="true" />{blog.dateCreated}</span>
+                <span class={pill}><Icon name="mdi:clock-outline" aria-hidden="true" />{blog.timeRead}</span>
+            </div>
+            <h1 class="font-titulos font-bold text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-balance">
                 {blog.title}
             </h1>
-            <div class="w-full flex justify-center mt-5">
-                <Image transition:name={`blog-${blog.titleHref}`} width={1200} height={900} loading="eager" src={`/img/blog/${blog.imgBlog}`} alt={`Imagen del articulo sobre ${blog.titleHref}`}
-                    class="w-full h-56 sm:h-80 md:h-125 lg:h-175 object-cover rounded-[20px] sm:rounded-[40px]"
-                />
-            </div>
-            <div class="px-2 sm:px-0">
-                {blog.paragraph.map((para) => (
-                    <p class="text-lg sm:text-xl md:text-2xl mt-8 leading-relaxed">{para}</p>
-                ))}
-            </div>
-            <div class="flex items-center justify-between mt-10 px-2 sm:px-0 flex-wrap gap-4">
-                <div class="flex flex-col gap-1">
-                    <span class="flex items-center text-noinfo text-sm sm:text-base">
-                        <Icon name="mdi:clock-outline" class='mr-1' /> {blog.timeRead}
-                    </span>
-                    <span class="flex items-center text-noinfo text-sm sm:text-base">
-                        <Icon name="mdi:calendar-badge-outline" class="mr-1" /> Publicado el {blog.dateCreated}
-                    </span>
+        </header>
+
+        <figure class="mt-10 sm:mt-14">
+            <Image
+                transition:name={`blog-${blog.titleHref}`}
+                width={1200}
+                height={900}
+                loading="eager"
+                src={`/img/blog/${blog.imgBlog}`}
+                alt={`Imagen del artículo: ${blog.title}`}
+                class="w-full aspect-[4/3] sm:aspect-video object-cover rounded-2xl sm:rounded-[40px] shadow-xl"
+            />
+        </figure>
+
+        <div class="article-body mx-auto mt-12 sm:mt-16 max-w-3xl space-y-7 text-lg md:text-xl leading-relaxed">
+            {blog.paragraph.map((para) => <p data-reveal>{para}</p>)}
+        </div>
+
+        <aside class="mx-auto mt-16 max-w-3xl border-t border-noinfo/30 pt-8 flex flex-wrap items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+                <Image src={'/img/logo.png'} alt={'Logo IgleDev'} width={64} height={64} class={'place-items-center rounded-full'}></Image>
+                <div>
+                    <p class="text-sm text-noinfo">Escrito por</p>
+                    <p class="font-bold text-titulos">@IgleDev</p>
                 </div>
-                <a href="https://www.linkedin.com/in/adriiglesias/" target="_blank" rel="noopener noreferrer" class="text-noinfo font-bold text-sm sm:text-base hover:underline">
-                    @IgleDev
-                </a>
             </div>
-        </article>
-    </section>
+            <div class="flex flex-wrap gap-3">
+                <a href="https://www.linkedin.com/in/adriiglesias/" target="_blank" rel="noopener noreferrer" class={`${btn} bg-titulos text-white hover:bg-[#333333]`}>
+                    <Icon name="mdi:linkedin" class="w-5 h-5" aria-hidden="true" /> LinkedIn
+                </a>
+                <button type="button" data-copy data-label="Copiar enlace" data-done="¡Copiado!" class={`${btn} border-2 border-titulos text-titulos hover:opacity-70`}>
+                    <Icon name="mdi:link-variant" class="w-5 h-5" aria-hidden="true" /> <span>Copiar enlace</span>
+                </button>
+            </div>
+        </aside>
+
+        {(prev || next) && (
+            <nav aria-label="Más artículos" class="mx-auto mt-10 grid max-w-3xl grid-cols-1 sm:grid-cols-2 gap-4">
+                {prev ? (
+                    <a href={`/blog/${slug(prev.titleHref)}`} class="nav-card group">
+                        <span class="flex items-center gap-1 text-sm text-noinfo"><Icon name="proicons:arrow-left" class="w-4 h-4 transition-transform group-hover:-translate-x-1" aria-hidden="true" /> Siguiente</span>
+                        <span class="mt-1 font-titulos font-bold text-xl text-titulos">{prev.title}</span>
+                    </a>
+                ) : <span />}
+                {next ? (
+                    <a href={`/blog/${slug(next.titleHref)}`} class="nav-card group sm:text-right sm:items-end">
+                        <span class="flex items-center gap-1 text-sm text-noinfo">Anterior <Icon name="proicons:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></span>
+                        <span class="mt-1 font-titulos font-bold text-xl text-titulos">{next.title}</span>
+                    </a>
+                ) : <span />}
+            </nav>
+        )}
+    </article>
 </BlogLayout>
+
+<style>
+    .article-body > p:first-child {
+        font-size: 1.15em;
+    }
+    .article-body > p:first-child::first-letter {
+        float: left;
+        font-family: var(--font-titulos, inherit);
+        font-weight: 700;
+        font-size: 4.2em;
+        line-height: 0.8;
+        padding: 0.08em 0.12em 0 0;
+        color: var(--color-titulos, inherit);
+    }
+    .nav-card {
+        display: flex;
+        flex-direction: column;
+        padding: 1.25rem 1.5rem;
+        border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+        border-radius: 1.25rem;
+        transition: transform 0.2s, border-color 0.2s;
+    }
+    .nav-card:hover {
+        transform: translateY(-2px);
+        border-color: var(--color-titulos, currentColor);
+    }
+    .reveal-ready {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal-ready.in {
+        opacity: 1;
+        transform: none;
+    }
+</style>
+
+<script>
+    let ticking = false;
+    function updateProgress() {
+        const bar = document.getElementById('read-progress');
+        const article = document.querySelector('article');
+        if (!bar || !article) return;
+        const top = article.getBoundingClientRect().top + window.scrollY;
+        const total = article.offsetHeight - window.innerHeight;
+        const p = total > 0 ? (window.scrollY - top) / total : 1;
+        bar.style.transform = `scaleX(${Math.min(1, Math.max(0, p))})`;
+    }
+    window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => { updateProgress(); ticking = false; });
+    }, { passive: true });
+
+    document.addEventListener('click', async (e) => {
+        const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-copy]');
+        if (!btn) return;
+        try {
+            await navigator.clipboard.writeText(location.href);
+            const label = btn.querySelector('span')!;
+            label.textContent = btn.dataset.done!;
+            setTimeout(() => (label.textContent = btn.dataset.label!), 2000);
+        } catch {}
+    });
+
+    function setupReveal() {
+        updateProgress();
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((en) => {
+                if (en.isIntersecting) {
+                    en.target.classList.add('in');
+                    io.unobserve(en.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {
+            el.classList.add('reveal-ready');
+            io.observe(el);
+        });
+    }
+    document.addEventListener('astro:page-load', setupReveal);
+    setupReveal();
+</script>
