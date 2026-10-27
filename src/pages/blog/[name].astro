@@ -53,7 +53,7 @@ const btn =
         </figure>
 
         <div class="article-body mx-auto mt-12 sm:mt-16 max-w-3xl space-y-7 text-lg md:text-xl leading-relaxed">
-            {blog.paragraph.map((para) => <p data-reveal>{para}</p>)}
+            {blog.paragraph.map((para) => <p data-reveal set:html={para} />)}
         </div>
 
         <aside class="mx-auto mt-16 max-w-3xl border-t border-noinfo/30 pt-8 flex flex-wrap items-center justify-between gap-6">

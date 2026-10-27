@@ -20,6 +20,7 @@ const href = `/blog/${blog.titleHref.toLowerCase().replace(/\s+/g, '-')}`;
         <Image
             src={`/img/blog/${blog.imgBlog}`}
             transition:name={`blog-${blog.titleHref}`}
+            loading={"eager"}
             width={700}
             height={470}
             alt=""

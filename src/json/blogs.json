@@ -1,6 +1,24 @@
 {
     "blogs" : [
         {
+            "title" : "2º Edición de OpenClaw Builders Night. Menos teoría, más construir.",
+            "type" : "COMUNIDAD",
+            "dateCreated" : "2026-10-22",
+            "timeRead" : "2 MIN",
+            "imgBlog" : "openclaw2.webp",
+            "titleHref" : "2º Edición de OpenClaw Builders Night Vigo",
+            "paragraph": [
+                "Este jueves tuve la oportunidad de volver a participar en el evento de OpenClaw Builders Night en Vigo. Participando en su 2º edición que este año contó con el apoyo de la empresa <a href=\"https://www.linkedin.com/company/ulltra/posts/?feedView=all\" class=\" text-titulos underline\" target=\"_blank\" rel=\"noopener noreferrer\">Ulltra</a>.",
+                "Este evento tenía el mismo título que el primero, pero ya todo era muy distinto, la primera vez 1 hora para que todo funcionara. ¿Ahora? 5 minutos, un entorno corriendo y a configurarlo a tu aire, 5 meses de diferencia habían pasado entre un evento y otro, pero la IA crece a pasos agigantados, y tú, no te puedes quedar fuera.",
+                "El evento se llamó <i>AI Agents in action</i>, y no falló a su nombre; 30 personas construyendo durante horas, escribiendo prompts para poner a trabajar sus ideas y ponerlas en marcha, podías ir en grupo o solo, pero todos estábamos haciendo comunidad.",
+                "En su web ya avisaban de lo que se venía... «Menos teória, más construir.» Y así fue, aunque algunos proyectos por límite de tiempo no enseñaron todo su potencial, las ideas eran impresionantes.",
+                "Nuestro grupo estuvo decidió crear «Castelao», una aplicación web capaz de registrar tu partidas de ajedrez, mirar donde fallas, donde pierdes, ver/analizar jugada por jugada tus partidas. Creamos una interfaz gráfica que repite el movimiento y que tú, de forma interactiva, puedas mover las piezas y aprender la jugada más óptima. Cuenta con un registro semanal y mensual que te llega al correo sobre tu mejoría en el deporte.",
+                "Para finalizar, nos quedamos hasta el networking/cena post-evento en el que conocí a muchísima gente con ideas realmente innovadoras y sobre todo gente que apuesta por seguir creando comunidad.",
+                "Hubo también una gran presencia por parte de Vigo404 como comunidad, así que con esto se se podría decir que Vigo está más dentro que nunca."
+            ],
+            "slug" : "vigo404"
+        },
+        {
             "title" : "Vigo404. A nova comunidade viguesa de desenvolvedores de software.",
             "type" : "COMUNIDAD",
             "dateCreated" : "2026-07-02",
